@@ -237,7 +237,7 @@ echo "Less secure apps have to be enabled in Gmail: https://myaccount.google.com
 echo "Linux Email configuration completed." | mail -s "Linux Email" "$EMAIL"
 unset EMAIL
 
-# SETTINGS/Set hardware clock to local time (if you are using dual-boot with Windows 10)
+# SETTINGS/Set hardware clock to local time (if you are using dual-boot with Windows)
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # SETTINGS/Default Editor
