@@ -20,9 +20,10 @@ else
     echo "Unknown language"
     echo "type: lookup [language] [word]"
     echo -e "Languages:
-    eng
+    en
     thesaurus
-    deu ger
-    to-deu to-ger"
+    de ger
+    to-de to-ger
+    ro"
 fi
 
