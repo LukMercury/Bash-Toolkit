@@ -8,7 +8,7 @@ RON_EUR=$(bc<<<"scale=4; 1/$EUR_RON")
 
 if [ -z $1 ]; then
     AMOUNT=1
-elif [[ $1 =~ ^[0-9]+$ ]]; then
+elif [[ $1 =~ ^[0-9]+.?[0-9]*$ ]]; then
     AMOUNT=$1
 else
     echo "Amount must be a number"

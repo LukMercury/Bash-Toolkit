@@ -7,7 +7,7 @@ EUR_RON=$(curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml 
 
 if [ -z $1 ]; then
     AMOUNT=1
-elif [[ $1 =~ ^[0-9]+$ ]]; then
+elif [[ $1 =~ ^[0-9]+.?[0-9]*$ ]]; then
     AMOUNT=$1
 else
     echo "Amount must be a number"
