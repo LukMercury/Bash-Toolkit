@@ -307,6 +307,7 @@ ln -s "$SCRIPTS_FOLDER/safe-reboot.sh" ~/bin/safe-reboot
 ln -s "$SCRIPTS_FOLDER/timer.sh" ~/bin/timer
 ln -s "$SCRIPTS_FOLDER/xopen.sh" ~/bin/xopen
 ln -s "$SCRIPTS_FOLDER/xrun.sh" ~/bin/xrun
+ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" ~/bin/wp
 ln -s "$SCRIPTS_FOLDER/sound.sh" ~/bin/sound
 ln -s "$SCRIPTS_FOLDER/streams/wallstream.sh" ~/bin/wallstream
 ln -s "$SCRIPTS_FOLDER/streams/playstream.sh" ~/bin/playstream
