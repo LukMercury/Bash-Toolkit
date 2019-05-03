@@ -16,6 +16,10 @@ elif [ "$1" == "to-de" ] || [ "$1" == "to-ger" ]; then
     dict -d fd-eng-deu "$2" | less
 elif [ "$1" == "ro" ]; then
     dict -d fd-eng-rom "$2" | less
+elif [ "$1" == "fr" ]; then
+    dict -d fd-fra-eng "$2" | less
+elif [ "$1" == "to-fr" ]; then
+    dict -d fd-eng-fra "$2" | less
 else
     echo "Unknown language"
     echo "type: lookup [language] [word]"

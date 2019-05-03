@@ -111,6 +111,8 @@ sudo apt install -y dict-gcide
 sudo apt install -y dict-moby-thesaurus
 sudo apt install -y dict-freedict-eng-deu
 sudo apt install -y dict-freedict-deu-eng
+sudo apt install -y dict-freedict-eng-fra
+sudo apt install -y dict-freedict-fra-eng
 sudo apt install -y dict-freedict-eng-rom
 sudo apt install -y gimp
 sudo apt install -y gimp-plugin-registry 
