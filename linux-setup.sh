@@ -315,7 +315,7 @@ ln -s "$SCRIPTS_FOLDER/streams/wallstream.sh" ~/bin/wallstream
 ln -s "$SCRIPTS_FOLDER/streams/playstream.sh" ~/bin/playstream
 ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" ~/bin/twitch
 ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" ~/bin/wtwitch
-ln -s "$SCRIPTS_FOLDER/streams/sc2-streams.sh" ~/bin/sc2-streams
+ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" ~/bin/sc2streams
 ln -s "$SCRIPTS_FOLDER/search-replace.sh" ~/bin/search-replace
 ln -s "$SCRIPTS_FOLDER/goto.sh" ~/bin/goto
 ln -s "$SCRIPTS_FOLDER/work-done.sh" ~/bin/work-done
