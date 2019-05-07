@@ -337,6 +337,7 @@ ln -s "$BINARIES_FOLDER/word-frequency" ~/bin/word-frequency
 ln -s "$BINARIES_FOLDER/aec" ~/bin/aec
 
 # ~/Desktop/
+ln -s ~/Dropbox/Documents/ ~/Desktop/Documents
 ln -s ~/Dropbox/Documents/Carti/ ~/Desktop/Carti
 ln -s ~/Music/  ~/Desktop/Music
 ln -s ~/Downloads/  ~/Desktop/Downloads
