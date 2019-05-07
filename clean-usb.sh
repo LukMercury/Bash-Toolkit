@@ -14,6 +14,12 @@ if [ "$1" == "/dev/sda" ]; then
     exit 2
 fi
 
+df -h "$1" &> /dev/null 
+if [ $? != 0 ]; then
+    echo "No device at $1. Is your USB drive plugged in?"
+    exit 4
+fi
+
 df -h "$1"? | tail -n+2
 
 echo -n "Clean drive? (y/N): "
@@ -35,7 +41,7 @@ if [ "$INPUT" == "y" ] || [ "$INPUT" == "Y" ]; then
         exit 1
     fi
 else
-    echo "Exiting..."
+    echo "Nothing to do. Exiting."
 fi
 exit 0
 
