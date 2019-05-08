@@ -96,6 +96,7 @@ sudo apt install -y dia
 sudo apt install -y ttf-mscorefonts-installer
 sudo apt install -y fonts-inconstolata
 sudo apt install -y pandoc
+sudo apt install -y texlive
 sudo apt install -y img2pdf
 sudo apt install -y fbreader
 sudo apt install -y cmus
@@ -128,7 +129,8 @@ sudo apt install -y gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # UberWriter
 echo '#!/bin/bash' > install-uberwriter.sh
-echo 'flatpak install flathub de.wolfvollprecht.UberWriter' >> install-uberwriter.sh
+echo 'flatpak install -y flathub de.wolfvollprecht.UberWriter' >> install-uberwriter.sh
+echo 'flatpak install -y flathub de.wolfvollprecht.UberWriter.Plugin.TexLive' >> install-uberwriter.sh
 chmod +x install-uberwriter.sh
 echo "Run install-uberwriter.sh after reboot." 1>&2
 

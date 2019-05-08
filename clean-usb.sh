@@ -6,18 +6,18 @@
 if [ -z "$1" ]; then
     echo "Missing argument. Please enter USB device (ex. /dev/sdb)."
     echo "Exiting..."
-    exit 3
+    exit 4
 fi
 
 if [ "$1" == "/dev/sda" ]; then
     echo "Can't clean your main drive. Exiting."
-    exit 2
+    exit 3
 fi
 
 df -h "$1" &> /dev/null 
 if [ $? != 0 ]; then
     echo "No device at $1. Is your USB drive plugged in?"
-    exit 4
+    exit 2
 fi
 
 df -h "$1"? | tail -n+2
@@ -43,5 +43,4 @@ if [ "$INPUT" == "y" ] || [ "$INPUT" == "Y" ]; then
 else
     echo "Nothing to do. Exiting."
 fi
-exit 0
 
