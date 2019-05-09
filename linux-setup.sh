@@ -63,6 +63,15 @@ sudo add-apt-repository -y ppa:nilarimogard/webupd8
 # INSTALL/apt
 
 sudo apt update -y
+# Remove packages installed by default
+# Vivaldi Browser
+sudo apt purge -y vivaldi-stable
+sudo apt purge -y vivaldi-config-feren
+sudo apt purge -y feren-vivaldi-theme
+# Cleanup
+sudo apt autoremove -y
+sudo apt autoclean -y
+# Install
 sudo apt install -y vim
 sudo apt install -y zsh
 sudo apt install -y tmux
