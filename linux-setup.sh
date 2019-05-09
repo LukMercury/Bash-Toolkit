@@ -49,13 +49,17 @@ sudo bash -c 'echo "deb https://download.sublimetext.com/ apt/stable/" > /etc/ap
 
 # REPOSITORIES/Wine
 wget -nc https://dl.winehq.org/wine-builds/Release.key -O- | sudo apt-key add -
-sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $UBUNTU_CODENAME main"
+sudo apt-add-repository -y "deb https://dl.winehq.org/wine-builds/ubuntu/ $UBUNTU_CODENAME main"
 
 # REPOSITORIES/Lutris
-sudo add-apt-repository ppa:lutris-team/lutris
+sudo add-apt-repository -y ppa:lutris-team/lutris
 
 # REPOSITORIES/webupd8
 sudo add-apt-repository -y ppa:nilarimogard/webupd8
+
+# REPOSITORIES/Typora
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository -y 'deb https://typora.io/linux ./'
 
 
 # INSTALL
@@ -108,6 +112,7 @@ sudo apt install -y pandoc
 sudo apt install -y texlive
 sudo apt install -y img2pdf
 sudo apt install -y fbreader
+sudo apt install -y typora
 sudo apt install -y cmus
 sudo apt install -y audacious
 sudo apt install -y audacious-plugins
