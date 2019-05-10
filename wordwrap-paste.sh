@@ -1,3 +1,3 @@
 #!/bin/bash
 
-xclip -selection c -o | tr '\n' ' ' | xclip -selection c
+xclip -selection c -o | tr -s [:space:] ' ' | xclip -selection c
