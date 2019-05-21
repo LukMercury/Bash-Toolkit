@@ -94,6 +94,7 @@ sudo apt install -y mailutils
 sudo apt install -y clamav
 sudo apt install -y gparted
 sudo apt install -y woeusb
+sudo apt install -y psensor
 sudo apt install -y gkrellm
 sudo apt install -y g++
 sudo apt install -y ldc

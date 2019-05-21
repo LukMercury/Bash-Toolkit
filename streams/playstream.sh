@@ -18,12 +18,5 @@ if [ -z "$(echo $STREAM | grep http)" ]; then
     STREAM="https://$STREAM"
 fi
 
-# Name the tmux window running the cvlc command
-WINDOW_NAME="$(echo $STREAM | rev | cut -d'/' -f1 | rev)"
-
-ps -e | grep tmux &> /dev/null || tmux
-echo "Streaming in wallpaper mode. Use Ctrl-C in the \"$WINDOW_NAME\" window to exit."
-
-tmux new-window -n"$WINDOW_NAME" "cvlc --video-wallpaper $STREAM"
-tmux select-window -p
+nohup vlc $STREAM &> /dev/null &
 
