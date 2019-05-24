@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Play an internet video in vlc
-# First copy the video link to clipboard  
+# First copy the video link to the clipboard  
 # xclip must be installed for this script to work
 
 # Get link from clipboard or as parameter

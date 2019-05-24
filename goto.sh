@@ -17,6 +17,10 @@ elif [ -f "$1" ]; then
         nohup browse $LINK &> /dev/null
         FOUND_LINK=0
     done
+    for LINK in $(grep www "$1" | tr [:blank:] '\n' | grep www | grep -v http) ; do
+        nohup browse "https://$LINK" &> /dev/null
+        FOUND_LINK=0
+    done
     if [ "$FOUND_LINK" -eq 1 ]; then
         echo "No links in file $1"
     fi

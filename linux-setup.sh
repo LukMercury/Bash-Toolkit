@@ -255,7 +255,7 @@ sudo postconf -e mailbox_size_limit=0
 sudo postconf -e message_size_limit=0
 # Restart Postfix
 sudo systemctl restart postfix.service
-# Enable Postfix on boot (might not be needed)
+# Enable Postfix on boot (may not be needed)
 sudo systemctl enable postfix.service
 # Less secure apps have to be enabled in Gmail
 echo "Less secure apps have to be enabled in Gmail: https://myaccount.google.com/lesssecureapps" 1>&2

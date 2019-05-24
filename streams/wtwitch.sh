@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Play an internet video as wallpaper
-# First copy the video link to clipboard  
+# First copy the video link to the clipboard  
 # xclip must be installed for this script to work
 # If you don't use tmux remove all the tmux and WINDOW_NAME lines and just use:
 # cvlc --video-wallpaper "$STREAM"

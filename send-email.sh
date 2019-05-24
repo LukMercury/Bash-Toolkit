@@ -38,8 +38,10 @@ echo -n "Subject: "
 read SUBJECT
 
 vim -c 'startinsert' new-email.txt 
-<new-email.txt mail -s "$SUBJECT" "$SEND_TO"
-rm new-email.txt
+if [ -f new-email.txt ]; then
+    <new-email.txt mail -s "$SUBJECT" "$SEND_TO"
+    rm new-email.txt
+fi
 
 echo -n "Attach file: "
 read ATTACHMENT
