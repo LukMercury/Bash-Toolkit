@@ -13,7 +13,7 @@ else
     STREAM="$1"
 fi
 
-# Prepend https:// to link if necessary
+# Prepend https://www.twitch.tv to link if necessary
 if [ -z "$(echo $STREAM | grep http)" ]; then
     STREAM="https://www.twitch.tv/$STREAM"
 fi
