@@ -132,7 +132,6 @@ sudo apt install -y dict-freedict-eng-fra
 sudo apt install -y dict-freedict-fra-eng
 sudo apt install -y dict-freedict-eng-rom
 sudo apt install -y gimp
-sudo apt install -y gimp-plugin-registry 
 sudo apt install -y winehq-staging
 sudo apt install -y playonlinux
 sudo apt install -y lutris
