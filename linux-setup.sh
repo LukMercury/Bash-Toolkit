@@ -101,6 +101,11 @@ sudo apt install -y ldc
 sudo apt install -y git
 sudo apt install -y sublime-text
 sudo apt install -y sublime-merge
+sudo apt install -y recoll
+sudo apt install -y antiword
+sudo apt install -y djvulibre-bin
+sudo apt install -y python3-mutagen
+sudo apt install -y unrtf
 sudo apt install -y splint
 sudo apt install -y splint-doc-html
 sudo apt install -y ddd
