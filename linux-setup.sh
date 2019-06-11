@@ -18,7 +18,7 @@ BINARIES_FOLDER=~/Dropbox/bin/
 CODE_FOLDER=~/Dropbox/Code/
 RAMDISK_MOUNT_POINT=/mnt/ramdisk/
 UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
-DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
+export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
 export CURRENT_USER=$USER
 
 # PRELIMINARY SETTINGS & CHECKS
@@ -374,7 +374,7 @@ ln -s "$SCRIPTS_FOLDER" ~/Desktop/Bash-Scripts
 # SETTINGS/Autostart
 
 # Terminal
-which $DEFAULT_TERMINAL_EMULATOR > /dev/null || DEFAULT_TERMINAL_EMULATOR=gnome-terminal
+which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
 > /home/$USER/.config/autostart/Terminal.desktop
 bash -c 'echo "[Desktop Entry]" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "Type=Application" >> /home/$USER/.config/autostart/Terminal.desktop'
