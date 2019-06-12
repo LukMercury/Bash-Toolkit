@@ -358,7 +358,7 @@ ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" ~/bin/song
 # Binaries
 ln -s "$BINARIES_FOLDER/milestokm" ~/bin/milestokm
 ln -s "$BINARIES_FOLDER/kmtomiles" ~/bin/kmtomiles
-ln -s "$BINARIES_FOLDER/height" ~/bin/height
+ln -s "$BINARIES_FOLDER/ftin" ~/bin/ftin
 ln -s "$BINARIES_FOLDER/cm" ~/bin/cm
 ln -s "$BINARIES_FOLDER/word-frequency" ~/bin/word-frequency
 ln -s "$BINARIES_FOLDER/aec" ~/bin/aec
