@@ -310,7 +310,7 @@ sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
 
 # SETTINGS/nvim
 mdkir ~/.config/nvim
-cat /etc/vim/vimrc.local > ~/.config/nvim
+cat /etc/vim/vimrc.local > ~/.config/nvim/init.vim
 
 # SETTINGS/tmux
 echo 'set -g default-terminal "screen-256color"' > ~/.tmux.conf.bak
