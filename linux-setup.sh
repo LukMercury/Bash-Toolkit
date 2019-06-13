@@ -78,6 +78,7 @@ sudo apt autoremove -y
 sudo apt autoclean -y
 # Install
 sudo apt install -y vim
+sudo apt install -y nvim
 sudo apt install -y zsh
 sudo apt install -y tmux
 sudo apt install -y terminology
@@ -271,7 +272,7 @@ unset EMAIL
 timedatectl set-local-rtc 1 --adjust-system-clock
 
 # SETTINGS/Default Editor
-sudo update-alternatives --set editor /usr/bin/vim.basic
+sudo update-alternatives --set editor /usr/bin/nvim
 
 # SETTINGS/zsh
 bash -c "$(curl -fsSL $ZSH_SETUP)"
@@ -296,10 +297,23 @@ sudo bash -c 'echo "set expandtab" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set tabstop=4" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set shiftwidth=4" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set mouse=a" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "tnoremap <Esc><Esc> <C-\><C-n>" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "tnoremap <C-h> <C-\><C-n><C-w>h" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "tnoremap <C-j> <C-\><C-n><C-w>j" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "tnoremap <C-k> <C-\><C-n><C-w>k" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "tnoremap <C-l> <C-\><C-n><C-w>l" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "nnoremap <C-h> <C-w>h" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "nnoremap <C-j> <C-w>j" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
+
+# SETTINGS/nvim
+mdkir ~/.config/nvim
+cat /etc/vim/vimrc.local > ~/.config/nvim
 
 # SETTINGS/tmux
 echo 'set -g default-terminal "screen-256color"' > ~/.tmux.conf.bak
-sudo bash -c 'echo -e "\" set background=dark" >> /etc/vim/vimrc.local'
 
 # SETTINGS/Aliases
 if [ -f ~/.bash_aliases ]; then
