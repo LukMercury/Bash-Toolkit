@@ -12,11 +12,11 @@ MAIN_EMAIL=mihailuca406@gmail.com
 GIT_EMAIL=$MAIN_EMAIL
 FIRSTNAME=Mihai
 LASTNAME=Luca
-RUN_FOLDER=~/Desktop/
-SCRIPTS_FOLDER=~/Dropbox/Bash-Scripts/
-BINARIES_FOLDER=~/Dropbox/bin/
-CODE_FOLDER=~/Dropbox/Code/
-RAMDISK_MOUNT_POINT=/mnt/ramdisk/
+RUN_FOLDER=~/Desktop
+SCRIPTS_FOLDER=~/Dropbox/Bash-Scripts
+BINARIES_FOLDER=~/Dropbox/bin
+CODE_FOLDER=~/Dropbox/Code
+RAMDISK_MOUNT_POINT=/mnt/ramdisk
 UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
 export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
 export CURRENT_USER=$USER
@@ -85,6 +85,7 @@ sudo apt install -y terminology
 sudo apt install -y mc
 sudo apt install -y top
 sudo apt install -y htop
+sudo apt install -y errno
 sudo apt install -y pstree
 sudo apt install -y finger
 sudo apt install -y xclip
