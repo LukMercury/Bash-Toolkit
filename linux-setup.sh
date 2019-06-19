@@ -39,7 +39,7 @@ DISCORD=https://discordapp.com/api/download?platform=linux&format=deb
 TEAMVIEWER=https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 ATOM=https://atom.io/download/deb
 DMD=http://downloads.dlang.org/releases/2.x/2.086.0/dmd_2.086.0-0_amd64.deb
-TOR_BROWSER=https://www.torproject.org/dist/torbrowser/8.0.8/tor-browser-linux64-8.0.8_en-US.tar.xz
+TOR_BROWSER=https://www.torproject.org/dist/torbrowser/8.5.1/tor-browser-linux64-8.5.1_en-US.tar.xz.asc
 LBRY=https://github.com/lbryio/lbry-desktop/releases/download/v0.31.1/LBRY_0.31.1.deb
 
 # REPOSITORIES
@@ -334,6 +334,7 @@ mkdir $HOME/bin/
 # Scripts
 ln -s "$SCRIPTS_FOLDER/currency-converter/eur.sh" $HOME/bin/eur
 ln -s "$SCRIPTS_FOLDER/currency-converter/usd.sh" $HOME/bin/usd
+ln -s "$SCRIPTS_FOLDER/currency-converter/gbp.sh" $HOME/bin/gbp
 ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
 ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
 ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
