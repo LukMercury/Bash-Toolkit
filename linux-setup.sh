@@ -12,10 +12,10 @@ MAIN_EMAIL=mihailuca406@gmail.com
 GIT_EMAIL=$MAIN_EMAIL
 FIRSTNAME=Mihai
 LASTNAME=Luca
-RUN_FOLDER=~/Desktop
-SCRIPTS_FOLDER=~/Dropbox/Bash-Scripts
-BINARIES_FOLDER=~/Dropbox/bin
-CODE_FOLDER=~/Dropbox/Code
+RUN_FOLDER=$HOME/Desktop
+SCRIPTS_FOLDER=$HOME/Dropbox/Bash-Scripts
+BINARIES_FOLDER=$HOME/Dropbox/bin
+CODE_FOLDER=$HOME/Dropbox/Code
 RAMDISK_MOUNT_POINT=/mnt/ramdisk
 UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
 export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
@@ -277,8 +277,8 @@ sudo update-alternatives --set editor /usr/bin/nvim
 
 # SETTINGS/zsh
 bash -c "$(curl -fsSL $ZSH_SETUP)"
-sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' ~/.zshrc
-echo 'source $HOME/.bash_aliases' >> ~/.zshrc
+sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' $HOME/.zshrc
+echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 
 # SETTINGS/Default Terminal Emulator
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
@@ -310,19 +310,19 @@ sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
 
 # SETTINGS/nvim
-mdkir ~/.config/nvim
-cat /etc/vim/vimrc.local > ~/.config/nvim/init.vim
+mdkir $HOME/.config/nvim
+cat /etc/vim/vimrc.local > $HOME/.config/nvim/init.vim
 
 # SETTINGS/tmux
-echo 'set -g default-terminal "screen-256color"' > ~/.tmux.conf.bak
+echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf.bak
 
 # SETTINGS/Aliases
-if [ -f ~/.bash_aliases ]; then
-    cp ~/.bash_aliases ~/.bash_aliases.bak
-    > ~/.bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    cp $HOME/.bash_aliases $HOME/.bash_aliases.bak
+    > $HOME/.bash_aliases
 fi
 
-echo "alias xclip='xclip -selection c'" >> ~/.bash_aliases
+echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
 
 # SETTINGS/Ramdisk
 sudo mkdir $RAMDISK_MOUNT_POINT
@@ -330,61 +330,61 @@ sudo mkdir $RAMDISK_MOUNT_POINT
 # SETTINGS/Folders and Links
 
 # ~/bin/
-mkdir ~/bin/
+mkdir $HOME/bin/
 # Scripts
-ln -s "$SCRIPTS_FOLDER/currency-converter/eur.sh" ~/bin/eur
-ln -s "$SCRIPTS_FOLDER/currency-converter/usd.sh" ~/bin/usd
-ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" ~/bin/ron
-ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" ~/bin/roll
-ln -s "$SCRIPTS_FOLDER/weather.sh" ~/bin/weather
-ln -s "$SCRIPTS_FOLDER/to.sh" ~/bin/to
-ln -s "$SCRIPTS_FOLDER/empty-trash.sh" ~/bin/empty-trash
-ln -s "$SCRIPTS_FOLDER/dark.sh" ~/bin/dark
-ln -s "$SCRIPTS_FOLDER/compile.sh" ~/bin/compile
-ln -s "$SCRIPTS_FOLDER/clean-usb.sh" ~/bin/clean-usb
-ln -s "$SCRIPTS_FOLDER/lookup.sh" ~/bin/lookup
-ln -s "$SCRIPTS_FOLDER/lookup.sh" ~/bin/lk
-ln -s "$SCRIPTS_FOLDER/bookmark.sh" ~/bin/bookmark
-ln -s "$SCRIPTS_FOLDER/bookmark.sh" ~/bin/bk
-ln -s "$SCRIPTS_FOLDER/end-session.sh" ~/bin/end-session
-ln -s "$SCRIPTS_FOLDER/safe-reboot.sh" ~/bin/safe-reboot
-ln -s "$SCRIPTS_FOLDER/timer.sh" ~/bin/timer
-ln -s "$SCRIPTS_FOLDER/xopen.sh" ~/bin/xopen
-ln -s "$SCRIPTS_FOLDER/xrun.sh" ~/bin/xrun
-ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" ~/bin/wp
-ln -s "$SCRIPTS_FOLDER/sound.sh" ~/bin/sound
-ln -s "$SCRIPTS_FOLDER/streams/wallstream.sh" ~/bin/wallstream
-ln -s "$SCRIPTS_FOLDER/streams/playstream.sh" ~/bin/playstream
-ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" ~/bin/twitch
-ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" ~/bin/wtwitch
-ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" ~/bin/sc2streams
-ln -s "$SCRIPTS_FOLDER/search-replace.sh" ~/bin/search-replace
-ln -s "$SCRIPTS_FOLDER/goto.sh" ~/bin/goto
-ln -s "$SCRIPTS_FOLDER/work-done.sh" ~/bin/work-done
-ln -s "$SCRIPTS_FOLDER/ramdisk.sh" ~/bin/ramdisk
+ln -s "$SCRIPTS_FOLDER/currency-converter/eur.sh" $HOME/bin/eur
+ln -s "$SCRIPTS_FOLDER/currency-converter/usd.sh" $HOME/bin/usd
+ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
+ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
+ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
+ln -s "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
+ln -s "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
+ln -s "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
+ln -s "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
+ln -s "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
+ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
+ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
+ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
+ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
+ln -s "$SCRIPTS_FOLDER/end-session.sh" $HOME/bin/end-session
+ln -s "$SCRIPTS_FOLDER/safe-reboot.sh" $HOME/bin/safe-reboot
+ln -s "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
+ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
+ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
+ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
+ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
+ln -s "$SCRIPTS_FOLDER/streams/wallstream.sh" $HOME/bin/wallstream
+ln -s "$SCRIPTS_FOLDER/streams/playstream.sh" $HOME/bin/playstream
+ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
+ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" $HOME/bin/wtwitch
+ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" $HOME/bin/sc2streams
+ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
+ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
+ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
+ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
 # Cmus
-ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" ~/bin/cmus-lyrics
-ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" ~/bin/cmus-save     
-ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-load.sh" ~/bin/cmus-load    
-ln -s "$SCRIPTS_FOLDER/cmus-local/playlist.sh" ~/bin/playlist     
-ln -s "$SCRIPTS_FOLDER/cmus-local/playlists.sh" ~/bin/playlists     
-ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" ~/bin/song            
+ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
+ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" $HOME/bin/cmus-save     
+ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-load.sh" $HOME/bin/cmus-load    
+ln -s "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
+ln -s "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
+ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
 
 # Binaries
-ln -s "$BINARIES_FOLDER/milestokm" ~/bin/milestokm
-ln -s "$BINARIES_FOLDER/kmtomiles" ~/bin/kmtomiles
-ln -s "$BINARIES_FOLDER/ftin" ~/bin/ftin
-ln -s "$BINARIES_FOLDER/cm" ~/bin/cm
-ln -s "$BINARIES_FOLDER/word-frequency" ~/bin/word-frequency
-ln -s "$BINARIES_FOLDER/aec" ~/bin/aec
+ln -s "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
+ln -s "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
+ln -s "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
+ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
+ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
+ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
 
 # ~/Desktop/
-ln -s ~/Dropbox/Documents/ ~/Desktop/Documents
-ln -s ~/Dropbox/Documents/Carti/ ~/Desktop/Carti
-ln -s ~/Music/  ~/Desktop/Music
-ln -s ~/Downloads/  ~/Desktop/Downloads
-ln -s "$CODE_FOLDER" ~/Desktop/Code
-ln -s "$SCRIPTS_FOLDER" ~/Desktop/Bash-Scripts
+ln -s $HOME/Dropbox/Documents/ $HOME/Desktop/Documents
+ln -s $HOME/Dropbox/Documents/Carti/ $HOME/Desktop/Carti
+ln -s $HOME/Music/  $HOME/Desktop/Music
+ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
+ln -s "$CODE_FOLDER" $HOME/Desktop/Code
+ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Bash-Scripts
 
 # SETTINGS/Autostart
 
@@ -404,19 +404,19 @@ bash -c 'echo "X-GNOME-Autostart-Delay=0" >> /home/$USER/.config/autostart/Termi
 # SETTINGS/Cosmetics
 
 # Audacious Winamp skin
-sudo cp "$(find ~ -name *winamp_classic.wsz 2> /dev/null | head -1)" /usr/share/audacious/Skins/
+sudo cp "$(find $HOME -name *winamp_classic.wsz 2> /dev/null | head -1)" /usr/share/audacious/Skins/
 
 # mc skin
-mkdir -p ~/.local/share/mc/skins/
-cp "$(find ~ -name darkcourses_green.ini 2> /dev/null | head -1)" ~/.local/share/mc/skins/
+mkdir -p $HOME/.local/share/mc/skins/
+cp "$(find $HOME -name darkcourses_green.ini 2> /dev/null | head -1)" $HOME/.local/share/mc/skins/
 gnome-terminal -e mc
 echo "Please exit the mc instance that opened, using File->Exit."
 echo "Press ENTER to confirm."
 read CONFIRMATION
-vim ~/.config/mc/ini -c "%s/skin=default/skin=darkcourses_green.ini" -c wq
+vim $HOME/.config/mc/ini -c "%s/skin=default/skin=darkcourses_green.ini" -c wq
 
 # Cmus Taskbar Controls
-unzip "$(find ~ -name cmus-taskbar-controls.zip 2> /dev/null | head -1)" -d ~/.cinnamon/configs/
+unzip "$(find $HOME -name cmus-taskbar-controls.zip 2> /dev/null | head -1)" -d $HOME/.cinnamon/configs/
 
 # SETTINGS/Wine Tweaks
 sudo vim /etc/systemd/system.conf -c '%s/#DefaultLimitNOFILE=/DefaultLimitNOFILE=1048576/' -c wq
