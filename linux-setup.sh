@@ -83,6 +83,7 @@ sudo apt install -y zsh
 sudo apt install -y tmux
 sudo apt install -y terminology
 sudo apt install -y mc
+sudo apt install -y tree
 sudo apt install -y top
 sudo apt install -y htop
 sudo apt install -y errno
