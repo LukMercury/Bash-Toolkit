@@ -32,8 +32,8 @@ exec 2> install-log.txt # send error stream to log file
 # ONLINE SOURCES
 
 ZSH_SETUP=https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-VIRTUALBOX=https://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Ubuntu~bionic_amd64.deb
-VBOX_EXTENSION_PACK=https://download.virtualbox.org/virtualbox/6.2.18/Oracle_VM_VirtualBox_Extension_Pack-5.2.18.vbox-extpack
+VIRTUALBOX=https://download.virtualbox.org/virtualbox/6.0.8/virtualbox-6.0_6.0.8-130520~Ubuntu~bionic_amd64.deb
+VBOX_EXTENSION_PACK=https://download.virtualbox.org/virtualbox/6.0.8/Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack
 TEAMSPEAK=http://dl.4players.de/ts/releases/3.2.2/TeamSpeak3-Client-linux_amd64-3.2.2.run
 DISCORD=https://discordapp.com/api/download?platform=linux&format=deb
 TEAMVIEWER=https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
