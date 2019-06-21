@@ -271,7 +271,7 @@ echo "Linux Email configuration completed." | mail -s "Linux Email" "$EMAIL"
 unset EMAIL
 
 # SETTINGS/Set hardware clock to local time (if you are using dual-boot with Windows)
-timedatectl set-local-rtc 1 --adjust-system-clock
+# timedatectl set-local-rtc 1 --adjust-system-clock
 
 # SETTINGS/Default Editor
 sudo update-alternatives --set editor /usr/bin/nvim
@@ -285,10 +285,10 @@ echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 
 # SETTINGS/grub
-sudo vim /etc/default/grub -c '%s/GRUB_TIMEOUT=10/GRUB_TIMEOUT=3/' -c wq
-sudo update-grub
+# sudo vim /etc/default/grub -c '%s/GRUB_TIMEOUT=10/GRUB_TIMEOUT=3/' -c wq
+# sudo update-grub
 # Grub btrfs bug workaround
-sudo grub-editenv create
+# sudo grub-editenv create
 
 # SETTINGS/vimrc
 sudo -E bash -c 'echo "\" $CURRENT_USER" >> /etc/vim/vimrc.local'
@@ -309,6 +309,7 @@ sudo bash -c 'echo "nnoremap <C-h> <C-w>h" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-j> <C-w>j" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
 
 # SETTINGS/tmux
 echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf.bak
