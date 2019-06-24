@@ -292,10 +292,11 @@ sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 
 # SETTINGS/tmux
 echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf.bak
-sudo bash -c 'echo "\" set background=dark" >> /etc/vim/vimrc.local'
 
 # SETTINGS/vimrc 1 (same as nvim/init.vim)
 sudo -E bash -c 'echo "\" $CURRENT_USER" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "\" set background=dark" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set number" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set is" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set cindent" >> /etc/vim/vimrc.local'
