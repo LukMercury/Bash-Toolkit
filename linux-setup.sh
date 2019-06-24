@@ -290,7 +290,11 @@ sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 # Grub btrfs bug workaround
 # sudo grub-editenv create
 
-# SETTINGS/vimrc
+# SETTINGS/tmux
+echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf.bak
+sudo bash -c 'echo "\" set background=dark" >> /etc/vim/vimrc.local'
+
+# SETTINGS/vimrc 1 (same as nvim/init.vim)
 sudo -E bash -c 'echo "\" $CURRENT_USER" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set number" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set is" >> /etc/vim/vimrc.local'
@@ -309,15 +313,16 @@ sudo bash -c 'echo "nnoremap <C-h> <C-w>h" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-j> <C-w>j" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
-
-# SETTINGS/tmux
-echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf.bak
-sudo bash -c 'echo -e "\" set background=dark" >> /etc/vim/vimrc.local'
 
 # SETTINGS/nvim
 mdkir $HOME/.config/nvim
 cat /etc/vim/vimrc.local > $HOME/.config/nvim/init.vim
+sudo bash -c 'echo "vnoremap <C-c> \"+y" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "nnoremap <C-c> o<Esc>\"+p0" >> /etc/vim/vimrc.local'
+
+# SETTINGS/vimrc 2 (different from nvim/init.vim)
+sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "vnoremap <C-c> :r !xclip -sel c -o<CR>" >> /etc/vim/vimrc.local'
 
 # SETTINGS/Aliases
 if [ -f $HOME/.bash_aliases ]; then
