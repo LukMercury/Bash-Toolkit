@@ -285,10 +285,10 @@ echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 
 # SETTINGS/grub
-# sudo vim /etc/default/grub -c '%s/GRUB_TIMEOUT=10/GRUB_TIMEOUT=3/' -c wq
-# sudo update-grub
+sudo vim /etc/default/grub -c '%s/GRUB_TIMEOUT=10/GRUB_TIMEOUT=3/' -c wq
+sudo update-grub
 # Grub btrfs bug workaround
-# sudo grub-editenv create
+sudo grub-editenv create
 
 # SETTINGS/tmux
 echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf.bak
