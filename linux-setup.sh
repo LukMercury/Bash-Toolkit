@@ -285,7 +285,8 @@ echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 
 # SETTINGS/grub
-sudo vim /etc/default/grub -c '%s/GRUB_TIMEOUT=10/GRUB_TIMEOUT=3/' -c wq
+sudo vim /etc/default/grub -c '%s/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' -c wq
+sudo bash -c 'echo "GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT" >> /etc/vim/vimrc.local'
 sudo update-grub
 # Grub btrfs bug workaround
 sudo grub-editenv create
@@ -320,7 +321,8 @@ mkdir $HOME/.config/nvim
 cat /etc/vim/vimrc.local > $HOME/.config/nvim/init.vim
 echo "vnoremap <C-c> \"+y" >> $HOME/.config/nvim/init.vim
 echo "nnoremap <C-v> o<Esc>\"+p0" >> /etc/vim/vimrc.local
-
+echo >> $HOME/.config/nvim/init.vim
+echo "set nohlsearch" >> $HOME/.config/nvim/init.vim
 
 # SETTINGS/vimrc 2 (different from nvim/init.vim)
 sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
