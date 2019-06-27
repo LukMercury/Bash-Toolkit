@@ -78,7 +78,7 @@ sudo apt autoremove -y
 sudo apt autoclean -y
 # Install
 sudo apt install -y vim
-sudo apt install -y nvim
+sudo apt install -y neovim
 sudo apt install -y zsh
 sudo apt install -y tmux
 sudo apt install -y terminology
@@ -316,14 +316,15 @@ sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
 
 # SETTINGS/nvim
-mdkir $HOME/.config/nvim
+mkdir $HOME/.config/nvim
 cat /etc/vim/vimrc.local > $HOME/.config/nvim/init.vim
-sudo bash -c 'echo "vnoremap <C-c> \"+y" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "nnoremap <C-c> o<Esc>\"+p0" >> /etc/vim/vimrc.local'
+echo "vnoremap <C-c> \"+y" >> $HOME/.config/nvim/init.vim
+echo "nnoremap <C-v> o<Esc>\"+p0" >> /etc/vim/vimrc.local
+
 
 # SETTINGS/vimrc 2 (different from nvim/init.vim)
 sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "vnoremap <C-c> :r !xclip -sel c -o<CR>" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "vnoremap <C-v> :r !xclip -sel c -o<CR>" >> /etc/vim/vimrc.local'
 
 # SETTINGS/Aliases
 if [ -f $HOME/.bash_aliases ]; then
