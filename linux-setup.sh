@@ -102,6 +102,8 @@ sudo apt install -y gkrellm
 sudo apt install -y g++
 sudo apt install -y ldc
 sudo apt install -y git
+sudo apt install -y cmake
+sudo apt install -y cmake-gui
 sudo apt install -y sublime-text
 sudo apt install -y sublime-merge
 sudo apt install -y recoll
