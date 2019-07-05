@@ -294,7 +294,7 @@ sudo update-grub
 sudo grub-editenv create
 
 # SETTINGS/tmux
-echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf.bak
+echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf
 
 # SETTINGS/vimrc 1 (same as nvim/init.vim)
 sudo -E bash -c 'echo "\" $CURRENT_USER" >> /etc/vim/vimrc.local'
