@@ -281,12 +281,10 @@ sudo update-alternatives --set editor /usr/bin/nvim
 # SETTINGS/.profile
 echo >> $HOME/.profile
 echo '# for tmux/vim color compatibility' >> $HOME/.profile
-echo 'export TERM=screen-256color-bce' >> $HOME/.profile
 
 # SETTINGS/zsh
 bash -c "$(curl -fsSL $ZSH_SETUP)"
 sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' $HOME/.zshrc
-echo 'export TERM=screen-256color-bce' >> $HOME/.zshrc
 echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 
 # SETTINGS/Default Terminal Emulator
