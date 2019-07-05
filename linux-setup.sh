@@ -278,23 +278,29 @@ unset EMAIL
 # SETTINGS/Default Editor
 sudo update-alternatives --set editor /usr/bin/nvim
 
+# SETTINGS/.profile
+echo >> $HOME/.profile
+echo '# for tmux/vim color compatibility' >> $HOME/.profile
+echo 'export TERM=screen-256color-bce' >> $HOME/.profile
+
 # SETTINGS/zsh
 bash -c "$(curl -fsSL $ZSH_SETUP)"
 sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' $HOME/.zshrc
+echo 'export TERM=screen-256color-bce' >> $HOME/.zshrc
 echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 
 # SETTINGS/Default Terminal Emulator
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 
 # SETTINGS/grub
-sudo vim /etc/default/grub -c '%s/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' -c wq
-sudo bash -c 'echo "GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT" >> /etc/vim/vimrc.local'
+ed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' /etc/default/grub 
+sudo bash -c 'echo "GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT" >> /etc/default/grub'
 sudo update-grub
 # Grub btrfs bug workaround
 sudo grub-editenv create
 
 # SETTINGS/tmux
-echo 'set -g default-terminal "screen-256color"' > $HOME/.tmux.conf
+echo 'set -g default-terminal "screen-256color-bce"' > $HOME/.tmux.conf
 
 # SETTINGS/vimrc 1 (same as nvim/init.vim)
 sudo -E bash -c 'echo "\" $CURRENT_USER" >> /etc/vim/vimrc.local'
@@ -307,6 +313,19 @@ sudo bash -c 'echo "set expandtab" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set tabstop=4" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set shiftwidth=4" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set mouse=a" >> /etc/vim/vimrc.local'
+# Plug
+sudo bash -c 'echo >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "call plug#begin('~/.vim/plugged')" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "Plug 'https://github.com/NLKNguyen/papercolor-theme'" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "call plug#end()" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo >> /etc/vim/vimrc.local'
+# Color Theme
+sudo bash -c 'echo "set t_Co=256" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "set background=dark" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "colorscheme PaperColor" >> /etc/vim/vimrc.local'
+# Keyboard Shortcuts remap
 sudo bash -c 'echo >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "tnoremap <Esc><Esc> <C-\><C-n>" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "tnoremap <C-h> <C-\><C-n><C-w>h" >> /etc/vim/vimrc.local'
@@ -321,10 +340,10 @@ sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
 # SETTINGS/nvim
 mkdir $HOME/.config/nvim
 cat /etc/vim/vimrc.local > $HOME/.config/nvim/init.vim
+sed -i 's/\~\/\.vim\/plugged/\~\.local\/share\/nvim\/plugged/' $HOME/.config/nvim/init.vim 
 echo "vnoremap <C-c> \"+y" >> $HOME/.config/nvim/init.vim
-echo "nnoremap <C-v> o<Esc>\"+p0" >> /etc/vim/vimrc.local
-echo >> $HOME/.config/nvim/init.vim
-echo "set nohlsearch" >> $HOME/.config/nvim/init.vim
+echo "nnoremap <C-v> o<Esc>\"+p0" >> $HOME/.config/nvim/init.vim
+sed -i '5 i set nohlsearch' $HOME/.config/nvim/init.vim
 
 # SETTINGS/vimrc 2 (different from nvim/init.vim)
 sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
@@ -408,7 +427,7 @@ which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR
 > /home/$USER/.config/autostart/Terminal.desktop
 bash -c 'echo "[Desktop Entry]" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "Type=Application" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "Exec=$DEFAULT_TERMINAL_EMULATOR -e tmux" >> /home/$USER/.config/autostart/Terminal.desktop'
+bash -c 'echo "Exec=$DEFAULT_TERMINAL_EMULATOR -e tmux -2" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "X-GNOME-Autostart-enabled=true" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "NoDisplay=false" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "Hidden=false" >> /home/$USER/.config/autostart/Terminal.desktop'
@@ -428,14 +447,14 @@ gnome-terminal -e mc
 echo "Please exit the mc instance that opened, using File->Exit."
 echo "Press ENTER to confirm."
 read CONFIRMATION
-vim $HOME/.config/mc/ini -c "%s/skin=default/skin=darkcourses_green.ini" -c wq
+sed -i 's/skin=default/skin=darkcourses_green.ini' $HOME/.config/mc/ini 
 
 # Cmus Taskbar Controls
 unzip "$(find $HOME -name cmus-taskbar-controls.zip 2> /dev/null | head -1)" -d $HOME/.cinnamon/configs/
 
 # SETTINGS/Wine Tweaks
-sudo vim /etc/systemd/system.conf -c '%s/#DefaultLimitNOFILE=/DefaultLimitNOFILE=1048576/' -c wq
-sudo vim /etc/systemd/user.conf -c '%s/#DefaultLimitNOFILE=/DefaultLimitNOFILE=1048576/' -c wq
+sudo sed -i 's/#DefaultLimitNOFILE=/DefaultLimitNOFILE=1048576/' /etc/systemd/system.conf 
+sudo sed -i 's/#DefaultLimitNOFILE=/DefaultLimitNOFILE=1048576/' /etc/systemd/user.conf 
 
 # DONE
 echo -e "\nDone!"
