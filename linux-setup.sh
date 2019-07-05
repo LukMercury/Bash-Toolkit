@@ -300,6 +300,11 @@ sudo grub-editenv create
 # SETTINGS/tmux
 echo 'set -g default-terminal "screen-256color-bce"' > $HOME/.tmux.conf
 
+# SETTINGS/vim-plug/vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# SETTINGS/vim-plug/nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # SETTINGS/vimrc 1 (same as nvim/init.vim)
 sudo -E bash -c 'echo "\" $CURRENT_USER" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo >> /etc/vim/vimrc.local'
@@ -354,6 +359,7 @@ if [ -f $HOME/.bash_aliases ]; then
 fi
 
 echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
+echo "alias tmux='tmux -2'" >> $HOME/.bash_aliases
 
 # SETTINGS/Ramdisk
 sudo mkdir $RAMDISK_MOUNT_POINT
