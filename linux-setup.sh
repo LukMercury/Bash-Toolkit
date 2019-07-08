@@ -311,6 +311,7 @@ sudo bash -c 'echo "set expandtab" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set tabstop=4" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set shiftwidth=4" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set mouse=a" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "set splitright" >> /etc/vim/vimrc.local'
 # Plug
 sudo bash -c 'echo >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "call plug#begin('~/.vim/plugged')" >> /etc/vim/vimrc.local'
