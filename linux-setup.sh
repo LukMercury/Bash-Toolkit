@@ -91,7 +91,6 @@ sudo apt install -y finger
 sudo apt install -y xclip
 sudo apt install -y nnn
 sudo apt install -y w3m
-sudo apt install -y qutebrowser
 sudo apt install -y postfix
 sudo apt install -y mailutils
 sudo apt install -y clamav
