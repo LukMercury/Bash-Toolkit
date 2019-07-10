@@ -433,7 +433,7 @@ which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR
 > /home/$USER/.config/autostart/Terminal.desktop
 bash -c 'echo "[Desktop Entry]" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "Type=Application" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "Exec=$DEFAULT_TERMINAL_EMULATOR -e tmux -2" >> /home/$USER/.config/autostart/Terminal.desktop'
+bash -c 'echo "Exec=$DEFAULT_TERMINAL_EMULATOR -F -e tmux -2" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "X-GNOME-Autostart-enabled=true" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "NoDisplay=false" >> /home/$USER/.config/autostart/Terminal.desktop'
 bash -c 'echo "Hidden=false" >> /home/$USER/.config/autostart/Terminal.desktop'
