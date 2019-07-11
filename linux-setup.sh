@@ -2,7 +2,7 @@
 
 # Linux post install setup file
 # Created by Mihai Luca <mihailuca406@gmail.com>
-# Distribution currently used: feren OS based on Mint
+# Distribution currently used: Feren OS based on Ubuntu/Mint
 
 
 # VARIABLES
@@ -306,6 +306,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 # SETTINGS/vim-plug/nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # SETTINGS/vimrc 1 (same as nvim/init.vim)
 sudo -E bash -c 'echo "\" $CURRENT_USER" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo >> /etc/vim/vimrc.local'
@@ -353,6 +354,12 @@ sed -i '5 i set nohlsearch' $HOME/.config/nvim/init.vim
 # SETTINGS/vimrc 2 (different from nvim/init.vim)
 sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "vnoremap <C-v> :r !xclip -sel c -o<CR>" >> /etc/vim/vimrc.local'
+
+# SETTINGS/vim/PlugInstall
+vim -c PlugInstall -c qa
+
+# SETTINGS/nvim/PlugInstall
+nvim -c PlugInstall -c qa
 
 # SETTINGS/Aliases
 if [ -f $HOME/.bash_aliases ]; then
