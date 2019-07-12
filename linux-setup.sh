@@ -294,9 +294,6 @@ sudo update-grub
 # Grub btrfs bug workaround
 sudo grub-editenv create
 
-# SETTINGS/tmux
-echo 'set -g default-terminal "screen-256color-bce"' > $HOME/.tmux.conf
-
 # SETTINGS/vim-plug/vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
