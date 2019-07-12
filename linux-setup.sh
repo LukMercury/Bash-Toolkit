@@ -279,10 +279,6 @@ unset EMAIL
 # SETTINGS/Default Editor
 sudo update-alternatives --set editor /usr/bin/nvim
 
-# SETTINGS/.profile
-echo >> $HOME/.profile
-echo '# for tmux/vim color compatibility' >> $HOME/.profile
-
 # SETTINGS/zsh
 bash -c "$(curl -fsSL $ZSH_SETUP)"
 sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' $HOME/.zshrc
