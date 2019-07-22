@@ -378,6 +378,7 @@ ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
 ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
 ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
 ln -s "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
+ln -s "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
 ln -s "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
 ln -s "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
 ln -s "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
