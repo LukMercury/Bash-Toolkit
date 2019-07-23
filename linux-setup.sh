@@ -394,8 +394,6 @@ ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
 ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
 ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
 ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
-ln -s "$SCRIPTS_FOLDER/streams/wallstream.sh" $HOME/bin/wallstream
-ln -s "$SCRIPTS_FOLDER/streams/playstream.sh" $HOME/bin/playstream
 ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
 ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" $HOME/bin/wtwitch
 ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" $HOME/bin/sc2streams
