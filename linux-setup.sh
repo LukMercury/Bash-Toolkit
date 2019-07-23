@@ -416,6 +416,7 @@ ln -s "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
 ln -s "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
 ln -s "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
 ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
+ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
 ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
 ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
 
