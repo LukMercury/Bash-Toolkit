@@ -180,7 +180,6 @@ chmod +x teamspeak.run
 ./teamspeak.run
 rm -f teamspeak.run
 sudo mv TeamSpeak* /opt/
-sudo chown -R $USER:$USER /opt/TeamSpeak*
 echo "TeamSpeak: create a lanucher pointing to /opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh" 1>&2
 
 # INSTALL/Download/Discord
@@ -209,7 +208,6 @@ rm -f dmd.deb
 wget -O tor-browser.tar.xz $TOR_BROWSER
 tar -xvf tor-browser.tar.xz
 sudo mv tor-browser_en-US /opt/
-sudo chown $USER:$USER /opt/tor-browser_en-US
 echo "Tor Browser installed in /opt. Create menu launcher manually." 1>&2
 rm -f tor-browser.tar.sz
 
