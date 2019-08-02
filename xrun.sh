@@ -1,3 +1,3 @@
 #!/bin/bash
 
-nohup $1 &> /dev/null &
+nohup "$@" &> /dev/null &
