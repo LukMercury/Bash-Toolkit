@@ -7,7 +7,7 @@
 # cvlc --video-wallpaper "$STREAM"
 
 # Get link from clipboard or as parameter
-if [ -z "$1" ]; then
+if [ -z $1 ]; then
     STREAM="$(xclip -selection c -o)"
 else
     STREAM="$1"

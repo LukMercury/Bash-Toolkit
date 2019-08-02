@@ -5,7 +5,7 @@
 PLAYLIST_FOLDER=~/Dropbox/Documents/Playlists
 
 echo -e "Load playlist:\n"
-ls -1 "$PLAYLIST_FOLDER"/*.pl | rev | cut -d'/' -f1 | rev | cut -d'.' -f1
+ls -1 $PLAYLIST_FOLDER/*.pl | rev | cut -d'/' -f1 | rev | cut -d'.' -f1
 
 echo -en "\n> "
 read PLAYLIST
