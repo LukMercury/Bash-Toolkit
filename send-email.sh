@@ -11,12 +11,12 @@ MY_EMAIL="mihailuca406@gmail.com"
 
 getAddress()
 {
-if [ ! -z $3 ]; then
-    ADDRESS="$(cat "$ADDRESS_BOOK" | grep -i $1 | grep -i $2 | grep -i $3 | tr -s [:blank:] ' ' | cut -d' ' -f3)"
-elif [ ! -z $2 ]; then
-    ADDRESS="$(cat "$ADDRESS_BOOK" | grep -i $1 | grep -i $2 | tr -s [:blank:] ' ' | cut -d' ' -f3)"
+if [ ! -z "$3" ]; then
+    ADDRESS="$(cat "$ADDRESS_BOOK" | grep -i "$1" | grep -i "$2" | grep -i "$3" | tr -s [:blank:] ' ' | cut -d' ' -f3)"
+elif [ ! -z "$2" ]; then
+    ADDRESS="$(cat "$ADDRESS_BOOK" | grep -i "$1" | grep -i "$2" | tr -s [:blank:] ' ' | cut -d' ' -f3)"
 else
-    ADDRESS="$(cat "$ADDRESS_BOOK" | grep -i $1 | tr -s [:blank:] ' ' | cut -d' ' -f3)"
+    ADDRESS="$(cat "$ADDRESS_BOOK" | grep -i "$1" | tr -s [:blank:] ' ' | cut -d' ' -f3)"
 fi
 
 RETURNED_ADDR="$(echo "$ADDRESS" | wc -l)"
@@ -32,7 +32,7 @@ fi
 
 echo -n "Send email to: "
 read RECIPIENT
-echo "$RECIPIENT" | grep '@' &> /dev/null && SEND_TO="$RECIPIENT" || SEND_TO=$(getAddress $RECIPIENT) # no "" 
+echo "$RECIPIENT" | grep '@' &> /dev/null && SEND_TO="$RECIPIENT" || SEND_TO="$(getAddress $RECIPIENT)"
 
 echo -n "Subject: "
 read SUBJECT

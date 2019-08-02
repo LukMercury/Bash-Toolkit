@@ -6,8 +6,8 @@
 
 COUNTER=0
 
-for i in $(grep -R "$1" $3 | cut -d: -f1 | uniq); do
-    sed -i "s/$1/$2/g" $i
+for i in $(grep -R "$1" "$3" | cut -d: -f1 | uniq); do
+    sed -i "s/$1/$2/g" "$i"
     echo "$i"
     ((COUNTER++))
 done

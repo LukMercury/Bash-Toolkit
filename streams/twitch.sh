@@ -5,7 +5,7 @@
 # xclip must be installed for this script to work
 
 # Get link from clipboard or as parameter
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
     STREAM="$(xclip -selection c -o)"
 else
     STREAM="$1"
@@ -16,5 +16,5 @@ if [ -z "$(echo $STREAM | grep http)" ]; then
     STREAM="https://www.twitch.tv/$STREAM"
 fi
 
-nohup vlc $STREAM &> /dev/zero &
+nohup vlc "$STREAM" &> /dev/zero &
 
