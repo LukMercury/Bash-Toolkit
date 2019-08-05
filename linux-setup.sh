@@ -211,7 +211,7 @@ wget -O tor-browser.tar.xz $TOR_BROWSER
 tar -xvf tor-browser.tar.xz
 sudo mv tor-browser_en-US /opt/
 echo "Tor Browser installed in /opt. Create menu launcher manually." 1>&2
-rm -f tor-browser.tar.sz
+rm -f tor-browser.tar.xz
 
 
 # SETTINGS
