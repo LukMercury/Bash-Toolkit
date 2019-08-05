@@ -314,9 +314,9 @@ sudo bash -c 'echo "set mouse=a" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "set splitright" >> /etc/vim/vimrc.local'
 # Plug
 sudo bash -c 'echo >> /etc/vim/vimrc.local'
-sudo bash -c "echo 'call plug#begin('\''~/.vim/plugged'\'')' >> /etc/vim/vimrc.local"
+sudo bash -c 'echo "call plug#begin('\''~/.vim/plugged'\'')" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo >> /etc/vim/vimrc.local'
-sudo bash -c "echo 'Plug '\''https://github.com/NLKNguyen/papercolor-theme'\' >> /etc/vim/vimrc.local"
+sudo bash -c 'echo "Plug '\''https://github.com/NLKNguyen/papercolor-theme'\''" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "call plug#end()" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo >> /etc/vim/vimrc.local'
