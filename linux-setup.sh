@@ -290,7 +290,7 @@ ed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' /etc/default/grub
 sudo bash -c 'echo "GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT" >> /etc/default/grub'
 sudo update-grub
 # Grub btrfs bug workaround
-sudo grub-editenv create
+# sudo grub-editenv create  # seems unnecessary for now
 
 # SETTINGS/vim-plug/vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
