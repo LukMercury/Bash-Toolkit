@@ -76,6 +76,8 @@ sudo apt purge -y feren-vivaldi-theme
 sudo apt autoremove -y
 sudo apt autoclean -y
 # Install
+sudo apt install -y firefox
+sudo apt install -y firefox-locale-en
 sudo apt install -y vim
 sudo apt install -y neovim
 sudo apt install -y zsh
