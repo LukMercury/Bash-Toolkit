@@ -278,6 +278,8 @@ sudo update-alternatives --set editor /usr/bin/nvim
 # SETTINGS/zsh
 bash -c "$(curl -fsSL $ZSH_SETUP)"
 sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' $HOME/.zshrc
+# Make zsh your default shell (in case Oh-My-Zsh doesn't do it)
+chsh -s $(which zsh)
 echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 
 # SETTINGS/Default Terminal Emulator
