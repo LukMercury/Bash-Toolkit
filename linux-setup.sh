@@ -80,6 +80,7 @@ sudo apt install -y firefox
 sudo apt install -y firefox-locale-en
 sudo apt install -y vim
 sudo apt install -y neovim
+rm -f $HOME/.zshrc
 sudo apt install -y zsh
 sudo apt install -y tmux
 sudo apt install -y terminology
@@ -276,6 +277,7 @@ unset EMAIL
 sudo update-alternatives --set editor /usr/bin/nvim
 
 # SETTINGS/zsh
+rm -rf $HOME/.oh-my-zsh/
 bash -c "$(curl -fsSL $ZSH_SETUP)"
 sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' $HOME/.zshrc
 # Make zsh your default shell (in case Oh-My-Zsh doesn't do it)
