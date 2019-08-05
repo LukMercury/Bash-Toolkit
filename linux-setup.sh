@@ -170,14 +170,14 @@ echo "Run install-uberwriter.sh after reboot." 1>&2
 # INSTALL/Download
 
 # INSTALL/Download/VirtualBox
-wget -O virtualbox.deb $VIRTUALBOX
+wget -O virtualbox.deb $VIRTUALBOX 2> /dev/null # get rid of excessive output
 sudo dpkg -i virtualbox.deb
 rm -f virtualbox.deb
-wget $VBOX_EXTENSION_PACK
+wget $VBOX_EXTENSION_PACK 2> /dev/null  # get rid of excessive output
 echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
 
 # INSTALL/Download/TeamSpeak
-wget -O teamspeak.run $TEAMSPEAK
+wget -O teamspeak.run $TEAMSPEAK 2> /dev/null   # get rid of excessive output
 chmod +x teamspeak.run
 ./teamspeak.run
 rm -f teamspeak.run
@@ -185,29 +185,29 @@ sudo mv TeamSpeak* /opt/
 echo "TeamSpeak: create a lanucher pointing to /opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh" 1>&2
 
 # INSTALL/Download/Discord
-wget -O discord.deb $DISCORD
+wget -O discord.deb $DISCORD 2> /dev/null   # get rid of excessive output
 sudo dpkg -i discord.deb
 rm -f discord.deb
 sudo apt install -f -y
 
 # INSTALL/TeamViewer
-wget -O teamviewer.deb $TEAMVIEWER
+wget -O teamviewer.deb $TEAMVIEWER 2> /dev/null # get rid of excessive output
 sudo dpkg -i teamviewer.deb
 rm -f teamviewer.deb
 sudo apt install -f -y
 
 # INSTALL/Download/Atom
-wget -O atom.deb $ATOM
+wget -O atom.deb $ATOM 2> /dev/null # get rid of excessive output
 sudo dpkg -i atom.deb
 rm -f atom.deb
 
 # INSTALL/Download/DMD
-wet -O dmd.deb $DMD
+wet -O dmd.deb $DMD 2> /dev/null    # get rid of excessive output 
 sudo dpkg -i dmd.deb
 rm -f dmd.deb
 
 # INSTALL/Download/Tor Browser
-wget -O tor-browser.tar.xz $TOR_BROWSER
+wget -O tor-browser.tar.xz $TOR_BROWSER 2> /dev/null    # get rid of excessive output
 tar -xvf tor-browser.tar.xz
 sudo mv tor-browser_en-US /opt/
 echo "Tor Browser installed in /opt. Create menu launcher manually." 1>&2
