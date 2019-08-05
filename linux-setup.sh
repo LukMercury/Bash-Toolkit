@@ -224,6 +224,7 @@ sudo bash -c 'echo "vm.swappiness = 10" >> /etc/sysctl.conf'
 # Required software already installed in the INSTALL/apt section
 # Configure Authetication
 export SMTP_SERVER='[smtp.gmail.com]:587'
+read SOMETHING # Clear input for email address read
 echo "Enter the Email address for your account: "
 read EMAIL
 echo "Enter your password: "
@@ -446,6 +447,7 @@ mkdir -p $HOME/.local/share/mc/skins/
 cp "$(find $HOME -name darkcourses_green.ini 2> /dev/null | head -1)" $HOME/.local/share/mc/skins/
 gnome-terminal -e mc
 echo "Please exit the mc instance that opened, using File->Exit."
+read SOMETHING # Clear input for mc exit confirmation
 echo "Press ENTER to confirm."
 read CONFIRMATION
 sed -i 's/skin=default/skin=darkcourses_green.ini' $HOME/.config/mc/ini 
@@ -459,6 +461,7 @@ sudo sed -i 's/#DefaultLimitNOFILE=/DefaultLimitNOFILE=1048576/' /etc/systemd/us
 
 # DONE
 echo -e "\nDone!"
+read SOMETHING # Clear input for reboot confirmation
 echo -n "Restart your system now? (Y/n): "
 read INPUT
 if [ "$INPUT" == "n" ] || [ "$INPUT" == "N" ]; then
