@@ -198,7 +198,7 @@ sudo dpkg -i atom.deb
 rm -f atom.deb
 
 # INSTALL/Download/DMD
-wet -O dmd.deb $DMD 2> /dev/null    # get rid of excessive output 
+wget -O dmd.deb $DMD 2> /dev/null    # get rid of excessive output 
 sudo dpkg -i dmd.deb
 rm -f dmd.deb
 
