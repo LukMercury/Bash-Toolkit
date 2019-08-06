@@ -144,9 +144,12 @@ sudo apt install -y dict-freedict-eng-fra
 sudo apt install -y dict-freedict-fra-eng
 sudo apt install -y dict-freedict-eng-rom
 sudo apt install -y gimp
-sudo apt install -y winehq-stable
+sudo apt install -y nvidia-driver-430 
+sudo apt install -y libnvidia-gl-430
+sudo apt install -y libnvidia-gl-430:i386
 sudo apt install -y libvulkan1 
 sudo apt install -y libvulkan1:i386
+sudo apt install -y winehq-stable
 sudo apt install -y playonlinux
 sudo apt install -y lutris
 sudo apt install -y steam
