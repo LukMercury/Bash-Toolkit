@@ -115,6 +115,7 @@ sudo apt install -y python3-mutagen
 sudo apt install -y unrtf
 sudo apt install -y splint
 sudo apt install -y splint-doc-html
+sudo apt install -y octave
 sudo apt install -y ddd
 sudo apt install -y ddd-doc
 sudo apt install -y valgrind
