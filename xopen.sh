@@ -1,3 +1,3 @@
 #!/bin/bash
 
-nohup xdg-open $1 &> /dev/null
+nohup xdg-open "$1" &> /dev/null
