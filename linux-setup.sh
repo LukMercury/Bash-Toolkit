@@ -4,6 +4,7 @@
 # Created by Mihai Luca <mihailuca406@gmail.com>
 # Distribution currently used: Feren OS based on Ubuntu/Mint
 
+# ------------------------------------------------------------------------------------------------------------------------------
 
 # VARIABLES
 
@@ -21,14 +22,6 @@ UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:]
 export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
 export CURRENT_USER=$USER
 
-# PRELIMINARY SETTINGS & CHECKS
-
-if [ ! -d "$RUN_FOLDER" ]; then
-    mkdir -p "$RUN_FOLDER"
-fi
-cd "$RUN_FOLDER" # additional files will be created in this folder
-exec 2> install-log.txt # send error stream to log file
-
 # ONLINE SOURCES
 
 ZSH_SETUP=https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
@@ -40,6 +33,16 @@ TEAMVIEWER=https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 ATOM=https://atom.io/download/deb
 DMD=http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb
 TOR_BROWSER=https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
+
+# ------------------------------------------------------------------------------------------------------------------------------
+
+# PRELIMINARY SETTINGS & CHECKS
+
+if [ ! -d "$RUN_FOLDER" ]; then
+    mkdir -p "$RUN_FOLDER"
+fi
+cd "$RUN_FOLDER" # additional files will be created in this folder
+exec 2> install-log.txt # send error stream to log file
 
 # REPOSITORIES
 
