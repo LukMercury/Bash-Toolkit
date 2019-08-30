@@ -36,6 +36,7 @@ TOR_BROWSER=https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
+
 # PRELIMINARY SETTINGS & CHECKS
 
 if [ ! -d "$RUN_FOLDER" ]; then
