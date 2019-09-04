@@ -355,6 +355,7 @@ sed -i 's/\~\/\.vim\/plugged/\~\.local\/share\/nvim\/plugged/' $HOME/.config/nvi
 echo "vnoremap <C-c> \"+y" >> $HOME/.config/nvim/init.vim
 echo "nnoremap <C-v> o<Esc>\"+p0" >> $HOME/.config/nvim/init.vim
 sed -i '5 i set nohlsearch' $HOME/.config/nvim/init.vim
+sed -i '13 i set nomodeline' $HOME/.config/nvim/init.vim
 
 # SETTINGS/vimrc 2 (different from nvim/init.vim)
 sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
