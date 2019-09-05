@@ -375,6 +375,7 @@ fi
 
 echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
 echo "alias tmux='tmux -2'" >> $HOME/.bash_aliases
+echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
 
 # SETTINGS/Ramdisk
 sudo mkdir $RAMDISK_MOUNT_POINT
