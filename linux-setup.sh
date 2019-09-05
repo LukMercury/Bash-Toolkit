@@ -376,6 +376,7 @@ fi
 echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
 echo "alias tmux='tmux -2'" >> $HOME/.bash_aliases
 echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
+echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
 
 # SETTINGS/Ramdisk
 sudo mkdir $RAMDISK_MOUNT_POINT
@@ -431,6 +432,7 @@ ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
 ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
 ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
 ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
+ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
 
 # ~/Desktop/
 ln -s $HOME/Dropbox/Documents/ $HOME/Desktop/Documents
