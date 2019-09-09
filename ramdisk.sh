@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#MOUNT_POINT=/mnt/ramdisk
-MOUNT_POINT=/home/mihai/mdk/mdk_release_R6.15_myriadx-general_release/mdk/examples/Progressive/ma2x8x/Test_Scale/mvbuild 
+MOUNT_POINT=/mnt/ramdisk
+
 # Maximum ramdisk size cannot exceed half of free memory
 MAX_SIZE=$(($(free | head -2 | tail -1 | tr -s [:space:] | cut -d' ' -f7)/2000))
-DEFAULT_SIZE=1000 # MB
+DEFAULT_SIZE=500 # MB
 
 checkStatus()
 {
