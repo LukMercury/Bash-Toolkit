@@ -367,6 +367,9 @@ vim -c PlugInstall -c qa
 # SETTINGS/nvim/PlugInstall
 nvim -c PlugInstall -c qa
 
+# SETTINGS/.profile
+echo -e "\nexport DIR=$HOME\n" >> $HOME/.profile
+
 # SETTINGS/Aliases
 if [ -f $HOME/.bash_aliases ]; then
     cp $HOME/.bash_aliases $HOME/.bash_aliases.bak
