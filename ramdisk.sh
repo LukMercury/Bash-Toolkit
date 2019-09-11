@@ -1,8 +1,8 @@
 #!/bin/bash
 
 MOUNT_POINT=/mnt/ramdisk
-if [ ! -z $DIR ]; then
-    MOUNT_POINT=$DIR
+if [ ! -z "$2" ]; then
+    MOUNT_POINT="$2"
 fi
 
 # Maximum ramdisk size cannot exceed half of free memory
@@ -24,6 +24,18 @@ if [ "$1" == "u" ] || [ "$1" == "-u" ] || [ "$1" == "umount" ]; then
 elif [ "$1" == "s" ] || [ "$1" == "-s" ] || [ "$1" == "status" ]; then
     checkStatus
     exit 0
+fi
+
+if [ ! -d "$MOUNT_POINT" ]; then
+    read -N 1000000 -t 0.01 # Clear input 
+    echo -n "Mount point $MOUNT_POINT doesn't exist, create it? (y/N): "
+    read INPUT
+    if [ "$INPUT" == "y" ] || [ "$INPUT" == "Y" ]; then
+        mkdir -p "$MOUNT_POINT"
+    else
+        echo "Mountpoint for ramdisk not created"
+        exit 1
+    fi
 fi
 
 if [ -z "$1" ]; then
