@@ -1,10 +1,13 @@
 #!/bin/bash
 
 MOUNT_POINT=/mnt/ramdisk
+if [ ! -z $DIR ]; then
+    MOUNT_POINT=$DIR
+fi
 
 # Maximum ramdisk size cannot exceed half of free memory
 MAX_SIZE=$(($(free | head -2 | tail -1 | tr -s [:space:] | cut -d' ' -f7)/2000))
-DEFAULT_SIZE=500 # MB
+DEFAULT_SIZE=1000 # MB
 
 checkStatus()
 {
@@ -40,5 +43,4 @@ else
     echo "Ramdisk size cannot exceed half your free memory"
     exit 1
 fi
-
 
