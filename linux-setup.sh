@@ -351,7 +351,7 @@ sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
 # SETTINGS/nvim
 mkdir $HOME/.config/nvim
 cat /etc/vim/vimrc.local > $HOME/.config/nvim/init.vim
-sed -i 's/\~\/\.vim\/plugged/\~\.local\/share\/nvim\/plugged/' $HOME/.config/nvim/init.vim 
+sed -i 's/\~\/\.vim\/plugged/\~\/\.local\/share\/nvim\/plugged/' $HOME/.config/nvim/init.vim 
 echo "vnoremap <C-c> \"+y" >> $HOME/.config/nvim/init.vim
 echo "nnoremap <C-v> o<Esc>\"+p0" >> $HOME/.config/nvim/init.vim
 sed -i '5 i set nohlsearch' $HOME/.config/nvim/init.vim
