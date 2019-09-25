@@ -29,7 +29,6 @@ VIRTUALBOX=https://download.virtualbox.org/virtualbox/6.0.10/virtualbox-6.0_6.0.
 VBOX_EXTENSION_PACK=https://download.virtualbox.org/virtualbox/6.0.8/Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack
 TEAMSPEAK=http://dl.4players.de/ts/releases/3.2.2/TeamSpeak3-Client-linux_amd64-3.2.2.run
 DISCORD=https://discordapp.com/api/download?platform=linux&format=deb
-TEAMVIEWER=https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 ATOM=https://atom.io/download/deb
 DMD=http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb
 TOR_BROWSER=https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
@@ -198,12 +197,6 @@ sudo dpkg -i discord.deb
 rm -f discord.deb
 sudo apt install -f -y
 
-# INSTALL/TeamViewer
-wget -O teamviewer.deb $TEAMVIEWER 2> /dev/null # get rid of excessive output
-sudo dpkg -i teamviewer.deb
-rm -f teamviewer.deb
-sudo apt install -f -y
-
 # INSTALL/Download/Atom
 wget -O atom.deb $ATOM 2> /dev/null # get rid of excessive output
 sudo dpkg -i atom.deb
@@ -293,7 +286,7 @@ rm -rf $HOME/.oh-my-zsh/
 bash -c "$(curl -fsSL $ZSH_SETUP)"
 sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' $HOME/.zshrc
 # Make zsh your default shell (in case Oh-My-Zsh doesn't do it)
-chsh -s $(which zsh)
+chsh -s $(which zsh) $CURRENT_USER
 echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 
 # SETTINGS/Default Terminal Emulator
@@ -445,6 +438,7 @@ ln -s $HOME/Music/  $HOME/Desktop/Music
 ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
 ln -s "$CODE_FOLDER" $HOME/Desktop/Code
 ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Bash-Scripts
+ln -s "$SCRIPTS_FOLDER" $HOME/Bash-Scripts
 
 # SETTINGS/Autostart
 
