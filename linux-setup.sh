@@ -468,7 +468,7 @@ echo "Please exit the mc instance that opened, using File->Exit."
 read -N 1000000 -t 0.01 # Clear input for mc exit confirmation
 echo "Press ENTER to confirm."
 read CONFIRMATION
-sed -i 's/skin=default/skin=darkcourses_green.ini' $HOME/.config/mc/ini 
+sed -i 's/skin=default/skin=darkcourses_green/' $HOME/.config/mc/ini 
 
 # Cmus Taskbar Controls
 unzip "$(find $HOME -name cmus-taskbar-controls.zip 2> /dev/null | head -1)" -d $HOME/.cinnamon/configs/
