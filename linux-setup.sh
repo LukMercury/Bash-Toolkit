@@ -95,6 +95,7 @@ sudo apt install -y errno
 sudo apt install -y pstree
 sudo apt install -y finger
 sudo apt install -y xclip
+sudo apt install -y rwho
 sudo apt install -y openssh-server
 sudo apt install -y sshfs
 sudo apt install -y nnn
