@@ -109,6 +109,7 @@ sudo apt install -y psensor
 sudo apt install -y gkrellm
 sudo apt install -y g++
 sudo apt install -y ldc
+sudo apt install -y openjdk-8-jdk
 sudo apt install -y git
 sudo apt install -y cmake
 sudo apt install -y cmake-gui
