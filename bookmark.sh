@@ -54,7 +54,7 @@ case "$1" in
             echo "Enter search term(s) after 'search'"
         else
             shift
-            SEARCH_RESULTS="$(cat -n "$LOG_FILE" | grep "$1")"
+            SEARCH_RESULTS="$(cat -n "$LOG_FILE" | grep -i "$1")"
             shift 
             until [ -z "$1" ]; do
                 SEARCH_RESULTS="$(echo "$SEARCH_RESULTS" | grep "$1")"
