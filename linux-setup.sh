@@ -163,6 +163,7 @@ sudo apt install -y winehq-stable
 sudo apt install -y playonlinux
 sudo apt install -y lutris
 sudo apt install -y steam
+sudo apt install -y npm
 sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
 
