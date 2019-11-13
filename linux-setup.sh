@@ -110,6 +110,7 @@ sudo apt install -y gkrellm
 sudo apt install -y g++
 sudo apt install -y ldc
 sudo apt install -y openjdk-8-jdk
+sudo apt install -y php
 sudo apt install -y git
 sudo apt install -y cmake
 sudo apt install -y cmake-gui
@@ -123,7 +124,6 @@ sudo apt install -y python3-mutagen
 sudo apt install -y unrtf
 sudo apt install -y splint
 sudo apt install -y splint-doc-html
-sudo apt install -y octave
 sudo apt install -y liboctave-dev
 sudo apt install -y ddd
 sudo apt install -y ddd-doc
