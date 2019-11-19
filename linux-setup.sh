@@ -345,7 +345,7 @@ sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> /etc/vim/vimrc.local'
 sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
 
 # SETTINGS/nvim
-mkdir $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim
 cat /etc/vim/vimrc.local > $HOME/.config/nvim/init.vim
 sed -i 's/\~\/\.vim\/plugged/\~\/\.local\/share\/nvim\/plugged/' $HOME/.config/nvim/init.vim 
 echo "vnoremap <C-c> \"+y" >> $HOME/.config/nvim/init.vim
