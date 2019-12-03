@@ -25,7 +25,6 @@ USAGE="\nDefault - add clipboard entry to Bookmarks
 addBookmark()
 {
     powershell.exe Get-Clipboard >> "$LOG_FILE" 
-    sed -i '$d' "$LOG_FILE"
     if [ $? -eq 0 ]; then
         echo "added to Bookmarks: $(powershell.exe Get-Clipboard)"
     fi
@@ -35,7 +34,6 @@ addBookmark()
 reAddBookmark()
 {
     powershell.exe Get-Clipboard >> "$LOG_FILE" 
-    sed -i '$d' "$LOG_FILE"
     if [ $? -eq 0 ]; then
         echo "added to Bookmarks: $(powershell.exe Get-Clipboard)"
     fi
