@@ -92,11 +92,11 @@ case "$1" in
     # Delete last entry (no second argument) or delete entry [number]
     "delete" | "del" | "-d")
         if [ -z "$2" ]; then
-            echo -n "$(tail -1 $LOG_FILE)" | clip.exe
+            echo -n "$(tail -1 $LOG_FILE)" | tr -d '\r' | clip.exe
             echo "removed from Bookmarks: $(tail -1 $LOG_FILE)"
             sed -i '$d' "$LOG_FILE"
         elif [[ "$2" =~ ^[0-9]+$ ]]; then   # check if numerical
-            echo -n "$(head -n "$2" $LOG_FILE | tail -1)" | clip.exe
+            echo -n "$(head -n "$2" $LOG_FILE | tail -1)" | tr -d '\r' | clip.exe
             echo "removed from Bookmarks: $(head -n "$2" $LOG_FILE | tail -1)"
             sed -i "$2d" "$LOG_FILE"
         else
