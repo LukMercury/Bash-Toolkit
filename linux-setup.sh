@@ -92,7 +92,6 @@ sudo apt install -y mc
 sudo apt install -y tree
 sudo apt install -y top
 sudo apt install -y htop
-sudo apt install -y sysv-rc-conf
 sudo apt install -y errno
 sudo apt install -y pstree
 sudo apt install -y finger
