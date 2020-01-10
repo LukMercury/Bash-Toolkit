@@ -417,6 +417,7 @@ ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
 ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
 ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
 ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
+ln -s "$SCRIPTS_FOLDER/edit-mysetup.sh" $HOME/bin/edit-mysetup
 # Cmus
 ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
 ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" $HOME/bin/cmus-save     
