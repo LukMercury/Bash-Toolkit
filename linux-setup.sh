@@ -82,7 +82,6 @@ sudo apt autoclean -y
 sudo apt install -y firefox
 sudo apt install -y firefox-locale-en
 sudo apt install -y vim
-sudo apt install -y ne
 sudo apt install -y doublecmd-gtk
 rm -f $HOME/.zshrc
 sudo apt install -y zsh
