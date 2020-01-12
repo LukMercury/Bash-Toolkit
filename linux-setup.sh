@@ -167,6 +167,12 @@ sudo apt install -y npm
 sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
 
+# INSTALL/npm
+npm install jsonlint -g
+
+# INSTALL/nvm
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+
 # INSTALL/flatpak
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -364,7 +370,11 @@ vim -c PlugInstall -c qa
 nvim -c PlugInstall -c qa
 
 # SETTINGS/.profile
-echo -e "\nexport DIR=$HOME\n" >> $HOME/.profile
+echo >> $HOME/.profile
+echo '# nvm' >> $HOME/.profile
+echo 'export NVM_DIR="$HOME/.nvm"' >> $HOME/.profile
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> $HOME/.profile
+echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion' >> $HOME/.profile
 
 # SETTINGS/Aliases
 if [ -f $HOME/.bash_aliases ]; then
@@ -391,7 +401,6 @@ ln -s "$SCRIPTS_FOLDER/currency-converter/gbp.sh" $HOME/bin/gbp
 ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
 ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
 ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
-ln -s "$SCRIPTS_FOLDER/get-dir.sh" $HOME/bin/get-dir
 ln -s "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
 ln -s "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
 ln -s "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
@@ -402,8 +411,6 @@ ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
 ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
 ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
 ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
-ln -s "$SCRIPTS_FOLDER/end-session.sh" $HOME/bin/end-session
-ln -s "$SCRIPTS_FOLDER/safe-reboot.sh" $HOME/bin/safe-reboot
 ln -s "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
 ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
 ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
@@ -416,7 +423,7 @@ ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
 ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
 ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
 ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
-ln -s "$SCRIPTS_FOLDER/edit-mysetup.sh" $HOME/bin/edit-mysetup
+ln -s "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/redit-server-env
 # Cmus
 ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
 ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" $HOME/bin/cmus-save     
