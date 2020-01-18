@@ -32,6 +32,11 @@ DISCORD=https://discordapp.com/api/download?platform=linux&format=deb
 ATOM=https://atom.io/download/deb
 DMD=http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb
 TOR_BROWSER=https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
+CLION=https://download.jetbrains.com/cpp/CLion-2019.3.2.tar.gz
+PHPSTORM=https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz
+WEBSTORM=https://download.jetbrains.com/webstorm/WebStorm-2019.3.1.tar.gz
+PYCHARM=https://download.jetbrains.com/python/pycharm-professional-2019.3.1.tar.gz
+INTELLIJ=https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -63,6 +68,9 @@ sudo add-apt-repository -y ppa:nilarimogard/webupd8
 # REPOSITORIES/Typora
 wget -qO- https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository -y 'deb https://typora.io/linux ./'
+
+# REPOSITORIES/f.lux
+sudo add-apt-repository ppa:nathan-renniewaldock/flux
 
 
 # INSTALL
@@ -107,6 +115,7 @@ sudo apt install -y gparted
 sudo apt install -y woeusb
 sudo apt install -y psensor
 sudo apt install -y gkrellm
+sudo apt install -y fluxgui
 sudo apt install -y g++
 sudo apt install -y ldc
 sudo apt install -y openjdk-8-jdk
@@ -154,11 +163,11 @@ sudo apt install -y dict-freedict-eng-fra
 sudo apt install -y dict-freedict-fra-eng
 sudo apt install -y dict-freedict-eng-rom
 sudo apt install -y gimp
-sudo apt install -y nvidia-driver-430 
-sudo apt install -y libnvidia-gl-430
-sudo apt install -y libnvidia-gl-430:i386
-sudo apt install -y libvulkan1 
-sudo apt install -y libvulkan1:i386
+#sudo apt install -y nvidia-driver-430 
+#sudo apt install -y libnvidia-gl-430
+#sudo apt install -y libnvidia-gl-430:i386
+#sudo apt install -y libvulkan1 
+#sudo apt install -y libvulkan1:i386
 sudo apt install -y winehq-stable
 sudo apt install -y playonlinux
 sudo apt install -y lutris
@@ -201,23 +210,53 @@ sudo mv TeamSpeak* /opt/
 echo "TeamSpeak: create a lanucher pointing to /opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh" 1>&2
 
 # INSTALL/Download/Discord
-wget -O discord.deb $DISCORD 2> /dev/null   # get rid of excessive output
+wget -O discord.deb $DISCORD 2> /dev/null   
 sudo dpkg -i discord.deb
 rm -f discord.deb
 sudo apt install -f -y
 
 # INSTALL/Download/Atom
-wget -O atom.deb $ATOM 2> /dev/null # get rid of excessive output
+wget -O atom.deb $ATOM 2> /dev/null 
 sudo dpkg -i atom.deb
 rm -f atom.deb
 
 # INSTALL/Download/DMD
-wget -O dmd.deb $DMD 2> /dev/null    # get rid of excessive output 
+wget -O dmd.deb $DMD 2> /dev/null    
 sudo dpkg -i dmd.deb
 rm -f dmd.deb
 
+# INSTALL/Clion
+wget -O clion.tar.gz $CLION 2> /dev/null 
+tar -xzvf clion.tar.gz
+sudo mv CLion* /opt/
+rm -rf clion.tar.gz
+
+# INSTALL/PhpStorm
+wget -O phpstorm.tar.gz $PHPSTORM 2> /dev/null 
+tar -xzvf phpstorm.tar.gz
+sudo mv PhpStorm* /opt/
+rm -rf phpstorm.tar.gz
+
+# INSTALL/WebStorm
+wget -O webstorm.tar.gz $WEBSTORM 2> /dev/null 
+tar -xzvf webstorm.tar.gz
+sudo mv WebStorm* /opt/
+rm -rf webstorm.tar.gz
+
+# INSTALL/PyCharm
+wget -O pycharm.tar.gz $PYCHARM 2> /dev/null 
+tar -xzvf pycharm.tar.gz
+sudo mv PyCharm* /opt/
+rm -rf pycharm.tar.gz
+
+# INSTALL/IntelliJ IDEA
+wget -O ideaui.tar.gz $CLION 2> /dev/null 
+tar -xzvf ideaui.tar.gz
+sudo mv idea-UI* /opt/
+rm -rf ideaui.tar.gz
+
 # INSTALL/Download/Tor Browser
-wget -O tor-browser.tar.xz $TOR_BROWSER 2> /dev/null    # get rid of excessive output
+wget -O tor-browser.tar.xz $TOR_BROWSER 2> /dev/null    
 tar -xvf tor-browser.tar.xz
 sudo mv tor-browser_en-US /opt/
 echo "Tor Browser installed in /opt. Create menu launcher manually." 1>&2
