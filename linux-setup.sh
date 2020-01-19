@@ -177,7 +177,7 @@ sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
 
 # INSTALL/npm
-npm install jsonlint -g
+sudo npm install jsonlint -g
 
 # INSTALL/nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
