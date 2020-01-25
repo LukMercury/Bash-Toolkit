@@ -319,6 +319,7 @@ read -s PASSWORD
 echo "Confirm your password: "
 read -s PASSWORD2
 while [ "$PASSWORD" != "$PASSWORD2" ]; do
+    read -N 1000000 -t 0.001 # Clear input for email address read
     echo "The passwords did not match. Try again."
     echo "Enter your password: "
     read -s PASSWORD
