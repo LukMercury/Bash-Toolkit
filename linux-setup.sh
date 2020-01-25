@@ -49,6 +49,22 @@ fi
 cd "$RUN_FOLDER" # additional files will be created in this folder
 exec 2> install-log.txt # send error stream to log file
 
+# Desktop Environment - Gnome or KDE
+read -N 1000000 -t 0.001 # Clear input
+read -p "Gnome or KDE? (g/k): " X_VERSION
+while [ "$X_VERSION" != "g" ] || [ "$X_VERSION" != "k" ]; do
+    read -N 1000000 -t 0.001 # Clear input
+    read -p "Please enter 'g' or 'k': " X_VERSION
+done
+
+# Graphics - Nvidia or AMD
+#read -N 1000000 -t 0.001 # Clear input
+#read -p "Nvidia or AMD? (n/a): " GRAPHICS_CARD
+#while [ "$GRAPHICS_CARD" != "g" ] || [ "$GRAPHICS_CARD" != "k" ]; do
+#    read -N 1000000 -t 0.001 # Clear input
+#    read -p "Please enter 'n' or 'a': " GRAPHICS_CARD
+#done
+
 # REPOSITORIES
 
 # REPOSITORIES/Sublime Text
@@ -75,6 +91,9 @@ sudo add-apt-repository ppa:nathan-renniewaldock/flux
 
 # INSTALL
 
+# INSTALL/add architecture
+sudo dpkg --add-architecture i386
+
 # INSTALL/apt
 
 sudo apt update -y
@@ -90,7 +109,6 @@ sudo apt autoclean -y
 sudo apt install -y firefox
 sudo apt install -y firefox-locale-en
 sudo apt install -y vim
-sudo apt install -y doublecmd-gtk
 rm -f $HOME/.zshrc
 sudo apt install -y zsh
 sudo apt install -y tmux
@@ -163,11 +181,13 @@ sudo apt install -y dict-freedict-eng-fra
 sudo apt install -y dict-freedict-fra-eng
 sudo apt install -y dict-freedict-eng-rom
 sudo apt install -y gimp
-#sudo apt install -y nvidia-driver-430 
-#sudo apt install -y libnvidia-gl-430
-#sudo apt install -y libnvidia-gl-430:i386
-#sudo apt install -y libvulkan1 
-#sudo apt install -y libvulkan1:i386
+# Wine dependencies
+sudo apt install -y libgnutls30:i386 
+sudo apt install -y libldap-2.4-2:i386 
+sudo apt install -y libgpg-error0:i386 
+sudo apt install -y libsqlite3-0:i386
+
+#
 sudo apt install -y winehq-stable
 sudo apt install -y playonlinux
 sudo apt install -y lutris
@@ -175,6 +195,19 @@ sudo apt install -y steam
 sudo apt install -y npm
 sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
+
+# INSTALL/apt/gnome or kde
+if [ "$X_VERSION" == "g" ]; then
+    sudo apt install -y doublecmd-gtk
+    sudo apt install -y gnome-tweak
+else if [ "$X_VERSION" == "k" ]; then
+    sudo apt install -y doublecmd-qt
+fi
+
+# INSTALL/apt/Nvidia or AMD
+#if [ "$GRAPHICS_CARD" == "n" ]; then
+#else if [ "$GRAPHICS_CARD" == "a" ]; then
+#fi
 
 # INSTALL/npm
 sudo npm install jsonlint -g
