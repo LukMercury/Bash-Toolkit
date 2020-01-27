@@ -41,7 +41,7 @@ PHPSTORM=https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz
 WEBSTORM=https://download.jetbrains.com/webstorm/WebStorm-2019.3.1.tar.gz
 PYCHARM=https://download.jetbrains.com/python/pycharm-professional-2019.3.1.tar.gz
 INTELLIJ=https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz
-GIT_KRAKEN=https://release.axocdn.com/linux/gitkraken-amd64.deb
+GIT_KRAKEN=https://release.axocdn.com/linux/gitkraken-amd64.tar.gz
 POSTMAN=https://dl.pstmn.io/download/latest/linux64
 MYSQL_WORKBENCH=https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.19-1ubuntu19.10_amd64.deb
 
@@ -305,9 +305,10 @@ rm -rf ideaiu.tar.gz
 sudo mv idea-IU* /opt/
 
 # INSTALL/Download/Git Kraken
-wget -O gitkraken.deb $GIT_KRAKEN 2> /dev/null    
-sudo dpkg -i gitkraken.deb || sudo apt install -f -y
-rm -f gitkraken.deb
+wget -O gitkraken.tar.gz $GIT_KRAKEN 2> /dev/null    
+tar -xzvf gitkraken.tar.gz
+rm -f gitkraken.tar.gz
+sudo mv gitkraken* /opt/
 
 # INSTALL/Download/Postman
 wget -O postman.tar.gz $POSTMAN 2> /dev/null 
