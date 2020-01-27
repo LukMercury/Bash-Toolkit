@@ -301,10 +301,10 @@ rm -rf pycharm.tar.gz
 sudo mv pycharm* /opt/
 
 # INSTALL/IntelliJ IDEA
-wget -O ideaui.tar.gz $CLION 2> /dev/null 
-tar -xzvf ideaui.tar.gz
-rm -rf ideaui.tar.gz
-sudo mv idea-UI* /opt/
+wget -O ideaiu.tar.gz $CLION 2> /dev/null 
+tar -xzvf ideaiu.tar.gz
+rm -rf ideaiu.tar.gz
+sudo mv idea-IU* /opt/
 
 # INSTALL/Download/Skype
 wget -O skype.deb $SKYPE 2> /dev/null    
