@@ -241,9 +241,8 @@ echo "Run install-uberwriter.sh after reboot." 1>&2
 
 # INSTALL/Download/VirtualBox
 wget -O virtualbox.deb $VIRTUALBOX 2> /dev/null # get rid of excessive output
-sudo dpkg -i virtualbox.deb
+sudo dpkg -i virtualbox.deb || sudo apt install -f -y
 rm -f virtualbox.deb
-sudo apt install -f -y
 wget $VBOX_EXTENSION_PACK 2> /dev/null  # get rid of excessive output
 echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
 
@@ -257,27 +256,23 @@ echo "TeamSpeak: create a lanucher pointing to /opt/TeamSpeak3-Client-linux_amd6
 
 # INSTALL/Download/Discord
 wget -O discord.deb $DISCORD 2> /dev/null   
-sudo dpkg -i discord.deb
+sudo dpkg -i discord.deb || sudo apt install -f -y
 rm -f discord.deb
-sudo apt install -f -y
 
 # INSTALL/Download/TeamViewer
 wget -O teamviewer.deb $TEAMVIEWER 2> /dev/null   
-sudo dpkg -i teamviewer.deb
+sudo dpkg -i teamviewer.deb || sudo apt install -f -y
 rm -f teamviewer.deb
-sudo apt install -f -y
 
 # INSTALL/Download/Atom
 wget -O atom.deb $ATOM 2> /dev/null 
-sudo dpkg -i atom.deb
+sudo dpkg -i atom.deb || sudo apt install -f -y
 rm -f atom.deb
-sudo apt install -f -y
 
 # INSTALL/Download/DMD
 wget -O dmd.deb $DMD 2> /dev/null    
-sudo dpkg -i dmd.deb
+sudo dpkg -i dmd.deb || sudo apt install -f -y
 rm -f dmd.deb
-sudo apt install -f -y
 
 # INSTALL/Download/Clion
 wget -O clion.tar.gz $CLION 2> /dev/null 
@@ -311,9 +306,8 @@ sudo mv idea-IU* /opt/
 
 # INSTALL/Download/Git Kraken
 wget -O gitkraken.deb $GIT_KRAKEN 2> /dev/null    
-sudo dpkg -i gitkraken.deb
+sudo dpkg -i gitkraken.deb || sudo apt install -f -y
 rm -f gitkraken.deb
-sudo apt install -f -y
 
 # INSTALL/Download/Postman
 wget -O postman.tar.gz $POSTMAN 2> /dev/null 
@@ -323,15 +317,13 @@ sudo mv Postman /opt/
 
 # INSTALL/Download/Mysql Workbench
 wget -O mysql-workbench.deb $MYSQL_WORKBENCH 2> /dev/null    
-sudo dpkg -i mysql-workbench.deb
+sudo dpkg -i mysql-workbench.deb || sudo apt install -f -y
 rm -f mysql-workbench.deb
-sudo apt install -f -y
 
 # INSTALL/Download/Skype
 wget -O skype.deb $SKYPE 2> /dev/null    
-sudo dpkg -i skype.deb
+sudo dpkg -i skype.deb || sudo apt install -f -y
 rm -f skype.deb
-sudo apt install -f -y
 
 # INSTALL/Download/Tor Browser
 wget -O tor-browser.tar.xz $TOR_BROWSER 2> /dev/null    
