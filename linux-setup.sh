@@ -176,6 +176,7 @@ sudo apt install -y audacious
 sudo apt install -y audacious-plugins
 sudo apt install -y vlc
 sudo apt install -y finch
+sudo apt install -y alacarte
 sudo apt install -y dropbox
 sudo apt install -y skypeforlinux
 sudo apt install -y qbittorrent
