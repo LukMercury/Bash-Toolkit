@@ -2,35 +2,39 @@
 
 # Linux post install setup file
 # Created by Mihai Luca <mihailuca406@gmail.com>
-# Distribution currently used: Feren OS based on Ubuntu/Mint
+# Distribution currently used: Pop!_OS based on Ubuntu
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
 # VARIABLES
 
 # SMTP Server variable is configured in the SETTINGS/Email section
-MAIN_EMAIL=mihailuca406@gmail.com
-GIT_EMAIL=$MAIN_EMAIL
-FIRSTNAME=Mihai
-LASTNAME=Luca
-RUN_FOLDER=$HOME/Desktop
-SCRIPTS_FOLDER=$HOME/Dropbox/Bash-Scripts
-BINARIES_FOLDER=$HOME/Dropbox/bin
-CODE_FOLDER=$HOME/Dropbox/Code
-RAMDISK_MOUNT_POINT=/mnt/ramdisk
-UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
+export MAIN_EMAIL=mihailuca406@gmail.com
+export GIT_EMAIL=$MAIN_EMAIL
+export FIRSTNAME=Mihai
+export LASTNAME=Luca
+export RUN_FOLDER=$HOME/Desktop
+export SCRIPTS_FOLDER=$HOME/Dropbox/Bash-Scripts
+export BINARIES_FOLDER=$HOME/Dropbox/bin
+export CODE_FOLDER=$HOME/Dropbox/Code
+export RAMDISK_MOUNT_POINT=/mnt/ramdisk
+export UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
 export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
 export CURRENT_USER=$USER
+export CURRENT_HOME=$HOME
+export HOSTNAME=forge
 
 # ONLINE SOURCES
 
 ZSH_SETUP=https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-VIRTUALBOX=https://download.virtualbox.org/virtualbox/6.0.10/virtualbox-6.0_6.0.10-132072~Ubuntu~bionic_amd64.deb
+VIRTUALBOX=https://download.virtualbox.org/virtualbox/6.1.2/virtualbox-6.1_6.1.2-135662~Ubuntu~eoan_amd64.deb
 VBOX_EXTENSION_PACK=https://download.virtualbox.org/virtualbox/6.0.8/Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack
 TEAMSPEAK=http://dl.4players.de/ts/releases/3.2.2/TeamSpeak3-Client-linux_amd64-3.2.2.run
 DISCORD=https://discordapp.com/api/download?platform=linux&format=deb
+TEAMVIEWER=https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 ATOM=https://atom.io/download/deb
 DMD=http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb
+SKYPE=https://go.skype.com/skypeforlinux-64.deb
 TOR_BROWSER=https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
 CLION=https://download.jetbrains.com/cpp/CLion-2019.3.2.tar.gz
 PHPSTORM=https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz
@@ -51,18 +55,22 @@ exec 2> install-log.txt # send error stream to log file
 
 # Desktop Environment - Gnome or KDE
 read -N 1000000 -t 0.001 # Clear input
-read -p "Gnome or KDE? (g/k): " X_VERSION
-while [ "$X_VERSION" != "g" ] || [ "$X_VERSION" != "k" ]; do
+echo -n "Gnome or KDE? (g/k): " 
+read X_VERSION
+while [ "$X_VERSION" != "g" ] && [ "$X_VERSION" != "k" ]; do
     read -N 1000000 -t 0.001 # Clear input
-    read -p "Please enter 'g' or 'k': " X_VERSION
+    echo -n "Please enter 'g' or 'k': " 
+    read X_VERSION
 done
 
 # Graphics - Nvidia or AMD
 #read -N 1000000 -t 0.001 # Clear input
-#read -p "Nvidia or AMD? (n/a): " GRAPHICS_CARD
-#while [ "$GRAPHICS_CARD" != "g" ] || [ "$GRAPHICS_CARD" != "k" ]; do
+#echo -n "Nvidia or AMD? (n/a): " 
+#read GRAPHICS_CARD
+#while [ "$GRAPHICS_CARD" != "g" ] && [ "$GRAPHICS_CARD" != "k" ]; do
 #    read -N 1000000 -t 0.001 # Clear input
-#    read -p "Please enter 'n' or 'a': " GRAPHICS_CARD
+#echo -n "Please enter 'n' or 'a': " 
+#    read GRAPHICS_CARD
 #done
 
 # REPOSITORIES
@@ -72,7 +80,7 @@ wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add 
 sudo bash -c 'echo "deb https://download.sublimetext.com/ apt/stable/" > /etc/apt/sources.list.d/sublime-text.list'
 
 # REPOSITORIES/Wine
-wget -nc https://dl.winehq.org/wine-builds/Release.key -O- | sudo apt-key add -
+wget -nc https://dl.winehq.org/wine-builds/winehq.key -O- | sudo apt-key add -
 sudo apt-add-repository -y "deb https://dl.winehq.org/wine-builds/ubuntu/ $UBUNTU_CODENAME main"
 
 # REPOSITORIES/Lutris
@@ -84,9 +92,6 @@ sudo add-apt-repository -y ppa:nilarimogard/webupd8
 # REPOSITORIES/Typora
 wget -qO- https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository -y 'deb https://typora.io/linux ./'
-
-# REPOSITORIES/f.lux
-sudo add-apt-repository ppa:nathan-renniewaldock/flux
 
 
 # INSTALL
@@ -105,10 +110,12 @@ sudo apt purge -y feren-vivaldi-theme
 # Cleanup
 sudo apt autoremove -y
 sudo apt autoclean -y
+sudo apt install -f -y
 # Install
 sudo apt install -y firefox
 sudo apt install -y firefox-locale-en
 sudo apt install -y vim
+sudo apt install -y neovim
 rm -f $HOME/.zshrc
 sudo apt install -y zsh
 sudo apt install -y tmux
@@ -117,6 +124,7 @@ sudo apt install -y mc
 sudo apt install -y tree
 sudo apt install -y top
 sudo apt install -y htop
+sudo apt install -y anacron
 sudo apt install -y errno
 sudo apt install -y pstree
 sudo apt install -y finger
@@ -133,7 +141,6 @@ sudo apt install -y gparted
 sudo apt install -y woeusb
 sudo apt install -y psensor
 sudo apt install -y gkrellm
-sudo apt install -y fluxgui
 sudo apt install -y g++
 sudo apt install -y ldc
 sudo apt install -y openjdk-8-jdk
@@ -167,6 +174,7 @@ sudo apt install -y typora
 sudo apt install -y cmus
 sudo apt install -y audacious
 sudo apt install -y audacious-plugins
+sudo apt install -y vlc
 sudo apt install -y finch
 sudo apt install -y dropbox
 sudo apt install -y skypeforlinux
@@ -188,7 +196,7 @@ sudo apt install -y libgpg-error0:i386
 sudo apt install -y libsqlite3-0:i386
 
 #
-sudo apt install -y winehq-stable
+sudo apt install -y --install-recommends winehq-stable
 sudo apt install -y playonlinux
 sudo apt install -y lutris
 sudo apt install -y steam
@@ -199,14 +207,14 @@ sudo apt install -y gnome-software-plugin-flatpak
 # INSTALL/apt/gnome or kde
 if [ "$X_VERSION" == "g" ]; then
     sudo apt install -y doublecmd-gtk
-    sudo apt install -y gnome-tweak
-else if [ "$X_VERSION" == "k" ]; then
+    sudo apt install -y gnome-tweaks
+else 
     sudo apt install -y doublecmd-qt
 fi
 
 # INSTALL/apt/Nvidia or AMD
 #if [ "$GRAPHICS_CARD" == "n" ]; then
-#else if [ "$GRAPHICS_CARD" == "a" ]; then
+#else
 #fi
 
 # INSTALL/npm
@@ -231,6 +239,7 @@ echo "Run install-uberwriter.sh after reboot." 1>&2
 wget -O virtualbox.deb $VIRTUALBOX 2> /dev/null # get rid of excessive output
 sudo dpkg -i virtualbox.deb
 rm -f virtualbox.deb
+sudo apt install -f -y
 wget $VBOX_EXTENSION_PACK 2> /dev/null  # get rid of excessive output
 echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
 
@@ -248,45 +257,59 @@ sudo dpkg -i discord.deb
 rm -f discord.deb
 sudo apt install -f -y
 
+# INSTALL/Download/TeamViewer
+wget -O teamviewer.deb $TEAMVIEWER 2> /dev/null   
+sudo dpkg -i teamviewer.deb
+rm -f teamviewer.deb
+sudo apt install -f -y
+
 # INSTALL/Download/Atom
 wget -O atom.deb $ATOM 2> /dev/null 
 sudo dpkg -i atom.deb
 rm -f atom.deb
+sudo apt install -f -y
 
 # INSTALL/Download/DMD
 wget -O dmd.deb $DMD 2> /dev/null    
 sudo dpkg -i dmd.deb
 rm -f dmd.deb
+sudo apt install -f -y
 
 # INSTALL/Clion
 wget -O clion.tar.gz $CLION 2> /dev/null 
 tar -xzvf clion.tar.gz
-sudo mv CLion* /opt/
 rm -rf clion.tar.gz
+sudo mv clion* /opt/
 
 # INSTALL/PhpStorm
 wget -O phpstorm.tar.gz $PHPSTORM 2> /dev/null 
 tar -xzvf phpstorm.tar.gz
-sudo mv PhpStorm* /opt/
 rm -rf phpstorm.tar.gz
+sudo mv PhpStorm* /opt/
 
 # INSTALL/WebStorm
 wget -O webstorm.tar.gz $WEBSTORM 2> /dev/null 
 tar -xzvf webstorm.tar.gz
-sudo mv WebStorm* /opt/
 rm -rf webstorm.tar.gz
+sudo mv WebStorm* /opt/
 
 # INSTALL/PyCharm
 wget -O pycharm.tar.gz $PYCHARM 2> /dev/null 
 tar -xzvf pycharm.tar.gz
-sudo mv PyCharm* /opt/
 rm -rf pycharm.tar.gz
+sudo mv pycharm* /opt/
 
 # INSTALL/IntelliJ IDEA
 wget -O ideaui.tar.gz $CLION 2> /dev/null 
 tar -xzvf ideaui.tar.gz
-sudo mv idea-UI* /opt/
 rm -rf ideaui.tar.gz
+sudo mv idea-UI* /opt/
+
+# INSTALL/Download/Skype
+wget -O skype.deb $SKYPE 2> /dev/null    
+sudo dpkg -i skype.deb
+rm -f skype.deb
+sudo apt install -f -y
 
 # INSTALL/Download/Tor Browser
 wget -O tor-browser.tar.xz $TOR_BROWSER 2> /dev/null    
@@ -368,10 +391,16 @@ rm -rf $HOME/.oh-my-zsh/
 bash -c "$(curl -fsSL $ZSH_SETUP)"
 sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukerandall"/' $HOME/.zshrc
 # Make zsh your default shell (in case Oh-My-Zsh doesn't do it)
-chsh -s $(which zsh) $CURRENT_USER
+read -N 1000000 -t 0.001 # Clear input
+echo "Changing default shell to zsh."
+echo -n "Please enter your sudo password: "
+read -s PASSWORD
+echo $PASSWORD | chsh -s $(which zsh) $CURRENT_USER
 echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
+unset PASSWORD
 
 # SETTINGS/Default Terminal Emulator
+which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 
 # SETTINGS/grub
@@ -388,44 +417,44 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # SETTINGS/vimrc 1 (same as nvim/init.vim)
-sudo -E bash -c 'echo "\" $CURRENT_USER" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "\" set background=dark" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set number" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set is" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set cindent" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set expandtab" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set tabstop=4" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set shiftwidth=4" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set mouse=a" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set splitright" >> /etc/vim/vimrc.local'
+sudo -E bash -c 'echo "\" $CURRENT_USER" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "\" set background=dark" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set number" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set is" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set cindent" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set expandtab" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set tabstop=4" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set shiftwidth=4" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set mouse=a" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set splitright" >> $CURRENT_HOME/.vimrc'
 # Plug
-sudo bash -c 'echo >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "call plug#begin('\''~/.vim/plugged'\'')" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "Plug '\''https://github.com/NLKNguyen/papercolor-theme'\''" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "call plug#end()" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo >> /etc/vim/vimrc.local'
+sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "call plug#begin('\''~/.vim/plugged'\'')" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "Plug '\''https://github.com/NLKNguyen/papercolor-theme'\''" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "call plug#end()" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
 # Color Theme
-sudo bash -c 'echo "set t_Co=256" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "set background=dark" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "colorscheme PaperColor" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "set t_Co=256" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "set background=dark" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "colorscheme PaperColor" >> $CURRENT_HOME/.vimrc'
 # Keyboard Shortcuts remap
-sudo bash -c 'echo >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "tnoremap <Esc><Esc> <C-\><C-n>" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "tnoremap <C-h> <C-\><C-n><C-w>h" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "tnoremap <C-j> <C-\><C-n><C-w>j" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "tnoremap <C-k> <C-\><C-n><C-w>k" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "tnoremap <C-l> <C-\><C-n><C-w>l" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "nnoremap <C-h> <C-w>h" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "nnoremap <C-j> <C-w>j" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "tnoremap <Esc><Esc> <C-\><C-n>" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "tnoremap <C-h> <C-\><C-n><C-w>h" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "tnoremap <C-j> <C-\><C-n><C-w>j" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "tnoremap <C-k> <C-\><C-n><C-w>k" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "tnoremap <C-l> <C-\><C-n><C-w>l" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "nnoremap <C-h> <C-w>h" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "nnoremap <C-j> <C-w>j" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> $CURRENT_HOME/.vimrc'
 
 # SETTINGS/nvim
 mkdir -p $HOME/.config/nvim
-cat /etc/vim/vimrc.local > $HOME/.config/nvim/init.vim
+cat $CURRENT_HOME/.vimrc > $HOME/.config/nvim/init.vim
 sed -i 's/\~\/\.vim\/plugged/\~\/\.local\/share\/nvim\/plugged/' $HOME/.config/nvim/init.vim 
 echo "vnoremap <C-c> \"+y" >> $HOME/.config/nvim/init.vim
 echo "nnoremap <C-v> o<Esc>\"+p0" >> $HOME/.config/nvim/init.vim
@@ -433,32 +462,42 @@ sed -i '5 i set nohlsearch' $HOME/.config/nvim/init.vim
 sed -i '13 i set nomodeline' $HOME/.config/nvim/init.vim
 
 # SETTINGS/vimrc 2 (different from nvim/init.vim)
-sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> /etc/vim/vimrc.local'
-sudo bash -c 'echo "vnoremap <C-v> :r !xclip -sel c -o<CR>" >> /etc/vim/vimrc.local'
+sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> $CURRENT_HOME/.vimrc'
+sudo bash -c 'echo "vnoremap <C-v> :r !xclip -sel c -o<CR>" >> $CURRENT_HOME/.vimrc'
 
 # SETTINGS/vim/PlugInstall
 vim -c PlugInstall -c qa
 
-# SETTINGS/nvim/PlugInstall
-nvim -c PlugInstall -c qa
+# settings/nvim/pluginstall
+nvim -c pluginstall -c qa
 
-# SETTINGS/.profile
-echo >> $HOME/.profile
-echo '# nvm' >> $HOME/.profile
-echo 'export NVM_DIR="$HOME/.nvm"' >> $HOME/.profile
-echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> $HOME/.profile
-echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion' >> $HOME/.profile
+# settings/.profile
+# add $home/bin to path if it exists
+if [ ! -f $home/.profile ] || [ $(wc -l < $home/.profile) -eq 0 ]; then
+    echo -e "if [ -d \$home/bin ]; then" >> $home/.profile
+    echo -e "    export path=\$path:\$home/bin" >> $home/.profile
+    echo "fi" >> $home/.profile
+fi
+# nvm
+echo >> $home/.profile
+echo '# nvm' >> $home/.profile
+echo 'export nvm_dir="$home/.nvm"' >> $home/.profile
+echo '[ -s "$nvm_dir/nvm.sh" ] && \. "$nvm_dir/nvm.sh"  # this loads nvm' >> $home/.profile
+echo '[ -s "$nvm_dir/bash_completion" ] && \. "$nvm_dir/bash_completion"  # this loads nvm bash_completion' >> $home/.profile
 
-# SETTINGS/Aliases
-if [ -f $HOME/.bash_aliases ]; then
-    cp $HOME/.bash_aliases $HOME/.bash_aliases.bak
-    > $HOME/.bash_aliases
+# settings/aliases
+if [ -f $home/.bash_aliases ]; then
+    cp $home/.bash_aliases $home/.bash_aliases.bak
+    > $home/.bash_aliases
 fi
 
-echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
-echo "alias tmux='tmux -2'" >> $HOME/.bash_aliases
-echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
-echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
+echo "alias xclip='xclip -selection c'" >> $home/.bash_aliases
+echo "alias tmux='tmux -2'" >> $home/.bash_aliases
+echo "alias subl='xrun subl'" >> $home/.bash_aliases
+echo "alias smerge='xrun smerge'" >> $home/.bash_aliases
+
+# SETTINGS/anacrontab
+sudo -E bash -c 'echo -e "25\t5\tcron.monthly\t/bin/bash\t$SCRIPTS_FOLDER/monthly.sh" >> /etc/anacrontab'
 
 # SETTINGS/Ramdisk
 sudo mkdir $RAMDISK_MOUNT_POINT
@@ -466,78 +505,78 @@ sudo mkdir $RAMDISK_MOUNT_POINT
 # SETTINGS/Folders and Links
 
 # ~/bin/
-mkdir $HOME/bin/
+#mkdir $HOME/bin/
 # Scripts
-ln -s "$SCRIPTS_FOLDER/currency-converter/eur.sh" $HOME/bin/eur
-ln -s "$SCRIPTS_FOLDER/currency-converter/usd.sh" $HOME/bin/usd
-ln -s "$SCRIPTS_FOLDER/currency-converter/gbp.sh" $HOME/bin/gbp
-ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
-ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
-ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
-ln -s "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
-ln -s "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
-ln -s "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
-ln -s "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
-ln -s "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
-ln -s "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
-ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
-ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
-ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
-ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
-ln -s "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
-ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
-ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
-ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
-ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
-ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
-ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" $HOME/bin/wtwitch
-ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" $HOME/bin/sc2streams
-ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
-ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
-ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
-ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
-ln -s "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/redit-server-env
+#ln -s "$SCRIPTS_FOLDER/currency-converter/eur.sh" $HOME/bin/eur
+#ln -s "$SCRIPTS_FOLDER/currency-converter/usd.sh" $HOME/bin/usd
+#ln -s "$SCRIPTS_FOLDER/currency-converter/gbp.sh" $HOME/bin/gbp
+#ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
+#ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
+#ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
+#ln -s "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
+#ln -s "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
+#ln -s "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
+#ln -s "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
+#ln -s "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
+#ln -s "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
+#ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
+#ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
+#ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
+#ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
+#ln -s "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
+#ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
+#ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
+#ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
+#ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
+#ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
+#ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" $HOME/bin/wtwitch
+#ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" $HOME/bin/sc2streams
+#ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
+#ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
+#ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
+#ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
+#ln -s "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/edit-server-env
 # Cmus
-ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
-ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" $HOME/bin/cmus-save     
-ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-load.sh" $HOME/bin/cmus-load    
-ln -s "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
-ln -s "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
-ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
+#ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
+#ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" $HOME/bin/cmus-save     
+#ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-load.sh" $HOME/bin/cmus-load    
+#ln -s "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
+#ln -s "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
+#ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
 
 # Binaries
-ln -s "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
-ln -s "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
-ln -s "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
-ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
-ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
-ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
-ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
-ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
+#ln -s "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
+#ln -s "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
+#ln -s "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
+#ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
+#ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
+#ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
+#ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
+#ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
 
 # ~/Desktop/
-ln -s $HOME/Dropbox/Documents/ $HOME/Desktop/Documents
-ln -s $HOME/Dropbox/Documents/Carti/ $HOME/Desktop/Carti
-ln -s $HOME/Music/  $HOME/Desktop/Music
-ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
-ln -s "$CODE_FOLDER" $HOME/Desktop/Code
-ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Bash-Scripts
-ln -s "$SCRIPTS_FOLDER" $HOME/Bash-Scripts
+#ln -s $HOME/Dropbox/Documents/ $HOME/Desktop/Documents
+#ln -s $HOME/Dropbox/Documents/Carti/ $HOME/Desktop/Carti
+#ln -s $HOME/Music/  $HOME/Desktop/Music
+#ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
+#ln -s "$CODE_FOLDER" $HOME/Desktop/Code
+#ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Bash-Scripts
+#ln -s "$SCRIPTS_FOLDER" $HOME/Bash-Scripts
 
 # SETTINGS/Autostart
 
 # Terminal
-which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
-> /home/$USER/.config/autostart/Terminal.desktop
-bash -c 'echo "[Desktop Entry]" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "Type=Application" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "Exec=$DEFAULT_TERMINAL_EMULATOR -e tmux -2" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "X-GNOME-Autostart-enabled=true" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "NoDisplay=false" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "Hidden=false" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "Name[en_US]=Terminal" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "Comment[en_US]=No description" >> /home/$USER/.config/autostart/Terminal.desktop'
-bash -c 'echo "X-GNOME-Autostart-Delay=0" >> /home/$USER/.config/autostart/Terminal.desktop'
+#which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
+#> /home/$USER/.config/autostart/Terminal.desktop
+#bash -c 'echo "[Desktop Entry]" >> /home/$USER/.config/autostart/Terminal.desktop'
+#bash -c 'echo "Type=Application" >> /home/$USER/.config/autostart/Terminal.desktop'
+#bash -c 'echo "Exec=$DEFAULT_TERMINAL_EMULATOR -e tmux -2" >> /home/$USER/.config/autostart/Terminal.desktop'
+#bash -c 'echo "X-GNOME-Autostart-enabled=true" >> /home/$USER/.config/autostart/Terminal.desktop'
+#bash -c 'echo "NoDisplay=false" >> /home/$USER/.config/autostart/Terminal.desktop'
+#bash -c 'echo "Hidden=false" >> /home/$USER/.config/autostart/Terminal.desktop'
+#bash -c 'echo "Name[en_US]=Terminal" >> /home/$USER/.config/autostart/Terminal.desktop'
+#bash -c 'echo "Comment[en_US]=No description" >> /home/$USER/.config/autostart/Terminal.desktop'
+#bash -c 'echo "X-GNOME-Autostart-Delay=0" >> /home/$USER/.config/autostart/Terminal.desktop'
 
 # SETTINGS/Cosmetics
 
@@ -554,12 +593,12 @@ echo "Press ENTER to confirm."
 read CONFIRMATION
 sed -i 's/skin=default/skin=darkcourses_green/' $HOME/.config/mc/ini 
 
-# Cmus Taskbar Controls
-unzip "$(find $HOME -name cmus-taskbar-controls.zip 2> /dev/null | head -1)" -d $HOME/.cinnamon/configs/
-
 # SETTINGS/Wine Tweaks
-sudo sed -i 's/#DefaultLimitNOFILE=/DefaultLimitNOFILE=1048576/' /etc/systemd/system.conf 
-sudo sed -i 's/#DefaultLimitNOFILE=/DefaultLimitNOFILE=1048576/' /etc/systemd/user.conf 
+sudo sed -i 's/#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd/system.conf 
+sudo sed -i 's/#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd/user.conf 
+
+# SETTINGS/hostname
+sudo -E bash -c "echo $HOSTNAME > /etc/hostname"
 
 # DONE
 echo -e "\nDone!"
