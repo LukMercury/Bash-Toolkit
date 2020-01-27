@@ -41,6 +41,8 @@ PHPSTORM=https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz
 WEBSTORM=https://download.jetbrains.com/webstorm/WebStorm-2019.3.1.tar.gz
 PYCHARM=https://download.jetbrains.com/python/pycharm-professional-2019.3.1.tar.gz
 INTELLIJ=https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz
+POSTMAN=https://dl.pstmn.io/download/latest/linux64
+MYSQL_WORKBENCH=https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.19-1ubuntu19.10_amd64.deb
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -276,35 +278,47 @@ sudo dpkg -i dmd.deb
 rm -f dmd.deb
 sudo apt install -f -y
 
-# INSTALL/Clion
+# INSTALL/Download/Clion
 wget -O clion.tar.gz $CLION 2> /dev/null 
 tar -xzvf clion.tar.gz
 rm -rf clion.tar.gz
 sudo mv clion* /opt/
 
-# INSTALL/PhpStorm
+# INSTALL/Download/PhpStorm
 wget -O phpstorm.tar.gz $PHPSTORM 2> /dev/null 
 tar -xzvf phpstorm.tar.gz
 rm -rf phpstorm.tar.gz
 sudo mv PhpStorm* /opt/
 
-# INSTALL/WebStorm
+# INSTALL/Download/WebStorm
 wget -O webstorm.tar.gz $WEBSTORM 2> /dev/null 
 tar -xzvf webstorm.tar.gz
 rm -rf webstorm.tar.gz
 sudo mv WebStorm* /opt/
 
-# INSTALL/PyCharm
+# INSTALL/Download/PyCharm
 wget -O pycharm.tar.gz $PYCHARM 2> /dev/null 
 tar -xzvf pycharm.tar.gz
 rm -rf pycharm.tar.gz
 sudo mv pycharm* /opt/
 
-# INSTALL/IntelliJ IDEA
+# INSTALL/Download/IntelliJ IDEA
 wget -O ideaiu.tar.gz $CLION 2> /dev/null 
 tar -xzvf ideaiu.tar.gz
 rm -rf ideaiu.tar.gz
 sudo mv idea-IU* /opt/
+
+# INSTALL/Download/Postman
+wget -O postman.tar.gz $POSTMAN 2> /dev/null 
+tar -xzvf postman.tar.gz
+rm -rf postman.tar.gz
+sudo mv Postman /opt/
+
+# INSTALL/Download/Mysql Workbench
+wget -O mysql-workbench.deb $SKYPE 2> /dev/null    
+sudo dpkg -i mysql-workbench.deb
+rm -f mysql-workbench.deb
+sudo apt install -f -y
 
 # INSTALL/Download/Skype
 wget -O skype.deb $SKYPE 2> /dev/null    
