@@ -41,6 +41,7 @@ PHPSTORM=https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz
 WEBSTORM=https://download.jetbrains.com/webstorm/WebStorm-2019.3.1.tar.gz
 PYCHARM=https://download.jetbrains.com/python/pycharm-professional-2019.3.1.tar.gz
 INTELLIJ=https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz
+GIT_KRAKEN=https://release.axocdn.com/linux/gitkraken-amd64.deb
 POSTMAN=https://dl.pstmn.io/download/latest/linux64
 MYSQL_WORKBENCH=https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.19-1ubuntu19.10_amd64.deb
 
@@ -303,10 +304,16 @@ rm -rf pycharm.tar.gz
 sudo mv pycharm* /opt/
 
 # INSTALL/Download/IntelliJ IDEA
-wget -O ideaiu.tar.gz $CLION 2> /dev/null 
+wget -O ideaiu.tar.gz $INTELLIJ 2> /dev/null 
 tar -xzvf ideaiu.tar.gz
 rm -rf ideaiu.tar.gz
 sudo mv idea-IU* /opt/
+
+# INSTALL/Download/Git Kraken
+wget -O gitkraken.deb $GIT_KRAKEN 2> /dev/null    
+sudo dpkg -i gitkraken.deb
+rm -f gitkraken.deb
+sudo apt install -f -y
 
 # INSTALL/Download/Postman
 wget -O postman.tar.gz $POSTMAN 2> /dev/null 
@@ -315,7 +322,7 @@ rm -rf postman.tar.gz
 sudo mv Postman /opt/
 
 # INSTALL/Download/Mysql Workbench
-wget -O mysql-workbench.deb $SKYPE 2> /dev/null    
+wget -O mysql-workbench.deb $MYSQL_WORKBENCH 2> /dev/null    
 sudo dpkg -i mysql-workbench.deb
 rm -f mysql-workbench.deb
 sudo apt install -f -y
