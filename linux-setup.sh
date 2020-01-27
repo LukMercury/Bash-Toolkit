@@ -566,17 +566,18 @@ sudo mkdir $RAMDISK_MOUNT_POINT
 # SETTINGS/Autostart
 
 # Terminal
-#which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
-#> /home/$USER/.config/autostart/Terminal.desktop
-#bash -c 'echo "[Desktop Entry]" >> /home/$USER/.config/autostart/Terminal.desktop'
-#bash -c 'echo "Type=Application" >> /home/$USER/.config/autostart/Terminal.desktop'
-#bash -c 'echo "Exec=$DEFAULT_TERMINAL_EMULATOR -e tmux -2" >> /home/$USER/.config/autostart/Terminal.desktop'
-#bash -c 'echo "X-GNOME-Autostart-enabled=true" >> /home/$USER/.config/autostart/Terminal.desktop'
-#bash -c 'echo "NoDisplay=false" >> /home/$USER/.config/autostart/Terminal.desktop'
-#bash -c 'echo "Hidden=false" >> /home/$USER/.config/autostart/Terminal.desktop'
-#bash -c 'echo "Name[en_US]=Terminal" >> /home/$USER/.config/autostart/Terminal.desktop'
-#bash -c 'echo "Comment[en_US]=No description" >> /home/$USER/.config/autostart/Terminal.desktop'
-#bash -c 'echo "X-GNOME-Autostart-Delay=0" >> /home/$USER/.config/autostart/Terminal.desktop'
+which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
+> $HOME/.config/autostart/terminology.desktop
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "Exec=$DEFAULT_TERMINAL_EMULATOR -g 140x48 -e tmux -2" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "Name[en_US]=Terminal" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "Name=terminal" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "Comment[en_US]=Open terminal at startup" >> $HOME/.config/autostart/terminology.desktop'
+bash -c 'echo "Comment=open terminal at startup" >> $HOME/.config/autostart/terminology.desktop'
 
 # SETTINGS/Cosmetics
 
