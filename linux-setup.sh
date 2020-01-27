@@ -498,7 +498,7 @@ echo "alias subl='xrun subl'" >> $home/.bash_aliases
 echo "alias smerge='xrun smerge'" >> $home/.bash_aliases
 
 # SETTINGS/anacrontab
-sudo -E bash -c 'echo -e "25\t5\tcron.monthly\t/bin/bash\t$SCRIPTS_FOLDER/monthly.sh" >> /etc/anacrontab'
+sudo -E bash -c 'echo -e "20\t5\tcron.monthly\t/bin/bash\t$SCRIPTS_FOLDER/monthly.sh" >> /etc/anacrontab'
 
 # SETTINGS/Ramdisk
 sudo mkdir $RAMDISK_MOUNT_POINT
