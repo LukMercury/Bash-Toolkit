@@ -21,29 +21,28 @@ export RAMDISK_MOUNT_POINT=/mnt/ramdisk
 export UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
 export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
 export CURRENT_USER=$USER
-export CURRENT_HOME=$HOME
 export HOSTNAME=forge
 
 # ONLINE SOURCES
 
-ZSH_SETUP=https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-VIRTUALBOX=https://download.virtualbox.org/virtualbox/6.1.2/virtualbox-6.1_6.1.2-135662~Ubuntu~eoan_amd64.deb
-VBOX_EXTENSION_PACK=https://download.virtualbox.org/virtualbox/6.0.8/Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack
-TEAMSPEAK=http://dl.4players.de/ts/releases/3.2.2/TeamSpeak3-Client-linux_amd64-3.2.2.run
-DISCORD=https://discordapp.com/api/download?platform=linux&format=deb
-TEAMVIEWER=https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-ATOM=https://atom.io/download/deb
-DMD=http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb
-SKYPE=https://go.skype.com/skypeforlinux-64.deb
-TOR_BROWSER=https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
-CLION=https://download.jetbrains.com/cpp/CLion-2019.3.2.tar.gz
-PHPSTORM=https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz
-WEBSTORM=https://download.jetbrains.com/webstorm/WebStorm-2019.3.1.tar.gz
-PYCHARM=https://download.jetbrains.com/python/pycharm-professional-2019.3.1.tar.gz
-INTELLIJ=https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz
-GIT_KRAKEN=https://release.axocdn.com/linux/gitkraken-amd64.tar.gz
-POSTMAN=https://dl.pstmn.io/download/latest/linux64
-MYSQL_WORKBENCH=https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.19-1ubuntu19.10_amd64.deb
+ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.2/virtualbox-6.1_6.1.2-135662~Ubuntu~eoan_amd64.deb"
+VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.0.8/Oracle_VM_VirtualBox_Extension_Pack-6.0.8.vbox-extpack"
+TEAMSPEAK="http://dl.4players.de/ts/releases/3.2.2/TeamSpeak3-Client-linux_amd64-3.2.2.run"
+DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
+TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
+ATOM="https://atom.io/download/deb"
+DMD="http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb"
+SKYPE="https://go.skype.com/skypeforlinux-64.deb"
+TOR_BROWSER="https://dist.torproject.org/torbrowser/9.0.4/tor-browser-linux64-9.0.4_en-US.tar.xz"
+CLION="https://download.jetbrains.com/cpp/CLion-2019.3.2.tar.gz"
+PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz"
+WEBSTORM="https://download.jetbrains.com/webstorm/WebStorm-2019.3.1.tar.gz"
+PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2019.3.1.tar.gz"
+INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz"
+GIT_KRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.tar.gz"
+POSTMAN="https://dl.pstmn.io/download/latest/linux64"
+MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.19-1ubuntu19.10_amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -139,7 +138,6 @@ sudo apt install -y nnn
 sudo apt install -y w3m
 sudo apt install -y postfix
 sudo apt install -y mailutils
-sudo apt install -y clamav
 sudo apt install -y gparted
 sudo apt install -y woeusb
 sudo apt install -y psensor
@@ -180,8 +178,7 @@ sudo apt install -y audacious-plugins
 sudo apt install -y vlc
 sudo apt install -y finch
 sudo apt install -y alacarte
-sudo apt install -y dropbox
-sudo apt install -y skypeforlinux
+sudo apt install -y caja-dropbox
 sudo apt install -y qbittorrent
 sudo apt install -y dict
 sudo apt install -y dictd
@@ -240,14 +237,14 @@ echo "Run install-uberwriter.sh after reboot." 1>&2
 # INSTALL/Download
 
 # INSTALL/Download/VirtualBox
-wget -O virtualbox.deb $VIRTUALBOX 2> /dev/null # get rid of excessive output
+wget -O virtualbox.deb "$VIRTUALBOX" 2> /dev/null # get rid of excessive output
 sudo dpkg -i virtualbox.deb || sudo apt install -f -y
 rm -f virtualbox.deb
 wget $VBOX_EXTENSION_PACK 2> /dev/null  # get rid of excessive output
 echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
 
 # INSTALL/Download/TeamSpeak
-wget -O teamspeak.run $TEAMSPEAK 2> /dev/null   # get rid of excessive output
+wget -O teamspeak.run "$TEAMSPEAK" 2> /dev/null   # get rid of excessive output
 chmod +x teamspeak.run
 ./teamspeak.run
 rm -f teamspeak.run
@@ -255,84 +252,86 @@ sudo mv TeamSpeak* /opt/
 echo "TeamSpeak: create a lanucher pointing to /opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh" 1>&2
 
 # INSTALL/Download/Discord
-wget -O discord.deb $DISCORD 2> /dev/null   
+wget -O discord.deb "$DISCORD" 2> /dev/null   
 sudo dpkg -i discord.deb || sudo apt install -f -y
 rm -f discord.deb
 
 # INSTALL/Download/TeamViewer
-wget -O teamviewer.deb $TEAMVIEWER 2> /dev/null   
+wget -O teamviewer.deb "$TEAMVIEWER" 2> /dev/null   
 sudo dpkg -i teamviewer.deb || sudo apt install -f -y
 rm -f teamviewer.deb
 
 # INSTALL/Download/Atom
-wget -O atom.deb $ATOM 2> /dev/null 
+wget -O atom.deb "$ATOM" 2> /dev/null 
 sudo dpkg -i atom.deb || sudo apt install -f -y
 rm -f atom.deb
 
 # INSTALL/Download/DMD
-wget -O dmd.deb $DMD 2> /dev/null    
+wget -O dmd.deb "$DMD" 2> /dev/null    
 sudo dpkg -i dmd.deb || sudo apt install -f -y
 rm -f dmd.deb
 
 # INSTALL/Download/Clion
-wget -O clion.tar.gz $CLION 2> /dev/null 
+wget -O clion.tar.gz "$CLION" 2> /dev/null 
 tar -xzvf clion.tar.gz
 rm -rf clion.tar.gz
 sudo mv clion* /opt/
 
-# INSTALL/Download/PhpStorm
-wget -O phpstorm.tar.gz $PHPSTORM 2> /dev/null 
-tar -xzvf phpstorm.tar.gz
-rm -rf phpstorm.tar.gz
-sudo mv PhpStorm* /opt/
-
-# INSTALL/Download/WebStorm
-wget -O webstorm.tar.gz $WEBSTORM 2> /dev/null 
-tar -xzvf webstorm.tar.gz
-rm -rf webstorm.tar.gz
-sudo mv WebStorm* /opt/
-
 # INSTALL/Download/PyCharm
-wget -O pycharm.tar.gz $PYCHARM 2> /dev/null 
+wget -O pycharm.tar.gz "$PYCHARM" 2> /dev/null 
 tar -xzvf pycharm.tar.gz
 rm -rf pycharm.tar.gz
 sudo mv pycharm* /opt/
 
 # INSTALL/Download/IntelliJ IDEA
-wget -O ideaiu.tar.gz $INTELLIJ 2> /dev/null 
+wget -O ideaiu.tar.gz "$INTELLIJ" 2> /dev/null 
 tar -xzvf ideaiu.tar.gz
 rm -rf ideaiu.tar.gz
 sudo mv idea-IU* /opt/
 
-# INSTALL/Download/Git Kraken
-wget -O gitkraken.tar.gz $GIT_KRAKEN 2> /dev/null    
+# INSTALL/Download/WebStorm
+wget -O webstorm.tar.gz "$WEBSTORM" 2> /dev/null 
+tar -xzvf webstorm.tar.gz
+rm -rf webstorm.tar.gz
+sudo mv WebStorm* /opt/
+
+# INSTALL/Download/PhpStorm
+wget -O phpstorm.tar.gz "$PHPSTORM" 2> /dev/null 
+tar -xzvf phpstorm.tar.gz
+rm -rf phpstorm.tar.gz
+sudo mv PhpStorm* /opt/
+
+# INSTALL/Download/GitKraken
+wget -O gitkraken.tar.gz "$GIT_KRAKEN" 2> /dev/null    
 tar -xzvf gitkraken.tar.gz
 rm -f gitkraken.tar.gz
 sudo mv gitkraken* /opt/
 
 # INSTALL/Download/Postman
-wget -O postman.tar.gz $POSTMAN 2> /dev/null 
+wget -O postman.tar.gz "$POSTMAN" 2> /dev/null 
 tar -xzvf postman.tar.gz
 rm -rf postman.tar.gz
 sudo mv Postman /opt/
 
 # INSTALL/Download/Mysql Workbench
-wget -O mysql-workbench.deb $MYSQL_WORKBENCH 2> /dev/null    
+wget -O mysql-workbench.deb "$MYSQL_WORKBENCH" 2> /dev/null    
 sudo dpkg -i mysql-workbench.deb || sudo apt install -f -y
 rm -f mysql-workbench.deb
 
 # INSTALL/Download/Skype
-wget -O skype.deb $SKYPE 2> /dev/null    
+wget -O skype.deb "$SKYPE" 2> /dev/null    
 sudo dpkg -i skype.deb || sudo apt install -f -y
 rm -f skype.deb
 
 # INSTALL/Download/Tor Browser
-wget -O tor-browser.tar.xz $TOR_BROWSER 2> /dev/null    
+wget -O tor-browser.tar.xz "$TOR_BROWSER" 2> /dev/null    
 tar -xvf tor-browser.tar.xz
 sudo mv tor-browser_en-US /opt/
 echo "Tor Browser installed in /opt. Create menu launcher manually." 1>&2
 rm -f tor-browser.tar.xz
 
+# INSTALL/Cleanup
+sudo apt autoremove -y
 
 # SETTINGS
 
@@ -408,7 +407,7 @@ sed -i 's/ZSH_THEME="robbyrussell"/# ZSH_THEME="robbyrussell"\nZSH_THEME="lukera
 # Make zsh your default shell (in case Oh-My-Zsh doesn't do it)
 read -N 1000000 -t 0.001 # Clear input
 echo "Changing default shell to zsh."
-echo -n "Please enter your sudo password: "
+echo "Please enter your sudo password: "
 read -s PASSWORD
 echo $PASSWORD | chsh -s $(which zsh) $CURRENT_USER
 echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
@@ -432,44 +431,44 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # SETTINGS/vimrc 1 (same as nvim/init.vim)
-sudo -E bash -c 'echo "\" $CURRENT_USER" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "\" set background=dark" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set number" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set is" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set cindent" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set expandtab" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set tabstop=4" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set shiftwidth=4" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set mouse=a" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set splitright" >> $CURRENT_HOME/.vimrc'
+echo "\" $USER" >> $HOME/.vimrc
+echo >> $HOME/.vimrc
+echo "\" set background=dark" >> $HOME/.vimrc
+echo "set number" >> $HOME/.vimrc
+echo "set is" >> $HOME/.vimrc
+echo "set cindent" >> $HOME/.vimrc
+echo "set expandtab" >> $HOME/.vimrc
+echo "set tabstop=4" >> $HOME/.vimrc
+echo "set shiftwidth=4" >> $HOME/.vimrc
+echo "set mouse=a" >> $HOME/.vimrc
+echo "set splitright" >> $HOME/.vimrc
 # Plug
-sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "call plug#begin('\''~/.vim/plugged'\'')" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "Plug '\''https://github.com/NLKNguyen/papercolor-theme'\''" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "call plug#end()" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
+echo >> $HOME/.vimrc
+echo "call plug#begin('~/.vim/plugged')" >> $HOME/.vimrc
+echo >> $HOME/.vimrc
+echo "Plug 'https://github.com/NLKNguyen/papercolor-theme'" >> $HOME/.vimrc
+echo >> $HOME/.vimrc
+echo "call plug#end()" >> $HOME/.vimrc
+echo >> $HOME/.vimrc
 # Color Theme
-sudo bash -c 'echo "set t_Co=256" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "set background=dark" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "colorscheme PaperColor" >> $CURRENT_HOME/.vimrc'
+echo "set t_Co=256" >> $HOME/.vimrc
+echo "set background=dark" >> $HOME/.vimrc
+echo "colorscheme PaperColor" >> $HOME/.vimrc
 # Keyboard Shortcuts remap
-sudo bash -c 'echo >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "tnoremap <Esc><Esc> <C-\><C-n>" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "tnoremap <C-h> <C-\><C-n><C-w>h" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "tnoremap <C-j> <C-\><C-n><C-w>j" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "tnoremap <C-k> <C-\><C-n><C-w>k" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "tnoremap <C-l> <C-\><C-n><C-w>l" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "nnoremap <C-h> <C-w>h" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "nnoremap <C-j> <C-w>j" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "nnoremap <C-k> <C-w>k" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "nnoremap <C-l> <C-w>l" >> $CURRENT_HOME/.vimrc'
+echo >> $HOME/.vimrc
+echo "tnoremap <Esc><Esc> <C-\><C-n>" >> $HOME/.vimrc
+echo "tnoremap <C-h> <C-\><C-n><C-w>h" >> $HOME/.vimrc
+echo "tnoremap <C-j> <C-\><C-n><C-w>j" >> $HOME/.vimrc
+echo "tnoremap <C-k> <C-\><C-n><C-w>k" >> $HOME/.vimrc
+echo "tnoremap <C-l> <C-\><C-n><C-w>l" >> $HOME/.vimrc
+echo "nnoremap <C-h> <C-w>h" >> $HOME/.vimrc
+echo "nnoremap <C-j> <C-w>j" >> $HOME/.vimrc
+echo "nnoremap <C-k> <C-w>k" >> $HOME/.vimrc
+echo "nnoremap <C-l> <C-w>l" >> $HOME/.vimrc
 
 # SETTINGS/nvim
 mkdir -p $HOME/.config/nvim
-cat $CURRENT_HOME/.vimrc > $HOME/.config/nvim/init.vim
+cat $HOME/.vimrc > $HOME/.config/nvim/init.vim
 sed -i 's/\~\/\.vim\/plugged/\~\/\.local\/share\/nvim\/plugged/' $HOME/.config/nvim/init.vim 
 echo "vnoremap <C-c> \"+y" >> $HOME/.config/nvim/init.vim
 echo "nnoremap <C-v> o<Esc>\"+p0" >> $HOME/.config/nvim/init.vim
@@ -477,39 +476,39 @@ sed -i '5 i set nohlsearch' $HOME/.config/nvim/init.vim
 sed -i '13 i set nomodeline' $HOME/.config/nvim/init.vim
 
 # SETTINGS/vimrc 2 (different from nvim/init.vim)
-sudo bash -c 'echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> $CURRENT_HOME/.vimrc'
-sudo bash -c 'echo "vnoremap <C-v> :r !xclip -sel c -o<CR>" >> $CURRENT_HOME/.vimrc'
+echo "vnoremap <C-c> :w !xclip -sel c<CR><CR>" >> $HOME/.vimrc
+echo "vnoremap <C-v> :r !xclip -sel c -o<CR>" >> $HOME/.vimrc
 
 # SETTINGS/vim/PlugInstall
 vim -c PlugInstall -c qa
 
-# settings/nvim/pluginstall
-nvim -c pluginstall -c qa
+# SETTINGS/nvim/PlugInstall
+nvim -c PlugInstall -c qa
 
-# settings/.profile
-# add $home/bin to path if it exists
-if [ ! -f $home/.profile ] || [ $(wc -l < $home/.profile) -eq 0 ]; then
-    echo -e "if [ -d \$home/bin ]; then" >> $home/.profile
-    echo -e "    export path=\$path:\$home/bin" >> $home/.profile
-    echo "fi" >> $home/.profile
+# SETTINGS/.profile
+# add $HOME/bin to PATH if it exists
+if [ ! -f $HOME/.profile ] || [ $(wc -l < $HOME/.profile) -eq 0 ]; then
+    echo -e "if [ -d \$HOME/bin ]; then" >> $HOME/.profile
+    echo -e "    export PATH=\$PATH:\$HOME/bin" >> $HOME/.profile
+    echo "fi" >> $HOME/.profile
 fi
 # nvm
-echo >> $home/.profile
-echo '# nvm' >> $home/.profile
-echo 'export nvm_dir="$home/.nvm"' >> $home/.profile
-echo '[ -s "$nvm_dir/nvm.sh" ] && \. "$nvm_dir/nvm.sh"  # this loads nvm' >> $home/.profile
-echo '[ -s "$nvm_dir/bash_completion" ] && \. "$nvm_dir/bash_completion"  # this loads nvm bash_completion' >> $home/.profile
+echo >> $HOME/.profile
+echo '# nvm' >> $HOME/.profile
+echo 'export NVM_DIR="$HOME/.nvm"' >> $HOME/.profile
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm' >> $HOME/.profile
+echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion' >> $HOME/.profile
 
-# settings/aliases
-if [ -f $home/.bash_aliases ]; then
-    cp $home/.bash_aliases $home/.bash_aliases.bak
-    > $home/.bash_aliases
+# SETTINGS/aliases
+if [ -f $HOME/.bash_aliases ]; then
+    cp $HOME/.bash_aliases $HOME/.bash_aliases.bak
+    > $HOME/.bash_aliases
 fi
 
-echo "alias xclip='xclip -selection c'" >> $home/.bash_aliases
-echo "alias tmux='tmux -2'" >> $home/.bash_aliases
-echo "alias subl='xrun subl'" >> $home/.bash_aliases
-echo "alias smerge='xrun smerge'" >> $home/.bash_aliases
+echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
+echo "alias tmux='tmux -2'" >> $HOME/.bash_aliases
+echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
+echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
 
 # SETTINGS/anacrontab
 sudo -E bash -c 'echo -e "20\t5\tcron.monthly\t/bin/bash\t$SCRIPTS_FOLDER/monthly.sh" >> /etc/anacrontab'
@@ -582,6 +581,7 @@ sudo mkdir $RAMDISK_MOUNT_POINT
 
 # Terminal
 which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
+mkdir -p $HOME/.config/autostart
 > $HOME/.config/autostart/terminology.desktop
 bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/terminology.desktop'
 bash -c 'echo "Type=Application" >> $HOME/.config/autostart/terminology.desktop'
