@@ -533,6 +533,7 @@ sudo mkdir $RAMDISK_MOUNT_POINT
 #ln -s "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
 #ln -s "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
 #ln -s "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
+#ln -s "$SCRIPTS_FOLDER/clean-usb-fat32.sh" $HOME/bin/clean-usb-fat32
 #ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
 #ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
 #ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark

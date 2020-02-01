@@ -93,11 +93,11 @@ case "$1" in
     "delete" | "del" | "-d")
         if [ -z "$2" ]; then
             echo -n "$(tail -1 $LOG_FILE)" | xclip -selection s     # keep in secondary register
-            echo "$(tail -1 $LOG_FILE) removed from Bookmarks"
+            echo "Removed from Bookmarks: $(tail -1 $LOG_FILE)"
             sed -i '$d' "$LOG_FILE"
         elif [[ "$2" =~ ^[0-9]+$ ]]; then   # check if numerical
             echo -n "$(head -n "$2" $LOG_FILE | tail -1)" | xclip -selection s  # keep in secondary register
-            echo "$(head -n "$2" $LOG_FILE | tail -1) removed from Bookmarks"
+            echo "Removed from Bookmarks: $(head -n "$2" $LOG_FILE | tail -1)"
             sed -i "$2d" "$LOG_FILE"
         else
             echo "Bad argument after 'delete'"
