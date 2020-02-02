@@ -59,10 +59,12 @@ exec 2> install-log.txt # send error stream to log file
 read -N 1000000 -t 0.001 # Clear input
 echo -n "Gnome or KDE? (g/k): " 
 read X_VERSION
+X_VERSION=$(echo $X_VERSION | tr '[:upper:]' '[:lower:]')
 while [ "$X_VERSION" != "g" ] && [ "$X_VERSION" != "k" ]; do
     read -N 1000000 -t 0.001 # Clear input
     echo -n "Please enter 'g' or 'k': " 
     read X_VERSION
+    X_VERSION=$(echo $X_VERSION | tr '[:upper:]' '[:lower:]')
 done
 
 # Graphics - Nvidia or AMD
@@ -74,6 +76,35 @@ done
 #echo -n "Please enter 'n' or 'a': " 
 #    read GRAPHICS_CARD
 #done
+
+# Links to custom binaries and scripts (~/bin)
+read -N 1000000 -t 0.001 # Clear input
+BINARY_LINKS="y"
+echo -n "Create links to custom binaries and scripts? (Y/n): "
+read BINARY_LINKS
+BINARY_LINKS=$(echo $BINARY_LINKS | tr '[:upper:]' '[:lower:]')
+while [ "$BINARY_LINKS" != "y" ] && [ "$BINARY_LINKS" != "n" ]; do
+    read -N 1000000 -t 0.001 # Clear input
+    echo -n "Please enter 'y' or 'n': " 
+    read BINARY_LINKS
+    BINARY_LINKS=$(echo $BINARY_LINKS | tr '[:upper:]' '[:lower:]')
+done
+
+# Links to folders
+read -N 1000000 -t 0.001 # Clear input
+FOLDER_LINKS="y"
+echo -n "Create links to custom binaries and scripts? (Y/n): "
+read FOLDER_LINKS
+FOLDER_LINKS=$(echo $FOLDER_LINKS | tr '[:upper:]' '[:lower:]')
+while [ "$FOLDER_LINKS" != "y" ] && [ "$FOLDER_LINKS" != "n" ]; do
+    read -N 1000000 -t 0.001 # Clear input
+    echo -n "Please enter 'y' or 'n': " 
+    read FOLDER_LINKS
+    FOLDER_LINKS=$(echo $FOLDER_LINKS | tr '[:upper:]' '[:lower:]')
+done
+
+# ------------------------------------------------------------------------------------------------------------------------------
+
 
 # REPOSITORIES
 
@@ -333,6 +364,9 @@ rm -f tor-browser.tar.xz
 # INSTALL/Cleanup
 sudo apt autoremove -y
 
+# ------------------------------------------------------------------------------------------------------------------------------
+
+
 # SETTINGS
 
 # SETTINGS/Git
@@ -519,64 +553,68 @@ sudo mkdir $RAMDISK_MOUNT_POINT
 # SETTINGS/Folders and Links
 
 # ~/bin/
-#mkdir $HOME/bin/
-# Scripts
-#ln -s "$SCRIPTS_FOLDER/currency-converter/eur.sh" $HOME/bin/eur
-#ln -s "$SCRIPTS_FOLDER/currency-converter/usd.sh" $HOME/bin/usd
-#ln -s "$SCRIPTS_FOLDER/currency-converter/gbp.sh" $HOME/bin/gbp
-#ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
-#ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
-#ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
-#ln -s "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
-#ln -s "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
-#ln -s "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
-#ln -s "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
-#ln -s "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
-#ln -s "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
-#ln -s "$SCRIPTS_FOLDER/clean-usb-fat32.sh" $HOME/bin/clean-usb-fat32
-#ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
-#ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
-#ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
-#ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
-#ln -s "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
-#ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
-#ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
-#ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
-#ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
-#ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
-#ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" $HOME/bin/wtwitch
-#ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" $HOME/bin/sc2streams
-#ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
-#ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
-#ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
-#ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
-#ln -s "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/edit-server-env
-# Cmus
-#ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
-#ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" $HOME/bin/cmus-save     
-#ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-load.sh" $HOME/bin/cmus-load    
-#ln -s "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
-#ln -s "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
-#ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
-
-# Binaries
-#ln -s "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
-#ln -s "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
-#ln -s "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
-#ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
-#ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
-#ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
-#ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
-#ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
+mkdir $HOME/bin/
+if [ $BINARY_LINKS == "y" ]; then
+    # Scripts
+    ln -s "$SCRIPTS_FOLDER/currency-converter/eur.sh" $HOME/bin/eur
+    ln -s "$SCRIPTS_FOLDER/currency-converter/usd.sh" $HOME/bin/usd
+    ln -s "$SCRIPTS_FOLDER/currency-converter/gbp.sh" $HOME/bin/gbp
+    ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
+    ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
+    ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
+    ln -s "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
+    ln -s "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
+    ln -s "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
+    ln -s "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
+    ln -s "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
+    ln -s "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
+    ln -s "$SCRIPTS_FOLDER/clean-usb-fat32.sh" $HOME/bin/clean-usb-fat32
+    ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
+    ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
+    ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
+    ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
+    ln -s "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
+    ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
+    ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
+    ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
+    ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
+    ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
+    ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" $HOME/bin/wtwitch
+    ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" $HOME/bin/sc2streams
+    ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
+    ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
+    ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
+    ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
+    ln -s "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/edit-server-env
+    # Cmus
+    ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
+    ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" $HOME/bin/cmus-save     
+    ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-load.sh" $HOME/bin/cmus-load    
+    ln -s "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
+    ln -s "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
+    ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
+    
+    # Binaries
+    ln -s "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
+    ln -s "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
+    ln -s "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
+    ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
+    ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
+    ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
+    ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
+    ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
+fi
 
 # ~/Desktop/
-#ln -s $HOME/Dropbox/Documents/ $HOME/Desktop/Documents
-#ln -s $HOME/Dropbox/Documents/Carti/ $HOME/Desktop/Carti
-#ln -s $HOME/Music/  $HOME/Desktop/Music
-#ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
-#ln -s "$CODE_FOLDER" $HOME/Desktop/Code
-#ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Bash-Scripts
-#ln -s "$SCRIPTS_FOLDER" $HOME/Bash-Scripts
+if [ $FOLDER_LINKS == "y" ]; then
+    ln -s $HOME/Dropbox/Documents/ $HOME/Desktop/Documents
+    ln -s $HOME/Dropbox/Documents/Carti/ $HOME/Desktop/Carti
+    ln -s $HOME/Music/  $HOME/Desktop/Music
+    ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
+    ln -s "$CODE_FOLDER" $HOME/Desktop/Code
+    ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Bash-Scripts
+    ln -s "$SCRIPTS_FOLDER" $HOME/Bash-Scripts
+fi
 
 # SETTINGS/Autostart
 
