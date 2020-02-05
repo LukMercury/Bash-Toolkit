@@ -26,7 +26,7 @@ addBookmark()
 {
     xclip -selection c -o >> "$LOG_FILE" && echo >> "$LOG_FILE" 
     if [ $? -eq 0 ]; then
-        echo "$(xclip -selection c -o) added to Bookmarks"
+        echo "Added to Bookmarks: $(xclip -selection c -o)"
     fi
 }
 
@@ -35,7 +35,7 @@ reAddBookmark()
 {
     xclip -selection s -o >> "$LOG_FILE" && echo >> "$LOG_FILE" 
     if [ $? -eq 0 ]; then
-        echo "$(xclip -selection s -o) added to Bookmarks"
+        echo "Added to Bookmarks: $(xclip -selection s -o)"
     fi
 }
 
