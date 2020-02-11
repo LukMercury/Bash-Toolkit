@@ -35,7 +35,6 @@ ATOM="https://atom.io/download/deb"
 DMD="http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 TOR_BROWSER="https://dist.torproject.org/torbrowser/9.0.4/tor-browser-linux64-9.0.4_en-US.tar.xz"
-LBRY="https://github-production-release-asset-2e65be.s3.amazonaws.com/79149882/e8358480-4826-11ea-9c49-8dd12f340417?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20200208%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200208T195705Z&X-Amz-Expires=300&X-Amz-Signature=bae868fcdfd98f53f276d73560ce7a2b49a8173799d58d86f443c91fd4a8d988&X-Amz-SignedHeaders=host&actor_id=12476514&response-content-disposition=attachment%3B%20filename%3DLBRY_0.41.0.deb&response-content-type=application%2Foctet-stream"
 CLION="https://download.jetbrains.com/cpp/CLion-2019.3.2.tar.gz"
 PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz"
 WEBSTORM="https://download.jetbrains.com/webstorm/WebStorm-2019.3.1.tar.gz"
@@ -361,11 +360,6 @@ tar -xvf tor-browser.tar.xz
 sudo mv tor-browser_en-US /opt/
 echo "Tor Browser installed in /opt. Create menu launcher manually." 1>&2
 rm -f tor-browser.tar.xz
-
-# INSTALL/Download/LBRY
-wget -O lbry.deb "$LBRY" 2> /dev/null    
-sudo dpkg -i lbry.deb || sudo apt install -f -y
-rm -f lbry.deb
 
 # INSTALL/Cleanup
 sudo apt autoremove -y
