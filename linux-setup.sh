@@ -210,7 +210,7 @@ sudo apt install -y audacious-plugins
 sudo apt install -y vlc
 sudo apt install -y finch
 sudo apt install -y alacarte
-sudo apt install -y caja-dropbox
+sudo apt install -y nautilus-dropbox
 sudo apt install -y qbittorrent
 sudo apt install -y dict
 sudo apt install -y dictd
