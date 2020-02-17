@@ -590,8 +590,17 @@ if [ $BINARY_LINKS == "y" ]; then
     # Cmus
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
-    ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-save.sh" $HOME/bin/cmus-save     
-    ln -s "$SCRIPTS_FOLDER/cmus-local/cmus-load.sh" $HOME/bin/cmus-load    
+    ln -s "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/play-pause
+    ln -s "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
+    ln -s "$SCRIPTS_FOLDER/cmus-local/next.sh" $HOME/bin/next
+    ln -s "$SCRIPTS_FOLDER/cmus-local/prev.sh" $HOME/bin/prev
+    ln -s "$SCRIPTS_FOLDER/cmus-local/vol.sh" $HOME/bin/vol
+    ln -s "$SCRIPTS_FOLDER/cmus-local/shuffle.sh" $HOME/bin/shuffle
+    ln -s "$SCRIPTS_FOLDER/cmus-local/seek.sh" $HOME/bin/seek
+    ln -s "$SCRIPTS_FOLDER/cmus-local/save-pl.sh" $HOME/bin/save-pl     
+    ln -s "$SCRIPTS_FOLDER/cmus-local/save-pl.sh" $HOME/bin/spl
+    ln -s "$SCRIPTS_FOLDER/cmus-local/load-pl.sh" $HOME/bin/load-pl
+    ln -s "$SCRIPTS_FOLDER/cmus-local/load-pl.sh" $HOME/bin/lpl
     ln -s "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
     ln -s "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
     ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
