@@ -18,5 +18,5 @@ else
     TEXT="$2"
 fi
 
-sleep $(($1*60)) && notify-send "$TEXT" && browse "$LINK" &
+sleep $(($1*60)) && notify-send "$TEXT" && browse "$LINK" &> /dev/null &
 
