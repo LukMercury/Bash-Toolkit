@@ -43,6 +43,10 @@ INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2019.3.1.tar.gz"
 GIT_KRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.tar.gz"
 POSTMAN="https://dl.pstmn.io/download/latest/linux64"
 MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.19-1ubuntu19.10_amd64.deb"
+# Gnome Shell Extensions
+CLIPBOARD_INDICATOR="https://extensions.gnome.org/extension-data/clipboard-indicatortudmotu.com.v33.shell-extension.zip"
+REFRESH_WIFI="https://extensions.gnome.org/extension-data/refresh-wifikgshank.net.v11.shell-extension.zip"
+PLACES_STATUS_INDICATOR="https://extensions.gnome.org/extension-data/places-menugnome-shell-extensions.gcampax.github.com.v45.shell-extension.zip"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -162,8 +166,6 @@ sudo apt install -y errno
 sudo apt install -y pstree
 sudo apt install -y finger
 sudo apt install -y xclip
-sudo apt install -y gpaste
-sudo apt install -y gnome-shell-extensions-gpaste
 sudo apt install -y libnotify-bin
 sudo apt install -y rwho
 sudo apt install -y openssh-server
@@ -243,6 +245,36 @@ sudo apt install -y gnome-software-plugin-flatpak
 if [ "$X_VERSION" == "g" ]; then
     sudo apt install -y doublecmd-gtk
     sudo apt install -y gnome-tweaks
+
+    # Gnome Extensions
+    mkdir -p $HOME/.local/share/gnome-shell/extensions/ && cd $_
+    # Gnome Extensions/Clipboard Indicator
+    if [ $? -eq 0 ]; then
+        wget -O clipboard-indicator.zip $CLIPBOARD_INDICATOR
+        unzip clipboard-indicator.zip
+        rm clipboard-indicator.zip
+        UUID=$(grep 'uuid' 'metadata.json' | tr -d '," ' | cut -d: -f3) 
+        mkdir $UUID && mv * $UUID 2> /dev/null
+    fi
+    # Gnome Extensions/Refresh WIFI
+    mkdir -p $HOME/.local/share/gnome-shell/extensions/ && cd $_
+    if [ $? -eq 0 ]; then
+        wget -O refresh-wifi.zip $REFRESH_WIFI
+        unzip refresh-wifi.zip
+        rm refresh-wifi.zip
+        UUID=$(grep 'uuid' 'metadata.json' | tr -d '," ' | cut -d: -f3) 
+        mkdir $UUID && mv * $UUID 2> /dev/null
+    fi
+    # Gnome Extensions/Places Status Indicator
+    mkdir -p $HOME/.local/share/gnome-shell/extensions/ && cd $_
+    if [ $? -eq 0 ]; then
+        wget -O places-status-indicator.zip $PLACES_STATUS_INDICATOR
+        unzip places-status-indicator.zip
+        rm places-status-indicator.zip
+        UUID=$(grep 'uuid' 'metadata.json' | tr -d '," ' | cut -d: -f3) 
+        mkdir $UUID && mv * $UUID 2> /dev/null
+    fi
+    cd $RUN_FOLDER
 else 
     sudo apt install -y doublecmd-qt
 fi
