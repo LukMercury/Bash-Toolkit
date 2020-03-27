@@ -608,6 +608,7 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/srun.sh" $HOME/bin/srun
     ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/websearch
     ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/search
+    ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/ws
     ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
     ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
     ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
