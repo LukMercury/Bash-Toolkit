@@ -608,7 +608,7 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/srun.sh" $HOME/bin/srun
     ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/websearch
     ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/search
-    ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/ws
+    ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/s
     ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
     ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
     ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
@@ -619,6 +619,8 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
     ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
     ln -s "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/edit-server-env
+    ln -s "$SCRIPTS_FOLDER/tolower.py" $HOME/bin/tolower
+    ln -s "$SCRIPTS_FOLDER/toupper.py" $HOME/bin/toupper
     # Cmus
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
