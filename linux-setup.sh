@@ -621,6 +621,7 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/edit-server-env
     ln -s "$SCRIPTS_FOLDER/tolower.py" $HOME/bin/tolower
     ln -s "$SCRIPTS_FOLDER/toupper.py" $HOME/bin/toupper
+    ln -s "$SCRIPTS_FOLDER/insert-address.sh" $HOME/bin/insert-address
     # Cmus
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
