@@ -22,6 +22,7 @@ export UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:
 export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
 export CURRENT_USER=$USER
 export HOSTNAME=forge
+export DEFAULT_PHONE_IP=192.168.0.102
 
 # ONLINE SOURCES
 
@@ -82,11 +83,10 @@ done
 
 # Links to custom binaries and scripts (~/bin)
 read -N 1000000 -t 0.001 # Clear input
-BINARY_LINKS="y"
 echo -n "Create links to custom binaries and scripts? (Y/n): "
 read BINARY_LINKS
 BINARY_LINKS=$(echo $BINARY_LINKS | tr '[:upper:]' '[:lower:]')
-while [ "$BINARY_LINKS" != "y" ] && [ "$BINARY_LINKS" != "n" ]; do
+while [ "$BINARY_LINKS" != "y" ] && [ "$BINARY_LINKS" != "n" ] && [ "$BINARY_LINKS" != "" ]; do
     read -N 1000000 -t 0.001 # Clear input
     echo -n "Please enter 'y' or 'n': " 
     read BINARY_LINKS
@@ -95,11 +95,10 @@ done
 
 # Links to folders
 read -N 1000000 -t 0.001 # Clear input
-FOLDER_LINKS="y"
 echo -n "Create links to custom binaries and scripts? (Y/n): "
 read FOLDER_LINKS
 FOLDER_LINKS=$(echo $FOLDER_LINKS | tr '[:upper:]' '[:lower:]')
-while [ "$FOLDER_LINKS" != "y" ] && [ "$FOLDER_LINKS" != "n" ]; do
+while [ "$FOLDER_LINKS" != "y" ] && [ "$FOLDER_LINKS" != "n" ] && [ "$FOLDER_LINKS" != "" ]; do
     read -N 1000000 -t 0.001 # Clear input
     echo -n "Please enter 'y' or 'n': " 
     read FOLDER_LINKS
@@ -411,7 +410,7 @@ sudo bash -c 'echo "vm.swappiness = 10" >> /etc/sysctl.conf'
 # Required software already installed in the INSTALL/apt section
 # Configure Authetication
 export SMTP_SERVER='[smtp.gmail.com]:587'
-read -N 1000000 -t 0.001 # Clear input for email address read
+read -N 1000000 -t 0.001 # Clear input
 echo "Enter the Email address for your account: "
 read EMAIL
 echo "Enter your password: "
@@ -419,7 +418,7 @@ read -s PASSWORD
 echo "Confirm your password: "
 read -s PASSWORD2
 while [ "$PASSWORD" != "$PASSWORD2" ]; do
-    read -N 1000000 -t 0.001 # Clear input for email address read
+    read -N 1000000 -t 0.001 # Clear input
     echo "The passwords did not match. Try again."
     echo "Enter your password: "
     read -s PASSWORD
@@ -573,6 +572,8 @@ echo "alias tmux='tmux -2'" >> $HOME/.bash_aliases
 echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
 echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
 echo "alias push='git push -u origin master'" >> $HOME/.bash_aliases
+echo "alias phone='ssh -p 8022 192.168.0.102'" >> $HOME/.bash_aliases
+echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
 
 # SETTINGS/anacrontab
 sudo -E bash -c 'echo -e "20\t0\tcron.monthly\t/bin/bash\t$SCRIPTS_FOLDER/monthly.sh" >> /etc/anacrontab'
@@ -686,7 +687,7 @@ mkdir -p $HOME/.local/share/mc/skins/
 cp "$(find $HOME -name darkcourses_green.ini 2> /dev/null | head -1)" $HOME/.local/share/mc/skins/
 gnome-terminal -e mc
 echo "Please exit the mc instance that opened, using File->Exit."
-read -N 1000000 -t 0.001 # Clear input for mc exit confirmation
+read -N 1000000 -t 0.001 # Clear input
 echo "Press ENTER to confirm."
 read CONFIRMATION
 sed -i 's/skin=default/skin=darkcourses_green/' $HOME/.config/mc/ini 
@@ -695,17 +696,45 @@ sed -i 's/skin=default/skin=darkcourses_green/' $HOME/.config/mc/ini
 sudo sed -i 's/#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd/system.conf 
 sudo sed -i 's/#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd/user.conf 
 
+# SETTINGS/ssh for GitHub
+read -N 1000000 -t 0.001 # Clear input 
+echo -n "Generate ssh key pair for GitHub? (Y/n): "  
+read SSH_GITHUB
+if [ "$SSH_GITHUB" == "y" ] || [ "$SSH_GITHUB" == "Y" ] || [ "$SSH_GITHUB" == "" ]; then
+    ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/id_rsa_github
+fi
+
+# SETTINGS/ssh for phone
+read -N 1000000 -t 0.001 # Clear input 
+echo -n "Generate ssh key pair for connecting to phone? (Y/n): "
+read SSH_PHONE
+if [ "$SSH_PHONE" == "y" ] || [ "$SSH_PHONE" == "Y" ] || [ "$SSH_PHONE" == "" ]; then
+    ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/id_rsa_phone
+fi
+# SETTINGS/ssh for phone/copy id to phone
+read -N 1000000 -t 0.001 # Clear input 
+echo -n "Is your phone terminal online ond connected? (y/N): "
+read PHONE_CONNECTED
+if [ "$PHONE_CONNECTED" == "y" ] || [ "$PHONE_CONNECTED" == "Y" ]; then
+    read -N 1000000 -t 0.001 # Clear input
+    echo -n "Enter your phone IP (default $DEFAULT_PHONE_IP): "
+    read PHONE_IP
+    if [ "$PHONE_IP" == "" ]; then
+        PHONE_IP="$DEFAULT_PHONE_IP"
+    fi
+    ssh-copy-id -p 8022 -i $HOME/.ssh/id_rsa_phone $PHONE_IP
+fi
+
 # SETTINGS/hostname
 sudo -E bash -c "echo $HOSTNAME > /etc/hostname"
 
 # DONE
 echo -e "\nDone!"
-read -N 1000000 -t 0.001 # Clear input for reboot confirmation
+read -N 1000000 -t 0.001 # Clear input 
 echo -n "Restart your system now? (Y/n): "
-read INPUT
-if [ "$INPUT" == "n" ] || [ "$INPUT" == "N" ]; then
+read DONE
+if [ "$DONE" == "n" ] || [ "$DONE" == "N" ]; then
     exit 0
 else
     sudo reboot
 fi
-
