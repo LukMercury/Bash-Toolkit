@@ -700,7 +700,7 @@ read -N 1000000 -t 0.001 # Clear input
 echo -n "Generate ssh key pair for GitHub? (Y/n): "  
 read SSH_GITHUB
 if [ "$SSH_GITHUB" == "y" ] || [ "$SSH_GITHUB" == "Y" ] || [ "$SSH_GITHUB" == "" ]; then
-    ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/id_rsa_github
+    ssh-keygen -t rsa -b 4096 
 fi
 
 # SETTINGS/ssh for phone
