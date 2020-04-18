@@ -183,6 +183,7 @@ sudo apt install -y g++
 sudo apt install -y ldc
 sudo apt install -y openjdk-8-jdk
 sudo apt install -y php
+sudo apt install -y python3-lxml
 sudo apt install -y git
 sudo apt install -y cmake
 sudo apt install -y cmake-gui
