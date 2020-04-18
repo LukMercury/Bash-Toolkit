@@ -572,7 +572,6 @@ echo "alias tmux='tmux -2'" >> $HOME/.bash_aliases
 echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
 echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
 echo "alias push='git push -u origin master'" >> $HOME/.bash_aliases
-echo "alias phone='ssh -p 8022 192.168.0.102'" >> $HOME/.bash_aliases
 echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
 
 # SETTINGS/anacrontab
@@ -723,6 +722,9 @@ if [ "$PHONE_CONNECTED" == "y" ] || [ "$PHONE_CONNECTED" == "Y" ]; then
         PHONE_IP="$DEFAULT_PHONE_IP"
     fi
     ssh-copy-id -p 8022 -i $HOME/.ssh/id_rsa_phone $PHONE_IP
+    echo "alias phone='ssh -p 8022 $PHONE_IP'" >> $HOME/.bash_aliases
+else
+    echo "alias phone='ssh -p 8022 $DEFAULT_PHONE_IP'" >> $HOME/.bash_aliases
 fi
 
 # SETTINGS/hostname
