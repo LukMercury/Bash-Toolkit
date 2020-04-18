@@ -711,20 +711,22 @@ if [ "$SSH_PHONE" == "y" ] || [ "$SSH_PHONE" == "Y" ] || [ "$SSH_PHONE" == "" ];
     ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/id_rsa_phone
 fi
 # SETTINGS/ssh for phone/copy id to phone
-read -N 1000000 -t 0.001 # Clear input 
-echo -n "Is your phone connected? (y/N): "
-read PHONE_CONNECTED
-if [ "$PHONE_CONNECTED" == "y" ] || [ "$PHONE_CONNECTED" == "Y" ]; then
-    read -N 1000000 -t 0.001 # Clear input
-    echo -n "Enter your phone IP (default $DEFAULT_PHONE_IP): "
-    read PHONE_IP
-    if [ "$PHONE_IP" == "" ]; then
-        PHONE_IP="$DEFAULT_PHONE_IP"
-    fi
-    ssh-copy-id -p 8022 -i $HOME/.ssh/id_rsa_phone $PHONE_IP
-    echo "alias phone='ssh -p 8022 $PHONE_IP'" >> $HOME/.bash_aliases
-else
-    echo "alias phone='ssh -p 8022 $DEFAULT_PHONE_IP'" >> $HOME/.bash_aliases
+if [ -f $HOME/.ssh/id_rsa_phone ]; then
+	read -N 1000000 -t 0.001 # Clear input 
+	echo -n "Is your phone connected? (y/N): "
+	read PHONE_CONNECTED
+	if [ "$PHONE_CONNECTED" == "y" ] || [ "$PHONE_CONNECTED" == "Y" ]; then
+	    read -N 1000000 -t 0.001 # Clear input
+	    echo -n "Enter your phone IP (default $DEFAULT_PHONE_IP): "
+	    read PHONE_IP
+	    if [ "$PHONE_IP" == "" ]; then
+	        PHONE_IP="$DEFAULT_PHONE_IP"
+	    fi
+	    ssh-copy-id -p 8022 -i $HOME/.ssh/id_rsa_phone $PHONE_IP
+	    echo "alias phone='ssh -p 8022 $PHONE_IP'" >> $HOME/.bash_aliases
+	else
+	    echo "alias phone='ssh -p 8022 $DEFAULT_PHONE_IP'" >> $HOME/.bash_aliases
+	fi
 fi
 
 # SETTINGS/hostname
