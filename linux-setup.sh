@@ -712,7 +712,7 @@ if [ "$SSH_PHONE" == "y" ] || [ "$SSH_PHONE" == "Y" ] || [ "$SSH_PHONE" == "" ];
 fi
 # SETTINGS/ssh for phone/copy id to phone
 read -N 1000000 -t 0.001 # Clear input 
-echo -n "Is your phone terminal online ond connected? (y/N): "
+echo -n "Is your phone connected? (y/N): "
 read PHONE_CONNECTED
 if [ "$PHONE_CONNECTED" == "y" ] || [ "$PHONE_CONNECTED" == "Y" ]; then
     read -N 1000000 -t 0.001 # Clear input
