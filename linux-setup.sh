@@ -85,24 +85,16 @@ done
 read -N 1000000 -t 0.001 # Clear input
 echo -n "Create links to custom binaries and scripts? (Y/n): "
 read BINARY_LINKS
-BINARY_LINKS=$(echo $BINARY_LINKS | tr '[:upper:]' '[:lower:]')
-while [ "$BINARY_LINKS" != "y" ] && [ "$BINARY_LINKS" != "n" ] && [ "$BINARY_LINKS" != "" ]; do
-    read -N 1000000 -t 0.001 # Clear input
-    echo -n "Please enter 'y' or 'n': " 
-    read BINARY_LINKS
-    BINARY_LINKS=$(echo $BINARY_LINKS | tr '[:upper:]' '[:lower:]')
-done
+if [ "$BINARY_LINKS" == "y" ] || [ "$BINARY_LINKS" == "Y" ] || [ "$BINARY_LINKS" == "" ]; then
+    BINARY_LINKS="y"
+fi
 
 # Links to folders
 read -N 1000000 -t 0.001 # Clear input
 echo -n "Create links to custom binaries and scripts? (Y/n): "
 read FOLDER_LINKS
-FOLDER_LINKS=$(echo $FOLDER_LINKS | tr '[:upper:]' '[:lower:]')
-while [ "$FOLDER_LINKS" != "y" ] && [ "$FOLDER_LINKS" != "n" ] && [ "$FOLDER_LINKS" != "" ]; do
-    read -N 1000000 -t 0.001 # Clear input
-    echo -n "Please enter 'y' or 'n': " 
-    read FOLDER_LINKS
-    FOLDER_LINKS=$(echo $FOLDER_LINKS | tr '[:upper:]' '[:lower:]')
+if [ "$FOLDER_LINKS" == "y" ] || [ "$FOLDER_LINKS" == "Y" ] || [ "$FOLDER_LINKS" == "" ]; then
+    FOLDER_LINKS="y"
 done
 
 # ------------------------------------------------------------------------------------------------------------------------------
@@ -554,6 +546,9 @@ if [ ! -f $HOME/.profile ] || [ $(wc -l < $HOME/.profile) -eq 0 ]; then
     echo -e "    export PATH=\$PATH:\$HOME/bin" >> $HOME/.profile
     echo "fi" >> $HOME/.profile
 fi
+# export DISPLAY=:0 for ssh commands
+echo >> $HOME/.profile
+echo 'export DISPLAY=":0"' >> $HOME/.profile
 # nvm
 echo >> $HOME/.profile
 echo '# nvm' >> $HOME/.profile
