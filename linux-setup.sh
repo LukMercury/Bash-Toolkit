@@ -120,10 +120,6 @@ sudo add-apt-repository -y ppa:nilarimogard/webupd8
 wget -qO- https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository -y 'deb https://typora.io/linux ./'
 
-# REPOSITORIES/Insomnia
-echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" | sudo tee -a /etc/apt/sources.list.d/insomnia.list
-wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc | sudo apt-key add -
-
 
 # INSTALL
 
@@ -185,7 +181,6 @@ sudo apt install -y cmake-gui
 sudo apt install -y sublime-text
 sudo apt install -y sublime-merge
 sudo apt install -y cpputest
-sudo apt install -y insomnia
 sudo apt install -y recoll
 sudo apt install -y antiword
 sudo apt install -y djvulibre-bin
