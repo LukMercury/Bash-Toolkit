@@ -270,6 +270,9 @@ fi
 #else
 #fi
 
+# INSTALL/pip
+pip3 install Scrapy
+
 # INSTALL/npm
 sudo npm install jsonlint -g
 
