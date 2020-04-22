@@ -550,6 +550,9 @@ if [ ! -f $HOME/.profile ] || [ $(wc -l < $HOME/.profile) -eq 0 ]; then
     echo -e "    export PATH=\$PATH:\$HOME/bin" >> $HOME/.profile
     echo "fi" >> $HOME/.profile
 fi
+# add "." to PATH to allow running executable scripts directly
+echo >> $HOME/.profile
+echo 'export PATH=\.:$PATH' >> $HOME/.profile
 # export DISPLAY=:0 for ssh commands
 echo >> $HOME/.profile
 echo 'export DISPLAY=":0"' >> $HOME/.profile
