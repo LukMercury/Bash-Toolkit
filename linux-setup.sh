@@ -607,9 +607,7 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
     ln -s "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
     ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
-    ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xo
     ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
-    ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xr
     ln -s "$SCRIPTS_FOLDER/srun.sh" $HOME/bin/srun
     ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/websearch
     ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/search
