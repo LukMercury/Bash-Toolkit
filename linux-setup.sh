@@ -35,6 +35,7 @@ TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 ATOM="https://atom.io/download/deb"
 DMD="http://downloads.dlang.org/releases/2.x/2.087.0/dmd_2.087.0-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
+ZOOM="https://d11yldzmag5yn.cloudfront.net/prod/5.0.408598.0517/zoom_amd64.deb"
 TOR_BROWSER="https://dist.torproject.org/torbrowser/9.0.4/tor-browser-linux64-9.0.4_en-US.tar.xz"
 CLION="https://download.jetbrains.com/cpp/CLion-2019.3.2.tar.gz"
 PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2019.3.1.tar.gz"
@@ -47,7 +48,6 @@ MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-
 # Gnome Shell Extensions
 REFRESH_WIFI="https://extensions.gnome.org/extension-data/refresh-wifikgshank.net.v11.shell-extension.zip"
 PLACES_STATUS_INDICATOR="https://extensions.gnome.org/extension-data/places-menugnome-shell-extensions.gcampax.github.com.v45.shell-extension.zip"
-ZOOM="https://d11yldzmag5yn.cloudfront.net/prod/5.0.408598.0517/zoom_amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
