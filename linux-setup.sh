@@ -47,6 +47,7 @@ MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-
 # Gnome Shell Extensions
 REFRESH_WIFI="https://extensions.gnome.org/extension-data/refresh-wifikgshank.net.v11.shell-extension.zip"
 PLACES_STATUS_INDICATOR="https://extensions.gnome.org/extension-data/places-menugnome-shell-extensions.gcampax.github.com.v45.shell-extension.zip"
+ZOOM="https://d11yldzmag5yn.cloudfront.net/prod/5.0.408598.0517/zoom_amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -377,6 +378,12 @@ rm -f mysql-workbench.deb
 wget -O skype.deb "$SKYPE" 2> /dev/null    
 sudo dpkg -i skype.deb || sudo apt install -f -y
 rm -f skype.deb
+
+# INSTALL/Download/Zoom
+wget -O zoom.deb "$ZOOM" 2> /dev/null    
+sudo dpkg -i zoom.deb || sudo apt install -f -y
+rm -f zoom.deb
+
 
 # INSTALL/Download/Tor Browser
 wget -O tor-browser.tar.xz "$TOR_BROWSER" 2> /dev/null    
