@@ -384,7 +384,6 @@ wget -O zoom.deb "$ZOOM" 2> /dev/null
 sudo dpkg -i zoom.deb || sudo apt install -f -y
 rm -f zoom.deb
 
-
 # INSTALL/Download/Tor Browser
 wget -O tor-browser.tar.xz "$TOR_BROWSER" 2> /dev/null    
 tar -xvf tor-browser.tar.xz
