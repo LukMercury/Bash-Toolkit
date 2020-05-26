@@ -185,6 +185,7 @@ sudo apt install -y sublime-merge
 sudo apt install -y cpputest
 sudo apt install -y recoll
 sudo apt install -y antiword
+sudo apt install -y calibre
 sudo apt install -y djvulibre-bin
 sudo apt install -y python3-mutagen
 sudo apt install -y unrtf
