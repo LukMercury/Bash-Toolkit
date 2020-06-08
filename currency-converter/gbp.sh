@@ -10,6 +10,8 @@ GBP_RON=$(bc<<<"scale=4; $EUR_RON/$EUR_GBP")
 
 if [ -z $1 ]; then
     AMOUNT=1
+	RON=$(bc<<<"$AMOUNT * $GBP_RON")
+	echo "$RON ron"
 else 
 	until [ -z "$1" ]; do
 		if [[ $1 =~ ^[0-9]+\.?[0-9]*$ ]]; then

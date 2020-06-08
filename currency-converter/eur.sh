@@ -7,6 +7,8 @@ EUR_RON=$(curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml 
 
 if [ -z $1 ]; then
     AMOUNT=1
+	RON=$(bc<<<"$AMOUNT * $EUR_RON")
+	echo "$RON ron"
 else 
 	until [ -z "$1" ]; do
 		if [[ $1 =~ ^[0-9]+\.?[0-9]*$ ]]; then
