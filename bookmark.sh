@@ -77,12 +77,18 @@ case "$1" in
         ;;
     # Open Bookmark in Browser
     "follow" | "-f")
-        if [ -z "$2" ]; then
+        shift
+        if [ -z "$1" ]; then
             nohup browse $(cat "$LOG_FILE" | tail -1) &> /dev/null
-        elif [[ "$2" =~ ^[0-9]+$ ]]; then   # check if numerical
-            nohup browse $(cat "$LOG_FILE" | head -n "$2" | tail -1) &> /dev/null
         else
-            echo "Bad argument after 'follow'"
+            while [ ! -z $1 ]; do
+                if [[ "$1" =~ ^[0-9]+$ ]]; then   # check if numerical
+                    nohup browse $(cat "$LOG_FILE" | head -n "$1" | tail -1) &> /dev/null
+                else
+                    echo "Bad argument after 'follow': $1"
+                fi
+                shift
+            done
         fi
         ;;
     # Manually edit Bookmarks
