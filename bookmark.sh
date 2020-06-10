@@ -92,6 +92,24 @@ case "$1" in
         fi
         ;;
     # Manually edit Bookmarks
+    "search-follow-all" | "-sfa")
+        if [ -z "$2" ]; then
+            echo "Enter search term(s) after 'search'"
+        else
+            shift
+            SEARCH_RESULTS="$(cat -n "$LOG_FILE" | grep -i "$1")"
+            shift 
+            until [ -z "$1" ]; do
+                SEARCH_RESULTS="$(echo -e "$SEARCH_RESULTS" | grep "$1")"
+                shift
+            done
+            readarray -t SEARCH_RESULTS < <(echo "$SEARCH_RESULTS" | tr -s '[:blank:]' ':')
+            for RESULT in ${SEARCH_RESULTS[*]}; do
+                RESULT=$(echo "$RESULT" | cut -d: -f2)
+                nohup browse $(cat "$LOG_FILE" | head -n $RESULT | tail -1) &> /dev/null
+            done
+        fi
+    ;;
     "edit" | "-e")
         vim "$LOG_FILE"
         ;;
