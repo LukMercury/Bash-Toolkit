@@ -91,7 +91,7 @@ case "$1" in
             done
         fi
         ;;
-    # Manually edit Bookmarks
+    # Search for terms and automatically follow found links
     "search-follow-all" | "-sfa")
         if [ -z "$2" ]; then
             echo "Enter search term(s) after 'search'"
@@ -110,6 +110,7 @@ case "$1" in
             done
         fi
     ;;
+    # Manually edit Bookmarks
     "edit" | "-e")
         vim "$LOG_FILE"
         ;;
