@@ -14,11 +14,11 @@ while [ ! -z $1 ]; do
     if [[ "$1" =~ ^[0-9]+$ ]]; then
         nohup firefox $(cat "$LOG_FILE" | head -n "$1" | tail -1) &> /dev/null &
     elif [ -f "$1" ]; then
-        for LINK in $(grep http "$1" | tr [:blank:] '\n' | grep http) ; do
+        for LINK in $(grep http "$1" | tr [:blank:]\"\' '\n' | grep http) ; do
             nohup firefox $LINK &> /dev/null &
             FOUND_LINK=0
         done
-        for LINK in $(grep www "$1" | tr [:blank:] '\n' | grep www | grep -v http) ; do
+        for LINK in $(grep www "$1" | tr [:blank:]\"\' '\n' | grep www | grep -v http) ; do
             nohup firefox --new-window "https://$LINK" &> /dev/null &
             FOUND_LINK=0
         done
