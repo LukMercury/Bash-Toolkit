@@ -57,7 +57,7 @@ case "$1" in
             SEARCH_RESULTS="$(cat -n "$LOG_FILE" | grep -i "$1")"
             shift 
             until [ -z "$1" ]; do
-                SEARCH_RESULTS="$(echo "$SEARCH_RESULTS" | grep "$1")"
+                SEARCH_RESULTS="$(echo "$SEARCH_RESULTS" | grep -i "$1")"
                 shift
             done
             echo "$SEARCH_RESULTS"
@@ -100,7 +100,7 @@ case "$1" in
             SEARCH_RESULTS="$(cat -n "$LOG_FILE" | grep -i "$1")"
             shift 
             until [ -z "$1" ]; do
-                SEARCH_RESULTS="$(echo -e "$SEARCH_RESULTS" | grep "$1")"
+                SEARCH_RESULTS="$(echo -e "$SEARCH_RESULTS" | grep -i "$1")"
                 shift
             done
             readarray -t SEARCH_RESULTS < <(echo "$SEARCH_RESULTS" | tr -s '[:blank:]' ':')
