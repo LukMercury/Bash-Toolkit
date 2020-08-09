@@ -121,6 +121,9 @@ sudo add-apt-repository -y ppa:nilarimogard/webupd8
 wget -qO- https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo add-apt-repository -y 'deb https://typora.io/linux ./'
 
+# REPOSITORIES/bashtop
+sudo add-apt-repository ppa:bashtop-monitor/bashtop
+
 
 # INSTALL
 
@@ -152,6 +155,7 @@ sudo apt install -y mc
 sudo apt install -y tree
 sudo apt install -y top
 sudo apt install -y htop
+sudo apt install -y bashtop
 sudo apt install -y anacron
 sudo apt install -y errno
 sudo apt install -y pstree
