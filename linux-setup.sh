@@ -72,16 +72,6 @@ while [ "$X_VERSION" != "g" ] && [ "$X_VERSION" != "k" ]; do
     X_VERSION=$(echo $X_VERSION | tr '[:upper:]' '[:lower:]')
 done
 
-# Graphics - Nvidia or AMD
-#read -N 1000000 -t 0.001 # Clear input
-#echo -n "Nvidia or AMD? (n/a): " 
-#read GRAPHICS_CARD
-#while [ "$GRAPHICS_CARD" != "g" ] && [ "$GRAPHICS_CARD" != "k" ]; do
-#    read -N 1000000 -t 0.001 # Clear input
-#echo -n "Please enter 'n' or 'a': " 
-#    read GRAPHICS_CARD
-#done
-
 # Links to custom binaries and scripts (~/bin)
 read -N 1000000 -t 0.001 # Clear input
 echo -n "Create links to custom binaries and scripts? (Y/n): "
@@ -92,7 +82,7 @@ fi
 
 # Links to folders
 read -N 1000000 -t 0.001 # Clear input
-echo -n "Create links to custom binaries and scripts? (Y/n): "
+echo -n "Create links to folders? (Y/n): "
 read FOLDER_LINKS
 if [ "$FOLDER_LINKS" == "y" ] || [ "$FOLDER_LINKS" == "Y" ] || [ "$FOLDER_LINKS" == "" ]; then
     FOLDER_LINKS="y"
@@ -270,11 +260,6 @@ else
     sudo apt install -y doublecmd-qt
 fi
 
-# INSTALL/apt/Nvidia or AMD
-#if [ "$GRAPHICS_CARD" == "n" ]; then
-#else
-#fi
-
 # INSTALL/pip
 pip3 install Scrapy
 
@@ -284,8 +269,10 @@ sudo npm install jsonlint -g
 # INSTALL/nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 
-# INSTALL/flatpak
+# INSTALL/rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# INSTALL/flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # UberWriter
 echo '#!/bin/bash' > install-uberwriter.sh
@@ -635,6 +622,7 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/tolower.py" $HOME/bin/tolower
     ln -s "$SCRIPTS_FOLDER/toupper.py" $HOME/bin/toupper
     ln -s "$SCRIPTS_FOLDER/insert-address.sh" $HOME/bin/insert-address
+    ln -s "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
     # Cmus
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
@@ -660,15 +648,15 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
 fi
 
-# ~/Desktop/
+# Folders
 if [ $FOLDER_LINKS == "y" ]; then
     ln -s $HOME/Dropbox/Documents/ $HOME/Desktop/Documents
     ln -s $HOME/Dropbox/Documents/Carti/ $HOME/Desktop/Carti
     ln -s $HOME/Music/  $HOME/Desktop/Music
     ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
     ln -s "$CODE_FOLDER" $HOME/Desktop/Code
-    ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Bash-Scripts
-    ln -s "$SCRIPTS_FOLDER" $HOME/Bash-Scripts
+    ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Scripts
+    ln -s "$SCRIPTS_FOLDER" $HOME/Scripts
 fi
 
 # SETTINGS/Autostart

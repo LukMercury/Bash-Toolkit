@@ -1,6 +1,6 @@
 # Start cmus music player in a tmux session
 
-ps -e | grep tmux || terminology -e tmux
+ps -e | grep tmux | grep -v \<defunct\> || terminology -e tmux
 
 cmusStart() 
 {
