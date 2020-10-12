@@ -200,6 +200,7 @@ sudo apt install -y typora
 sudo apt install -y cmus
 sudo apt install -y audacious
 sudo apt install -y audacious-plugins
+sudo apt install -y spotify-client
 sudo apt install -y vlc
 sudo apt install -y finch
 sudo apt install -y alacarte
