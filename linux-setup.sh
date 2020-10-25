@@ -205,6 +205,7 @@ sudo apt install -y finch
 sudo apt install -y alacarte
 sudo apt install -y nautilus-dropbox
 sudo apt install -y qbittorrent
+sudo apt install -y transmission-cli
 sudo apt install -y dict
 sudo apt install -y dictd
 sudo apt install -y dict-gcide
