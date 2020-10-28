@@ -261,7 +261,10 @@ else
     sudo apt install -y doublecmd-qt
 fi
 
-# INSTALL/pip
+# INSTALL/pip3
+pip3 install requests
+pip3 install lxml
+pip3 install wget
 pip3 install Scrapy
 
 # INSTALL/npm
