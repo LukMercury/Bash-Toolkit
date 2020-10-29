@@ -104,6 +104,9 @@ sudo apt-add-repository -y "deb https://dl.winehq.org/wine-builds/ubuntu/ $UBUNT
 # REPOSITORIES/Lutris
 sudo add-apt-repository -y ppa:lutris-team/lutris
 
+# REPOSITORIES/Mesa
+sudo add-apt-repository -y ppa:kisak/kisak-mesa
+
 # REPOSITORIES/webupd8
 sudo add-apt-repository -y ppa:nilarimogard/webupd8
 
@@ -123,6 +126,7 @@ sudo dpkg --add-architecture i386
 # INSTALL/apt
 
 sudo apt update -y
+sudo apt upgrade -y
 # Remove packages installed by default
 # Vivaldi Browser
 sudo apt purge -y vivaldi-stable
@@ -217,10 +221,16 @@ sudo apt install -y dict-freedict-fra-eng
 sudo apt install -y dict-freedict-eng-rom
 sudo apt install -y gimp
 # Wine dependencies
-sudo apt install -y libgnutls30:i386 
-sudo apt install -y libldap-2.4-2:i386 
-sudo apt install -y libgpg-error0:i386 
-sudo apt install -y libsqlite3-0:i386
+# sudo apt install -y libgnutls30:i386 
+# sudo apt install -y libldap-2.4-2:i386 
+# sudo apt install -y libgpg-error0:i386 
+# sudo apt install -y libsqlite3-0:i386
+# Lutris Drivers AMD
+# Support for 32bit games
+sudo apt install libgl1-mesa-dri:i386
+# Support for Vulkan API
+sudo apt install -y mesa-vulkan-drivers 
+sudo apt install -y mesa-vulkan-drivers:i386
 
 #
 sudo apt install -y --install-recommends winehq-stable
