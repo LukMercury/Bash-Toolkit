@@ -154,6 +154,7 @@ sudo apt install -y anacron
 sudo apt install -y errno
 sudo apt install -y pstree
 sudo apt install -y finger
+sudo apt install -y dconf-editor
 sudo apt install -y xclip
 sudo apt install -y gpaste
 sudo apt install -y gnome-shell-extensions-gpaste
