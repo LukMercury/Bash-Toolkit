@@ -638,6 +638,7 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/toupper.py" $HOME/bin/toupper
     ln -s "$SCRIPTS_FOLDER/insert-address.sh" $HOME/bin/insert-address
     ln -s "$SCRIPTS_FOLDER/showmyip.sh" $HOME/bin/showmyip
+    ln -s "$SCRIPTS_FOLDER/worldclock.sh" $HOME/bin/worldclock
     ln -s "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
     # Cmus
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
