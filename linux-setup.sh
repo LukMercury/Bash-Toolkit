@@ -29,14 +29,15 @@ export DEFAULT_PHONE_IP=192.168.0.102
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
 VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.16/virtualbox-6.1_6.1.16-140961~Ubuntu~eoan_amd64.deb"
 VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.1.16/Oracle_VM_VirtualBox_Extension_Pack-6.1.16.vbox-extpack"
-TEAMSPEAK="https://files.teamspeak-services.com/releases/client/3.5.3/TeamSpeak3-Client-linux_x86-3.5.3.run"
+TEAMSPEAK="https://files.teamspeak-services.com/releases/client/3.5.5/TeamSpeak3-Client-linux_x86-3.5.5.run"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 ATOM="https://atom.io/download/deb"
-DMD="http://downloads.dlang.org/releases/2.x/2.094.1/dmd_2.094.1-0_amd64.deb"
+DMD="http://downloads.dlang.org/releases/2.x/2.094.2/dmd_2.094.2-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
-TOR_BROWSER="https://dist.torproject.org/torbrowser/10.0.2/tor-browser-linux64-10.0.2_en-US.tar.xz"
+MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
+TOR_BROWSER="https://dist.torproject.org/torbrowser/10.0.5/tor-browser-linux64-10.0.5_en-US.tar.xz"
 CLION="https://download.jetbrains.com/cpp/CLion-2020.2.4.tar.gz"
 PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2020.2.3.tar.gz"
 INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2020.2.3.tar.gz"
@@ -389,6 +390,12 @@ rm -f skype.deb
 wget -O zoom.deb "$ZOOM" 2> /dev/null    
 sudo dpkg -i zoom.deb || sudo apt install -f -y
 rm -f zoom.deb
+
+# INSTALL/Download/Teams
+wget -O teams.deb "$MS_TEAMS" 2> /dev/null    
+sudo dpkg -i teams.deb || sudo apt install -f -y
+rm -f teams.deb
+
 
 # INSTALL/Download/Tor Browser
 wget -O tor-browser.tar.xz "$TOR_BROWSER" 2> /dev/null    
