@@ -164,6 +164,10 @@ sudo apt install -y rwho
 sudo apt install -y openssh-server
 sudo apt install -y sshfs
 sudo apt install -y traceroute
+sudo apt install -y bridge-utils
+sudo apt install -y nmap
+sudo apt install -y tpcdump
+sudo apt install -y whois
 sudo apt install -y remmina
 sudo apt install -y nnn
 sudo apt install -y w3m
