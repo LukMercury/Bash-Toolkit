@@ -1,3 +1,3 @@
 #!/bin/bash
 
-nohup cinnamon-settings sound &> /dev/null &
+systemctl --user restart pulseaudio
