@@ -291,6 +291,7 @@ pip3 install wget
 pip3 install Scrapy
 
 # INSTALL/npm
+sudo npm i console-stopwatch --global
 sudo npm install jsonlint -g
 
 # INSTALL/nvm
