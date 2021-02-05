@@ -656,6 +656,7 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/showmyip.sh" $HOME/bin/showmyip
     ln -s "$SCRIPTS_FOLDER/worldclock.sh" $HOME/bin/worldclock
     ln -s "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
+    ln -s "$SCRIPTS_FOLDER/cmd.sh" $HOME/bin/cmd
     # Cmus
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
