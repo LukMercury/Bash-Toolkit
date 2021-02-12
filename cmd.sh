@@ -1,8 +1,28 @@
 #!/bin/bash
 
-DIR="$HOME/Dropbox/Scripts"
-INPUT_FILE="$DIR/cmd_input.txt"
+DIR="$HOME/Scripts"
+INPUT_SEL="$DIR/cmd_inputfile_sel.txt"
+
+if [ ! -f $INPUT_SEL ]; then 
+    echo "cmd_input.txt" > $INPUT_SEL
+    echo "Input selection file created, start again"
+    exit 1
+fi
+
+INPUT_FILE="$DIR/$(cat $INPUT_SEL)"
 DATA_FILE="$DIR/cmd_data.txt"
+
+# choose input file
+if [ $1 ] && [ $1 == "f" ]; then
+    if [ $2 ]; then
+        echo $2 > $INPUT_SEL
+    else
+        echo -n "Enter new input file: "
+        read NEW_INPUT_FILE
+        echo $NEW_INPUT_FILE > $INPUT_SEL
+    fi
+    exit 0
+fi
 
 # edit
 if [ $1 ] && [ $1 == "e" ]; then
