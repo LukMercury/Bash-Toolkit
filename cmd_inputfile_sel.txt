@@ -1,1 +1,1 @@
-cmd_input2.txt
+cmd_input.txt
