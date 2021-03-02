@@ -87,7 +87,7 @@ echo -n "Create links to folders? (Y/n): "
 read FOLDER_LINKS
 if [ "$FOLDER_LINKS" == "y" ] || [ "$FOLDER_LINKS" == "Y" ] || [ "$FOLDER_LINKS" == "" ]; then
     FOLDER_LINKS="y"
-done
+fi
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -236,14 +236,14 @@ sudo apt install -y libgpg-error0:i386
 sudo apt install -y libsqlite3-0:i386
 # Lutris Drivers Nvidia
 # Support for Vulkan API
-sudo apt install -y libvulkan1
-sudo apt install -y libvulkan1:i386
+# sudo apt install -y libvulkan1
+# sudo apt install -y libvulkan1:i386
 # Lutris Drivers AMD
 # Support for 32bit games
-# sudo apt install libgl1-mesa-dri:i386
+sudo apt install libgl1-mesa-dri:i386
 # Support for Vulkan API
-# sudo apt install -y mesa-vulkan-drivers 
-# sudo apt install -y mesa-vulkan-drivers:i386
+sudo apt install -y mesa-vulkan-drivers 
+sudo apt install -y mesa-vulkan-drivers:i386
 
 #
 sudo apt install -y --install-recommends winehq-stable
@@ -684,8 +684,8 @@ fi
 
 # Folders
 if [ $FOLDER_LINKS == "y" ]; then
-    ln -s $HOME/Dropbox/Documents/ $HOME/Desktop/Documents
-    ln -s $HOME/Dropbox/Documents/Carti/ $HOME/Desktop/Carti
+    ln -s $HOME/Documents/ $HOME/Desktop/Documents
+    ln -s $HOME/Documents/Carti/ $HOME/Desktop/Carti
     ln -s $HOME/Music/  $HOME/Desktop/Music
     ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
     ln -s "$CODE_FOLDER" $HOME/Desktop/Code
