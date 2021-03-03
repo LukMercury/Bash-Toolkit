@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -z $1 ]; then
+    IP=8.8.8.8
+else
+    IP="$1"
+fi
+
 cmusPlayIfRunningAndExitScript()
 {
 	ps -e | grep cmus | grep -v \<defunct\> &> /dev/null && cmus-remote -p &> /dev/null && exit 0
@@ -40,7 +46,7 @@ waitToRetry()
 
 while (true); do
 
-    ping -c1 8.8.8.8
+    ping -c1 $IP
 
     if [ $? -eq 0 ]; then
 
