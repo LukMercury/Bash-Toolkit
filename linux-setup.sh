@@ -46,9 +46,6 @@ PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2020.3.2.tar.gz"
 GIT_KRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.tar.gz"
 POSTMAN="https://dl.pstmn.io/download/latest/linux64"
 MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.23-1ubuntu20.10_amd64.deb"
-# Gnome Shell Extensions
-REFRESH_WIFI="https://extensions.gnome.org/extension-data/refresh-wifikgshank.net.v14.shell-extension.zip"
-PLACES_STATUS_INDICATOR="https://extensions.gnome.org/extension-data/places-menugnome-shell-extensions.gcampax.github.com.v48.shell-extension.zip"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -240,7 +237,7 @@ sudo apt install -y libsqlite3-0:i386
 # sudo apt install -y libvulkan1:i386
 # Lutris Drivers AMD
 # Support for 32bit games
-sudo apt install libgl1-mesa-dri:i386
+sudo apt install -y libgl1-mesa-dri:i386
 # Support for Vulkan API
 sudo apt install -y mesa-vulkan-drivers 
 sudo apt install -y mesa-vulkan-drivers:i386
@@ -258,28 +255,6 @@ sudo apt install -y gnome-software-plugin-flatpak
 if [ "$X_VERSION" == "g" ]; then
     sudo apt install -y doublecmd-gtk
     sudo apt install -y gnome-tweaks
-
-    # Gnome Extensions
-    mkdir -p $HOME/.local/share/gnome-shell/extensions/ && cd $_
-    # Gnome Extensions/Refresh WIFI
-    mkdir -p $HOME/.local/share/gnome-shell/extensions/ && cd $_
-    if [ $? -eq 0 ]; then
-        wget -O refresh-wifi.zip $REFRESH_WIFI
-        unzip refresh-wifi.zip
-        rm refresh-wifi.zip
-        UUID=$(grep 'uuid' 'metadata.json' | tr -d '," ' | cut -d: -f3) 
-        mkdir $UUID && mv * $UUID 2> /dev/null
-    fi
-    # Gnome Extensions/Places Status Indicator
-    mkdir -p $HOME/.local/share/gnome-shell/extensions/ && cd $_
-    if [ $? -eq 0 ]; then
-        wget -O places-status-indicator.zip $PLACES_STATUS_INDICATOR
-        unzip places-status-indicator.zip
-        rm places-status-indicator.zip
-        UUID=$(grep 'uuid' 'metadata.json' | tr -d '," ' | cut -d: -f3) 
-        mkdir $UUID && mv * $UUID 2> /dev/null
-    fi
-    cd $RUN_FOLDER
 else 
     sudo apt install -y doublecmd-qt
 fi
