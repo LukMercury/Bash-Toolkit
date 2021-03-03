@@ -27,28 +27,28 @@ export DEFAULT_PHONE_IP=192.168.0.102
 # ONLINE SOURCES
 
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
-VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.16/virtualbox-6.1_6.1.16-140961~Ubuntu~eoan_amd64.deb"
-VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.1.16/Oracle_VM_VirtualBox_Extension_Pack-6.1.16.vbox-extpack"
-TEAMSPEAK="https://files.teamspeak-services.com/releases/client/3.5.5/TeamSpeak3-Client-linux_x86-3.5.5.run"
+VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.18/virtualbox-6.1_6.1.18-142142~Ubuntu~eoan_amd64.deb"
+VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.1.18/Oracle_VM_VirtualBox_Extension_Pack-6.1.18.vbox-extpack"
+TEAMSPEAK="https://files.teamspeak-services.com/releases/client/3.5.6/TeamSpeak3-Client-linux_x86-3.5.6.run"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 ATOM="https://atom.io/download/deb"
-DMD="http://downloads.dlang.org/releases/2.x/2.094.2/dmd_2.094.2-0_amd64.deb"
+DMD="https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.095.1-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
-TOR_BROWSER="https://dist.torproject.org/torbrowser/10.0.5/tor-browser-linux64-10.0.5_en-US.tar.xz"
-CLION="https://download.jetbrains.com/cpp/CLion-2020.2.4.tar.gz"
-PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2020.2.3.tar.gz"
-INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2020.2.3.tar.gz"
-WEBSTORM="https://download.jetbrains.com/webstorm/WebStorm-2020.2.3.tar.gz"
-PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2020.2.3.tar.gz"
+TOR_BROWSER="https://dist.torproject.org/torbrowser/10.0.12/tor-browser-linux64-10.0.12_en-US.tar.xz"
+CLION="https://download.jetbrains.com/cpp/CLion-2020.3.2.tar.gz"
+PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2020.3.3.tar.gz"
+INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2020.3.2.tar.gz"
+WEBSTORM="https://download.jetbrains.com/webstorm/WebStorm-2020.3.2.tar.gz"
+PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2020.3.2.tar.gz"
 GIT_KRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.tar.gz"
 POSTMAN="https://dl.pstmn.io/download/latest/linux64"
-MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.19-1ubuntu19.10_amd64.deb"
+MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.23-1ubuntu20.10_amd64.deb"
 # Gnome Shell Extensions
-REFRESH_WIFI="https://extensions.gnome.org/extension-data/refresh-wifikgshank.net.v13.shell-extension.zip"
-PLACES_STATUS_INDICATOR="https://extensions.gnome.org/extension-data/places-menugnome-shell-extensions.gcampax.github.com.v46.shell-extension.zip"
+REFRESH_WIFI="https://extensions.gnome.org/extension-data/refresh-wifikgshank.net.v14.shell-extension.zip"
+PLACES_STATUS_INDICATOR="https://extensions.gnome.org/extension-data/places-menugnome-shell-extensions.gcampax.github.com.v48.shell-extension.zip"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -245,7 +245,7 @@ sudo apt install libgl1-mesa-dri:i386
 sudo apt install -y mesa-vulkan-drivers 
 sudo apt install -y mesa-vulkan-drivers:i386
 
-#
+# Wine
 sudo apt install -y --install-recommends winehq-stable
 sudo apt install -y playonlinux
 sudo apt install -y lutris
