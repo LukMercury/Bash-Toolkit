@@ -3,7 +3,7 @@
 # Lists the files modified since system startup
 # Usage: work-done [folder]
 
-FOLDER=/home/$USER/Dropbox
+FOLDER=$HOME
 if [ ! -z "$1" ]; then
     FOLDER="$1"
 fi

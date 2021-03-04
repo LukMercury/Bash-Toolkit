@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ADDRESS_FILE="$HOME/Dropbox/Documents/Notite/MyAddress.txt"
+ADDRESS_FILE="$HOME/Documents/Notite/MyAddress.txt"
 
 ADDRESS="$(cat "$ADDRESS_FILE")"
 

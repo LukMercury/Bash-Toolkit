@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATA_FOLDER=$HOME/Dropbox/Bash-Scripts
+DATA_FOLDER=$HOME/Scripts
 
 cd $DATA_FOLDER
 echo 'Unpacking...'

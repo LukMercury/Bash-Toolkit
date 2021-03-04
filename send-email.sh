@@ -6,7 +6,7 @@
 # Minimal resoureces, fast operation, terminal window closes automatically
 # named "send-email" to differentiate from "sendmail"
 
-ADDRESS_BOOK="$HOME/Dropbox/Documents/Notite/Address Book.txt"
+ADDRESS_BOOK="$HOME/Documents/Notite/Address Book.txt"
 MY_EMAIL="mihailuca406@gmail.com"
 
 getAddress()
