@@ -179,6 +179,9 @@ sudo apt install -y ldc
 sudo apt install -y openjdk-14-jdk
 sudo apt install -y php
 sudo apt install -y python3-pip
+sudo apt install -y python3-setuptools
+sudo apt install -y python3-libs
+sudo apt install -y pipx
 sudo apt install -y python3-lxml
 sudo apt install -y git
 sudo apt install -y cmake
@@ -250,6 +253,8 @@ sudo apt install -y steam
 sudo apt install -y npm
 sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
+# Protontricks
+bash -c 'pipx install protontricks'
 
 # INSTALL/apt/gnome or kde
 if [ "$X_VERSION" == "g" ]; then
