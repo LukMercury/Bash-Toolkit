@@ -7,7 +7,7 @@
 # Usage: to <name1> [name2] [name3]
 #   with mail: echo "email message" | mail -s "subject" $(to name)
 
-ADDRESS_BOOK="$HOME/Dropbox/Documents/Notite/Address Book.txt"
+ADDRESS_BOOK="$HOME/Documents/Notite/Address Book.txt"
 MY_EMAIL="mihailuca406@gmail.com"
 
 if [ ! -z $3 ]; then
