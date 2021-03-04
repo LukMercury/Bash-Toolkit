@@ -154,6 +154,7 @@ sudo apt install -y pstree
 sudo apt install -y finger
 sudo apt install -y dconf-editor
 sudo apt install -y xclip
+sudo apt install -y taskwarrior
 sudo apt install -y gpaste
 sudo apt install -y gnome-shell-extensions-gpaste
 sudo apt install -y libnotify-bin
@@ -173,7 +174,6 @@ sudo apt install -y mailutils
 sudo apt install -y gparted
 sudo apt install -y woeusb
 sudo apt install -y psensor
-sudo apt install -y gkrellm
 sudo apt install -y g++
 sudo apt install -y ldc
 sudo apt install -y openjdk-14-jdk
@@ -280,11 +280,8 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 # INSTALL/flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # UberWriter
-echo '#!/bin/bash' > install-uberwriter.sh
-echo 'flatpak install -y flathub de.wolfvollprecht.UberWriter' >> install-uberwriter.sh
-echo 'flatpak install -y flathub de.wolfvollprecht.UberWriter.Plugin.TexLive' >> install-uberwriter.sh
-chmod +x install-uberwriter.sh
-echo "Run install-uberwriter.sh after reboot." 1>&2
+flatpak install apostrophe
+flatpak install apostrophe texlive
 
 # INSTALL/Download
 
