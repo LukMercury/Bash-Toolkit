@@ -7,7 +7,7 @@
 # Usage: goto <line number>
 #        goto <file name>
 
-LOG_FILE=/home/$USER/Dropbox/Documents/Notite/useful-links.txt
+LOG_FILE=/home/$USER/Documents/Notite/useful-links.txt
 FOUND_LINK=1
 
 while [ ! -z $1 ]; do

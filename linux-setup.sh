@@ -617,9 +617,6 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/s
     ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
     ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
-    ln -s "$SCRIPTS_FOLDER/streams/twitch.sh" $HOME/bin/twitch
-    ln -s "$SCRIPTS_FOLDER/streams/wtwitch.sh" $HOME/bin/wtwitch
-    ln -s "$SCRIPTS_FOLDER/streams/sc2streams.sh" $HOME/bin/sc2streams
     ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
     ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
     ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
@@ -633,9 +630,7 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
     ln -s "$SCRIPTS_FOLDER/cmd.sh" $HOME/bin/cmd
     # Cmus
-    ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/cmus-lyrics
     ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
-    ln -s "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/play-pause
     ln -s "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
     ln -s "$SCRIPTS_FOLDER/cmus-local/next.sh" $HOME/bin/next
     ln -s "$SCRIPTS_FOLDER/cmus-local/prev.sh" $HOME/bin/prev
