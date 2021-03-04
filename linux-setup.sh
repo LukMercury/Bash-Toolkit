@@ -647,14 +647,14 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
     
     # Binaries
-    cp "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
-    cp "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
-    cp "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
-    cp "$BINARIES_FOLDER/cm" $HOME/bin/cm
-    cp "$BINARIES_FOLDER/stats" $HOME/bin/stats
-    cp "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
-    cp "$BINARIES_FOLDER/aec" $HOME/bin/aec
-    cp "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
+    ln -s "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
+    ln -s "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
+    ln -s "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
+    ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
+    ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
+    ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
+    ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
+    ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
 fi
 
 # Folders
