@@ -170,6 +170,7 @@ sudo apt install -y remmina
 sudo apt install -y nnn
 sudo apt install -y w3m
 sudo apt install -y postfix
+sudo apt install -y ethtool
 sudo apt install -y mailutils
 sudo apt install -y gparted
 sudo apt install -y woeusb
@@ -471,7 +472,7 @@ unset EMAIL
 # timedatectl set-local-rtc 1 --adjust-system-clock
 
 # SETTINGS/Default Editor
-sudo update-alternatives --set editor /usr/bin/nvim
+sudo update-alternatives --set editor /usr/bin/vim
 
 # SETTINGS/zsh
 rm -rf $HOME/.oh-my-zsh/
@@ -494,9 +495,9 @@ which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 
 # SETTINGS/grub
-ed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' /etc/default/grub 
-sudo bash -c 'echo "GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT" >> /etc/default/grub'
-sudo update-grub
+# sed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' /etc/default/grub 
+# sudo bash -c 'echo "GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT" >> /etc/default/grub'
+# sudo update-grub
 # Grub btrfs bug workaround
 # sudo grub-editenv create  # seems unnecessary for now
 
@@ -596,6 +597,19 @@ echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
 
 # SETTINGS/anacrontab
 sudo -E bash -c 'echo -e "20\t0\tcron.monthly\t/bin/bash\t$SCRIPTS_FOLDER/monthly.sh" >> /etc/anacrontab'
+
+# SETTINGS/Wake on LAN
+sudo bash -c 'echo -e "[Unit]\n" >> /etc/systemd/system/wol@.service'
+sudo bash -c 'echo -e "Description=Wake-on-LAN for %i\n" >> /etc/systemd/system/wol@.service'
+sudo bash -c 'echo -e "Requires=network.target\n" >> /etc/systemd/system/wol@.service'
+sudo bash -c 'echo -e "After=network.target\n\n" >> /etc/systemd/system/wol@.service'
+sudo bash -c 'echo -e "[Service]\n" >> /etc/systemd/system/wol@.service'
+sudo bash -c 'echo -e "ExecStart=/sbin/ethtool -s %i wol g\n" >> /etc/systemd/system/wol@.service'
+sudo bash -c 'echo -e "Type=oneshot\n\n" >> /etc/systemd/system/wol@.service'
+sudo bash -c 'echo -e "[Install]\n" >> /etc/systemd/system/wol@.service'
+sudo bash -c 'echo -e "WantedBy=multi-user.target\n" >> /etc/systemd/system/wol@.service'
+NI="$(ip link show | head -3 | tail -1 | tr -s ' ' | cut -d ' ' -f 2 | tr -d ':')"
+systemctl enable wol@${NI}
 
 # SETTINGS/Ramdisk
 sudo mkdir $RAMDISK_MOUNT_POINT
