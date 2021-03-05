@@ -609,7 +609,7 @@ sudo bash -c 'echo -e "Type=oneshot\n\n" >> /etc/systemd/system/wol@.service'
 sudo bash -c 'echo -e "[Install]\n" >> /etc/systemd/system/wol@.service'
 sudo bash -c 'echo -e "WantedBy=multi-user.target\n" >> /etc/systemd/system/wol@.service'
 NI="$(ip link show | head -3 | tail -1 | tr -s ' ' | cut -d ' ' -f 2 | tr -d ':')"
-systemctl enable wol@${NI}
+sudo systemctl enable wol@${NI}
 
 # SETTINGS/Ramdisk
 sudo mkdir $RAMDISK_MOUNT_POINT
