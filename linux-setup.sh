@@ -14,7 +14,7 @@ export GIT_EMAIL=$MAIN_EMAIL
 export FIRSTNAME=Mihai
 export LASTNAME=Luca
 export RUN_FOLDER=$HOME/Desktop
-export SCRIPTS_FOLDER=$HOME/Scripts
+export SCRIPTS_FOLDER=/mnt/raid1/Scripts
 export BINARIES_FOLDER=/mnt/raid1/Binaries
 export CODE_FOLDER=$HOME/Code
 export RAMDISK_MOUNT_POINT=/mnt/ramdisk
@@ -256,6 +256,15 @@ sudo apt install -y gnome-software-plugin-flatpak
 # Protontricks
 bash -c 'pipx install protontricks'
 
+# MangoHud
+git clone https://github.com/flightlessmango/MangoHud.git
+cd MangoHud
+./build.sh build
+./build.sh package
+./build.sh install
+cd -
+rm -rf MangoHud
+
 # INSTALL/apt/gnome or kde
 if [ "$X_VERSION" == "g" ]; then
     sudo apt install -y doublecmd-gtk
@@ -474,8 +483,11 @@ echo "Changing default shell to zsh."
 echo "Please enter your sudo password: "
 read -s PASSWORD
 echo $PASSWORD | chsh -s $(which zsh) $CURRENT_USER
-echo 'source $HOME/.bash_aliases' >> $HOME/.zshrc
 unset PASSWORD
+echo -e 'source $HOME/.bash_aliases\n' >> $HOME/.zshrc
+echo -e 'if [ -n "$SSH_CONNECTION" ]; then\n' >> $HOME/.zshrc
+echo -e '    . $HOME/.profile\n' >> $HOME/.zshrc
+echo 'fi' >> $HOME/.zshrc
 
 # SETTINGS/Default Terminal Emulator
 which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
@@ -749,3 +761,4 @@ if [ "$DONE" == "n" ] || [ "$DONE" == "N" ]; then
 else
     sudo reboot
 fi
+
