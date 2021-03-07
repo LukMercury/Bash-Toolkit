@@ -50,6 +50,10 @@ MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
+# FIX pulseaudio BUG
+pulseaudio --kill
+systemctl --user enable pulseaudio
+systemctl --user start pulseaudio
 
 # PRELIMINARY SETTINGS & CHECKS
 
