@@ -294,8 +294,8 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 # INSTALL/flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # UberWriter
-flatpak install apostrophe
-flatpak install apostrophe texlive
+flatpak install flathub de.wolfvollprecht.UberWriter
+flatpak install flathub de.wolfvollprecht.UberWriter.Plugin.TexLive
 flatpak install planner
 
 # INSTALL/Download
