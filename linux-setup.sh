@@ -37,12 +37,14 @@ DMD="https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
-TOR_BROWSER="https://dist.torproject.org/torbrowser/10.0.12/tor-browser-linux64-10.0.12_en-US.tar.xz"
+TOR_BROWSER="https://dist.torproject.org/torbrowser/10.0.13/tor-browser-linux64-10.0.13_en-US.tar.xz"
 CLION="https://download.jetbrains.com/cpp/CLion-2020.3.2.tar.gz"
 PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2020.3.3.tar.gz"
 INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2020.3.2.tar.gz"
+GOLAND="https://download-cf.jetbrains.com/go/goland-2020.3.3.tar.gz"
 WEBSTORM="https://download.jetbrains.com/webstorm/WebStorm-2020.3.2.tar.gz"
 PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2020.3.2.tar.gz"
+DATAGRIP="https://download-cf.jetbrains.com/datagrip/datagrip-2020.3.2.tar.gz"
 GIT_KRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.tar.gz"
 POSTMAN="https://dl.pstmn.io/download/latest/linux64"
 MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.23-1ubuntu20.10_amd64.deb"
@@ -180,6 +182,7 @@ sudo apt install -y g++
 sudo apt install -y ldc
 sudo apt install -y openjdk-14-jdk
 sudo apt install -y php
+sudo apt install -y sqlite3
 sudo apt install -y python3-pip
 sudo apt install -y python3-setuptools
 sudo apt install -y python3-libs
@@ -350,6 +353,12 @@ tar -xzvf ideaiu.tar.gz
 rm -rf ideaiu.tar.gz
 sudo mv idea-IU* /opt/
 
+# INSTALL/Download/GoLand
+wget -O goland.tar.gz "$GOLAND" 2> /dev/null 
+tar -xzvf goland.tar.gz
+rm -rf goland.tar.gz
+sudo mv GoLand* /opt/
+
 # INSTALL/Download/WebStorm
 wget -O webstorm.tar.gz "$WEBSTORM" 2> /dev/null 
 tar -xzvf webstorm.tar.gz
@@ -362,8 +371,14 @@ tar -xzvf phpstorm.tar.gz
 rm -rf phpstorm.tar.gz
 sudo mv PhpStorm* /opt/
 
+# INSTALL/Download/DataGrip
+wget -O datagrip.tar.gz "$DATAGRIP" 2> /dev/null 
+tar -xzvf datagrip.tar.gz
+rm -rf datagrip.tar.gz
+sudo mv DataGrip* /opt/
+
 # INSTALL/Download/GitKraken
-wget -O gitkraken.tar.gz "$GIT_KRAKEN" 2> /dev/null    
+wget -O gitkraken.tar.gz "$GIT_KRAKEN" 2> /dev/null 
 tar -xzvf gitkraken.tar.gz
 rm -f gitkraken.tar.gz
 sudo mv gitkraken* /opt/
