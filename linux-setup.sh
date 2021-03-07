@@ -29,7 +29,6 @@ export DEFAULT_PHONE_IP=192.168.0.102
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
 VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.18/virtualbox-6.1_6.1.18-142142~Ubuntu~eoan_amd64.deb"
 VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.1.18/Oracle_VM_VirtualBox_Extension_Pack-6.1.18.vbox-extpack"
-TEAMSPEAK="https://files.teamspeak-services.com/releases/client/3.5.6/TeamSpeak3-Client-linux_x86-3.5.6.run"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 ATOM="https://atom.io/download/deb"
@@ -294,9 +293,10 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 # INSTALL/flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # UberWriter
+flatpak install -y teamspeak
 flatpak install flathub de.wolfvollprecht.UberWriter
 flatpak install flathub de.wolfvollprecht.UberWriter.Plugin.TexLive
-flatpak install planner
+flatpak install -y planner
 
 # INSTALL/Download
 
@@ -306,14 +306,6 @@ sudo dpkg -i virtualbox.deb || sudo apt install -f -y
 rm -f virtualbox.deb
 wget $VBOX_EXTENSION_PACK 2> /dev/null  # get rid of excessive output
 echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
-
-# INSTALL/Download/TeamSpeak
-wget -O teamspeak.run "$TEAMSPEAK" 2> /dev/null   # get rid of excessive output
-chmod +x teamspeak.run
-./teamspeak.run
-rm -f teamspeak.run
-sudo mv TeamSpeak* /opt/
-echo "TeamSpeak: create a lanucher pointing to /opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh" 1>&2
 
 # INSTALL/Download/Discord
 wget -O discord.deb "$DISCORD" 2> /dev/null   
