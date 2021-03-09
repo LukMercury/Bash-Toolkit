@@ -26,7 +26,7 @@ fi
 
 # edit
 if [ $1 ] && [ $1 == "e" ]; then
-    vim "$INPUT_FILE"
+    nvim "$INPUT_FILE"
     echo 0 > $DATA_FILE
     exit 0
 fi
