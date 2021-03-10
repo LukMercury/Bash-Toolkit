@@ -37,6 +37,7 @@ SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
 TOR_BROWSER="https://dist.torproject.org/torbrowser/10.0.13/tor-browser-linux64-10.0.13_en-US.tar.xz"
+VSCODE="https://az764295.vo.msecnd.net/stable/f30a9b73e8ffc278e71575118b6bf568f04587c8/code_1.54.1-1614898113_amd64.deb"
 CLION="https://download.jetbrains.com/cpp/CLion-2020.3.2.tar.gz"
 PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2020.3.3.tar.gz"
 INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2020.3.2.tar.gz"
@@ -326,6 +327,11 @@ rm -f atom.deb
 wget -O dmd.deb "$DMD" 2> /dev/null    
 sudo dpkg -i dmd.deb || sudo apt install -f -y
 rm -f dmd.deb
+
+# INSTALL/Download/Visual Studio Code
+wget -O vscode.deb "$VSCODE" 2> /dev/null 
+sudo dpkg -i vscode.deb || sudo apt install -f -y
+rm -f vscode.deb
 
 # INSTALL/Download/Clion
 wget -O clion.tar.gz "$CLION" 2> /dev/null 
@@ -736,23 +742,14 @@ sed -i 's/skin=default/skin=darkcourses_green/' $HOME/.config/mc/ini
 sudo sed -i 's/#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd/system.conf 
 sudo sed -i 's/#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd/user.conf 
 
-# SETTINGS/ssh for GitHub
-read -N 1000000 -t 0.001 # Clear input 
-echo -n "Generate ssh key pair for GitHub? (Y/n): "  
-read SSH_GITHUB
-if [ "$SSH_GITHUB" == "y" ] || [ "$SSH_GITHUB" == "Y" ] || [ "$SSH_GITHUB" == "" ]; then
-    ssh-keygen -t rsa -b 4096 
-fi
+# SETTINGS/ssh
+ssh-keygen -t rsa -b 4096 
 
-# SETTINGS/ssh for phone
+# SETTINGS/ssh copy id to phone
 read -N 1000000 -t 0.001 # Clear input 
-echo -n "Generate ssh key pair for connecting to phone? (Y/n): "
-read SSH_PHONE
-if [ "$SSH_PHONE" == "y" ] || [ "$SSH_PHONE" == "Y" ] || [ "$SSH_PHONE" == "" ]; then
-    ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/id_rsa_phone
-fi
-# SETTINGS/ssh for phone/copy id to phone
-if [ -f $HOME/.ssh/id_rsa_phone ]; then
+echo -n "Copy ssh public key to phone? (Y/n): "
+read SSH_COPY_PHONE
+if [ "$SSH_COPY_PHONE" == "y" ] || [ "$SSH_COPY_PHONE" == "Y" ] || [ "$SSH_COPY_PHONE" == "" ]; then
 	read -N 1000000 -t 0.001 # Clear input 
 	echo -n "Is your phone connected? (y/N): "
 	read PHONE_CONNECTED
@@ -769,6 +766,9 @@ if [ -f $HOME/.ssh/id_rsa_phone ]; then
 	    echo "alias phone='ssh -p 8022 $DEFAULT_PHONE_IP'" >> $HOME/.bash_aliases
 	fi
 fi
+
+# SETTINGS/Privacy
+gsettings set org.gnome.desktop.privacy remember-recent-files false
 
 # SETTINGS/hostname
 sudo -E bash -c "echo $HOSTNAME > /etc/hostname"
