@@ -179,6 +179,7 @@ sudo apt install -y gparted
 sudo apt install -y woeusb
 sudo apt install -y psensor
 sudo apt install -y g++
+sudo apt install -y global
 sudo apt install -y ldc
 sudo apt install -y openjdk-14-jdk
 sudo apt install -y php
