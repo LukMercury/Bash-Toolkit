@@ -31,8 +31,9 @@ VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.18/virtualbox-6.1_6.1
 VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.1.18/Oracle_VM_VirtualBox_Extension_Pack-6.1.18.vbox-extpack"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
+VNCVIEWER="/download/file/viewer.files/VNC-Viewer-6.20.529-Linux-x64.deb"
 ATOM="https://atom.io/download/deb"
-DMD="https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.095.1-0_amd64.deb"
+DMD="https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.096.0-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
@@ -318,6 +319,11 @@ rm -f discord.deb
 wget -O teamviewer.deb "$TEAMVIEWER" 2> /dev/null   
 sudo dpkg -i teamviewer.deb || sudo apt install -f -y
 rm -f teamviewer.deb
+
+# INSTALL/Download/VNC Viewer
+wget -O vncviewer.deb "$VNCVIEWER" 2> /dev/null   
+sudo dpkg -i vncviewer.deb || sudo apt install -f -y
+rm -f vncviewer.deb
 
 # INSTALL/Download/Atom
 wget -O atom.deb "$ATOM" 2> /dev/null 
