@@ -55,4 +55,3 @@ else
     echo "Ramdisk size cannot exceed half your free memory"
     exit 1
 fi
-
