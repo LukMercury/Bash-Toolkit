@@ -514,6 +514,7 @@ echo 'fi' >> $HOME/.zshrc
 # SETTINGS/Default Terminal Emulator
 which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
+gsettings set org.gnome.desktop.default-applications.terminal exec $DEFAULT_TERMINAL_EMULATOR
 
 # SETTINGS/grub
 # sed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' /etc/default/grub 
