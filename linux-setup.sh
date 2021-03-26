@@ -435,9 +435,10 @@ git config --global user.name "$FIRSTNAME $LASTNAME"
 git config --global user.email "$GIT_EMAIL"
 
 # SETTINGS/Reduce swap tendency
-sudo -E bash -c 'echo "# $CURRENT_USER" >> /etc/sysctl.conf'
-sudo bash -c 'echo "# Reduce swap tendency" >> /etc/sysctl.conf'
 sudo bash -c 'echo "vm.swappiness = 10" >> /etc/sysctl.conf'
+
+# SETTINGS/Max user watches
+sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
 
 # SETTINGS/Email
 # Required software already installed in the INSTALL/apt section
