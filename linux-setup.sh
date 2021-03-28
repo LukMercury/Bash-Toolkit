@@ -95,11 +95,11 @@ fi
 # REPOSITORIES
 
 # REPOSITORIES/Sublime Text
-wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/sublimetext-archive-keyring.gpg
 sudo bash -c 'echo "deb https://download.sublimetext.com/ apt/stable/" > /etc/apt/sources.list.d/sublime-text.list'
 
 # REPOSITORIES/Wine
-wget -nc https://dl.winehq.org/wine-builds/winehq.key -O- | sudo apt-key add -
+wget -nc https://dl.winehq.org/wine-builds/winehq.key -O- | gpg --dearmor | sudo tee /usr/share/keyrings/wine-archive-keyring.gpg
 sudo apt-add-repository -y "deb https://dl.winehq.org/wine-builds/ubuntu/ $UBUNTU_CODENAME main"
 
 # REPOSITORIES/Lutris
@@ -112,7 +112,7 @@ sudo add-apt-repository -y ppa:kisak/kisak-mesa
 sudo add-apt-repository -y ppa:nilarimogard/webupd8
 
 # REPOSITORIES/Typora
-wget -qO- https://typora.io/linux/public-key.asc | sudo apt-key add -
+wget -qO- https://typora.io/linux/public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/typora-archive-keyring.gpg
 sudo add-apt-repository -y 'deb https://typora.io/linux ./'
 
 # REPOSITORIES/bashtop
@@ -128,11 +128,6 @@ sudo dpkg --add-architecture i386
 
 sudo apt update -y
 sudo apt upgrade -y
-# Remove packages installed by default
-# Vivaldi Browser
-sudo apt purge -y vivaldi-stable
-sudo apt purge -y vivaldi-config-feren
-sudo apt purge -y feren-vivaldi-theme
 # Cleanup
 sudo apt autoremove -y
 sudo apt autoclean -y
@@ -168,7 +163,7 @@ sudo apt install -y sshfs
 sudo apt install -y traceroute
 sudo apt install -y bridge-utils
 sudo apt install -y nmap
-sudo apt install -y tpcdump
+sudo apt install -y tcpdump
 sudo apt install -y whois
 sudo apt install -y remmina
 sudo apt install -y nnn
@@ -177,7 +172,6 @@ sudo apt install -y postfix
 sudo apt install -y ethtool
 sudo apt install -y mailutils
 sudo apt install -y gparted
-sudo apt install -y woeusb
 sudo apt install -y psensor
 sudo apt install -y g++
 sudo apt install -y global
@@ -226,15 +220,6 @@ sudo apt install -y nautilus-dropbox
 sudo apt install -y qbittorrent
 sudo apt install -y transmission-cli
 sudo apt install -y youtube-dl
-sudo apt install -y dict
-sudo apt install -y dictd
-sudo apt install -y dict-gcide
-sudo apt install -y dict-moby-thesaurus
-sudo apt install -y dict-freedict-eng-deu
-sudo apt install -y dict-freedict-deu-eng
-sudo apt install -y dict-freedict-eng-fra
-sudo apt install -y dict-freedict-fra-eng
-sudo apt install -y dict-freedict-eng-rom
 sudo apt install -y gimp
 # Wine dependencies
 sudo apt install -y libgnutls30:i386 
@@ -284,14 +269,13 @@ fi
 pip3 install requests
 pip3 install lxml
 pip3 install wget
-pip3 install Scrapy
 
 # INSTALL/npm
 sudo npm i console-stopwatch --global
 sudo npm install jsonlint -g
 
 # INSTALL/nvm
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 # INSTALL/flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -521,8 +505,6 @@ gsettings set org.gnome.desktop.default-applications.terminal exec $DEFAULT_TERM
 # sed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' /etc/default/grub 
 # sudo bash -c 'echo "GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT" >> /etc/default/grub'
 # sudo update-grub
-# Grub btrfs bug workaround
-# sudo grub-editenv create  # seems unnecessary for now
 
 # SETTINGS/vim-plug/vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -734,13 +716,10 @@ bash -c 'echo "Comment=open terminal at startup" >> $HOME/.config/autostart/term
 
 # SETTINGS/Cosmetics
 
-# Audacious Winamp skin
-sudo cp "$(find $HOME -name *winamp_classic.wsz 2> /dev/null | head -1)" /usr/share/audacious/Skins/
-
 # mc skin
 mkdir -p $HOME/.local/share/mc/skins/
 cp "$(find $HOME -name darkcourses_green.ini 2> /dev/null | head -1)" $HOME/.local/share/mc/skins/
-gnome-terminal -e mc
+gnome-terminal -x mc
 echo "Please exit the mc instance that opened, using File->Exit."
 read -N 1000000 -t 0.001 # Clear input
 echo "Press ENTER to confirm."
@@ -754,7 +733,7 @@ sudo sed -i 's/#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd/
 # SETTINGS/ssh
 ssh-keygen -t rsa -b 4096 
 
-# SETTINGS/ssh copy id to phone
+# SETTINGS/ssh-copy-id to phone
 read -N 1000000 -t 0.001 # Clear input 
 echo -n "Copy ssh public key to phone? (Y/n): "
 read SSH_COPY_PHONE
@@ -769,7 +748,7 @@ if [ "$SSH_COPY_PHONE" == "y" ] || [ "$SSH_COPY_PHONE" == "Y" ] || [ "$SSH_COPY_
 	    if [ "$PHONE_IP" == "" ]; then
 	        PHONE_IP="$DEFAULT_PHONE_IP"
 	    fi
-	    ssh-copy-id -p 8022 -i $HOME/.ssh/id_rsa_phone $PHONE_IP
+	    ssh-copy-id -p 8022 -i $HOME/.ssh/id_rsa $PHONE_IP
 	    echo "alias phone='ssh -p 8022 $PHONE_IP'" >> $HOME/.bash_aliases
 	else
 	    echo "alias phone='ssh -p 8022 $DEFAULT_PHONE_IP'" >> $HOME/.bash_aliases
