@@ -21,6 +21,7 @@ if [ $1 ] && [ $1 == "f" ]; then
         read NEW_INPUT_FILE
         echo $NEW_INPUT_FILE > $INPUT_SEL
     fi
+    echo 0 > $DATA_FILE
     exit 0
 fi
 
