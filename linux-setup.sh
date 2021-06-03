@@ -681,7 +681,6 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
     ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
     ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
-    ln -s "$BINARIES_FOLDER/aec" $HOME/bin/aec
     ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
 fi
 
