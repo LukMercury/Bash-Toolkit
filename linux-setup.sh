@@ -118,10 +118,6 @@ sudo add-apt-repository -y 'deb https://typora.io/linux ./'
 # REPOSITORIES/bashtop
 sudo add-apt-repository ppa:bashtop-monitor/bashtop
 
-# REPOSITORIES/spotify
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-
 
 # INSTALL
 
@@ -223,7 +219,6 @@ sudo apt install -y alacarte
 sudo apt install -y qbittorrent
 sudo apt install -y transmission-cli
 sudo apt install -y youtube-dl
-sudo apt install -y spotify
 sudo apt install -y gimp
 # Wine dependencies
 sudo apt install -y libgnutls30:i386 
