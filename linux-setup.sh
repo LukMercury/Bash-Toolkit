@@ -211,6 +211,7 @@ sudo apt install -y img2pdf
 sudo apt install -y fbreader
 sudo apt install -y typora
 sudo apt install -y cmus
+sudo apt install -y cava
 sudo apt install -y audacious
 sudo apt install -y audacious-plugins
 sudo apt install -y vlc
