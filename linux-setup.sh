@@ -118,6 +118,9 @@ sudo add-apt-repository -y 'deb https://typora.io/linux ./'
 # REPOSITORIES/bashtop
 sudo add-apt-repository ppa:bashtop-monitor/bashtop
 
+# REPOSITORIES/Spotify
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 # INSTALL
 
@@ -214,6 +217,7 @@ sudo apt install -y cmus
 sudo apt install -y cava
 sudo apt install -y audacious
 sudo apt install -y audacious-plugins
+sudo apt install -y spotify-client
 sudo apt install -y vlc
 sudo apt install -y finch
 sudo apt install -y alacarte
@@ -423,6 +427,20 @@ sudo bash -c 'echo "vm.swappiness = 10" >> /etc/sysctl.conf'
 
 # SETTINGS/Max user watches
 sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
+
+# SETTINGS/pulseaudio
+sed -i 's/; avoid-resampling/avoid-resampling/' /etc/pulse/daemon.conf
+sed -i 's/avoid-resampling = false/avoid-resampling = true/' /etc/pulse/daemon.conf
+
+sed -i 's/; default-sample-format/default-sample-format/' /etc/pulse/daemon.conf
+sed -i 's/default-sample-format = s16le/default-sample-format = s32le/' /etc/pulse/daemon.conf
+sed -i 's/default-sample-format = s24le/default-sample-format = s32le/' /etc/pulse/daemon.conf
+
+sed -i 's/; default-sample-rate/default-sample-rate/' /etc/pulse/daemon.conf
+sed -i 's/default-sample-rate = 44100/default-sample-rate = 192000/' /etc/pulse/daemon.conf
+sed -i 's/default-sample-rate = 48000/default-sample-rate = 192000/' /etc/pulse/daemon.conf
+pulseaudio -k
+pactl list short sinks >> install-log.txt 
 
 # SETTINGS/Email
 # Required software already installed in the INSTALL/apt section
@@ -770,4 +788,5 @@ if [ "$DONE" == "n" ] || [ "$DONE" == "N" ]; then
 else
     sudo reboot
 fi
+
 
