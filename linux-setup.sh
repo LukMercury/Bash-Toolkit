@@ -429,16 +429,10 @@ sudo bash -c 'echo "vm.swappiness = 10" >> /etc/sysctl.conf'
 sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
 
 # SETTINGS/pulseaudio
-sed -i 's/; avoid-resampling/avoid-resampling/' /etc/pulse/daemon.conf
+# sed -i 's/; avoid-resampling/avoid-resampling/' /etc/pulse/daemon.conf
 sed -i 's/avoid-resampling = false/avoid-resampling = true/' /etc/pulse/daemon.conf
-
-sed -i 's/; default-sample-format/default-sample-format/' /etc/pulse/daemon.conf
-sed -i 's/default-sample-format = s16le/default-sample-format = s32le/' /etc/pulse/daemon.conf
-sed -i 's/default-sample-format = s24le/default-sample-format = s32le/' /etc/pulse/daemon.conf
-
-sed -i 's/; default-sample-rate/default-sample-rate/' /etc/pulse/daemon.conf
-sed -i 's/default-sample-rate = 44100/default-sample-rate = 192000/' /etc/pulse/daemon.conf
-sed -i 's/default-sample-rate = 48000/default-sample-rate = 192000/' /etc/pulse/daemon.conf
+sed -i '81 i default-sample-format = s32le/' /etc/pulse/daemon.conf
+sed -i '83 i default-sample-rate = 192000/' /etc/pulse/daemon.conf
 pulseaudio -k
 pactl list short sinks >> install-log.txt 
 
