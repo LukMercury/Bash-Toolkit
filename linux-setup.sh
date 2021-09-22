@@ -429,8 +429,9 @@ sudo bash -c 'echo "vm.swappiness = 10" >> /etc/sysctl.conf'
 sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
 
 # SETTINGS/pulseaudio
-# sed -i 's/; avoid-resampling/avoid-resampling/' /etc/pulse/daemon.conf
+sed -i 's/; avoid-resampling/avoid-resampling/' /etc/pulse/daemon.conf
 sed -i 's/avoid-resampling = false/avoid-resampling = true/' /etc/pulse/daemon.conf
+sed -i '54 resample-method = src-sinc-best-quality'
 sed -i '81 i default-sample-format = s32le/' /etc/pulse/daemon.conf
 sed -i '83 i default-sample-rate = 192000/' /etc/pulse/daemon.conf
 pulseaudio -k
