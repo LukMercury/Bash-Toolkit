@@ -1,18 +1,16 @@
 #!/bin/bash
-USAGE='Usage: remotefs.sh [user@host:/path/to/folder] <mountpoint>'
 
-if [ -z $1 ]; then
-    echo $USAGE
-    exit 1
+# mount and unmount remote file systems
+# "lazy" filesystems can't be unmounted without "-l" because they are still in use by processes like vscode
+
+IP=192.168.0.101
+
+if [[ $1 == "u" ]]; then
+    umount /mount/point/not/lazy &> /dev/null
+    umount -l /mount/point/lazy &> /dev/null
+    exit 0
 fi
-HOSTFS="$1"
 
-if [ -z $2 ]; then
-    MOUNTPOINT=$HOME/mnt_remotefs
-else
-    MOUNTPOINT="$2"
-fi
-mkdir -p "$MOUNTPOINT"
-
-sshfs -o IdentityFile=$HOME/.ssh/id_rsa $HOSTFS $MOUNTPOINT
+sshfs -o IdentityFile=/home/mercury/.ssh/id_rsa mluca@${IP}:/remotefs/not/lazy /mount/point/not/lazy
+sshfs -o IdentityFile=/home/mercury/.ssh/id_rsa mluca@${IP}:/remotefs/lazy /mount/point/lazy
 
