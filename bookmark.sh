@@ -44,6 +44,9 @@ case "$1" in
     "list" | "-l")
         cat -n "$LOG_FILE"
         ;;
+    "listtail" | "-lt")
+        cat -n "$LOG_FILE" | tail
+        ;;
     # List entries using less
     "listl" | "-ll") 
         less "$LOG_FILE"
