@@ -613,6 +613,7 @@ echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
 echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
 echo "alias push='git push -u origin master'" >> $HOME/.bash_aliases
 echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
+echo "alias pk='pulseaudio -k'" >> $HOME/.bash_aliases
 
 # SETTINGS/anacrontab
 sudo -E bash -c 'echo -e "20\t0\tcron.monthly\t/bin/bash\t$SCRIPTS_FOLDER/monthly.sh" >> /etc/anacrontab'
