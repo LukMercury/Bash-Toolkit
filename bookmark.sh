@@ -9,6 +9,7 @@ BACKUP_FILE=/home/$USER/Documents/Notite/backup.useful-links.txt
 
 USAGE="\nDefault - add clipboard entry to Bookmarks
 -l, list - list Bookmarks using cat
+-lt, list tail - list last ten Bookmarks using tail
 -ll, listl - list Bookmarks using less (useful for longer lists)
 -s, search - search for terms
 -g, get [number] - get Bookmark [number]
@@ -45,7 +46,7 @@ case "$1" in
         cat -n "$LOG_FILE"
         ;;
     "listtail" | "-lt")
-        cat -n "$LOG_FILE" | tail
+        tail "$LOG_FILE"
         ;;
     # List entries using less
     "listl" | "-ll") 
