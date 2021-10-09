@@ -132,6 +132,7 @@ sudo dpkg --add-architecture i386
 sudo apt update -y
 sudo apt upgrade -y
 # Cleanup
+sudo apt purge -y apport
 sudo apt autoremove -y
 sudo apt autoclean -y
 sudo apt install -f -y

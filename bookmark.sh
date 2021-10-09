@@ -46,7 +46,7 @@ case "$1" in
         cat -n "$LOG_FILE"
         ;;
     "listtail" | "-lt")
-        tail "$LOG_FILE"
+        cat -n "$LOG_FILE" | tail
         ;;
     # List entries using less
     "listl" | "-ll") 
