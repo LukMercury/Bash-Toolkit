@@ -14,9 +14,14 @@ export GIT_EMAIL=$MAIN_EMAIL
 export FIRSTNAME=Mihai
 export LASTNAME=Luca
 export RUN_FOLDER=$HOME/Desktop
+export DOCUMENTS_FOLDER=/mnt/raid1/Documents
+export MUSIC_FOLDER=/mnt/raid1/Music
+export PICTURES_FOLDER=/mnt/raid1/Pictures
+export VIDEOS_FOLDER=/mnt/raid1/Videos
+export DOWNLOADS_FOLDER=/mnt/raid1/Downloads
 export SCRIPTS_FOLDER=/mnt/raid1/Scripts
 export BINARIES_FOLDER=/mnt/raid1/Binaries
-export CODE_FOLDER=$HOME/Code
+export CODE_FOLDER=/mnt/raid1/Code
 export RAMDISK_MOUNT_POINT=/mnt/ramdisk
 export UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
 export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
@@ -641,74 +646,78 @@ sudo mkdir $RAMDISK_MOUNT_POINT
 mkdir $HOME/bin/
 if [ $BINARY_LINKS == "y" ]; then
     # Scripts
-    ln -s "$SCRIPTS_FOLDER/currency-converter/eur.sh" $HOME/bin/eur
-    ln -s "$SCRIPTS_FOLDER/currency-converter/usd.sh" $HOME/bin/usd
-    ln -s "$SCRIPTS_FOLDER/currency-converter/gbp.sh" $HOME/bin/gbp
-    ln -s "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
-    ln -s "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
-    ln -s "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
-    ln -s "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
-    ln -s "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
-    ln -s "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
-    ln -s "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
-    ln -s "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
-    ln -s "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
-    ln -s "$SCRIPTS_FOLDER/clean-usb-fat32.sh" $HOME/bin/clean-usb-fat32
-    ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
-    ln -s "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
-    ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
-    ln -s "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
-    ln -s "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
-    ln -s "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
-    ln -s "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
-    ln -s "$SCRIPTS_FOLDER/srun.sh" $HOME/bin/srun
-    ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/websearch
-    ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/search
-    ln -s "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/s
-    ln -s "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
-    ln -s "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
-    ln -s "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
-    ln -s "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
-    ln -s "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
-    ln -s "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
-    ln -s "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/edit-server-env
-    ln -s "$SCRIPTS_FOLDER/tolower.py" $HOME/bin/tolower
-    ln -s "$SCRIPTS_FOLDER/toupper.py" $HOME/bin/toupper
-    ln -s "$SCRIPTS_FOLDER/insert-address.sh" $HOME/bin/insert-address
-    ln -s "$SCRIPTS_FOLDER/showmyip.sh" $HOME/bin/showmyip
-    ln -s "$SCRIPTS_FOLDER/worldclock.sh" $HOME/bin/worldclock
-    ln -s "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
-    ln -s "$SCRIPTS_FOLDER/cmd.sh" $HOME/bin/cmd
+    cp "$SCRIPTS_FOLDER/currency-converter/eur.sh" $HOME/bin/eur
+    cp "$SCRIPTS_FOLDER/currency-converter/usd.sh" $HOME/bin/usd
+    cp "$SCRIPTS_FOLDER/currency-converter/gbp.sh" $HOME/bin/gbp
+    cp "$SCRIPTS_FOLDER/currency-converter/ron.sh" $HOME/bin/ron
+    cp "$SCRIPTS_FOLDER/rickrollrc-master/roll.sh" $HOME/bin/roll
+    cp "$SCRIPTS_FOLDER/weather.sh" $HOME/bin/weather
+    cp "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
+    cp "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
+    cp "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
+    cp "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
+    cp "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
+    cp "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
+    cp "$SCRIPTS_FOLDER/clean-usb-fat32.sh" $HOME/bin/clean-usb-fat32
+    cp "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
+    cp "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
+    cp "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
+    cp "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
+    cp "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
+    cp "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
+    cp "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
+    cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/websearch
+    cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/search
+    cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/s
+    cp "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
+    cp "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
+    cp "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
+    cp "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
+    cp "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
+    cp "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
+    cp "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/edit-server-env
+    cp "$SCRIPTS_FOLDER/tolower.py" $HOME/bin/tolower
+    cp "$SCRIPTS_FOLDER/toupper.py" $HOME/bin/toupper
+    cp "$SCRIPTS_FOLDER/insert-address.sh" $HOME/bin/insert-address
+    cp "$SCRIPTS_FOLDER/showmyip.sh" $HOME/bin/showmyip
+    cp "$SCRIPTS_FOLDER/worldclock.sh" $HOME/bin/worldclock
+    cp "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
+    cp "$SCRIPTS_FOLDER/cmd.sh" $HOME/bin/cmd
     # Cmus
-    ln -s "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
-    ln -s "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
-    ln -s "$SCRIPTS_FOLDER/cmus-local/next.sh" $HOME/bin/next
-    ln -s "$SCRIPTS_FOLDER/cmus-local/prev.sh" $HOME/bin/prev
-    ln -s "$SCRIPTS_FOLDER/cmus-local/vol.sh" $HOME/bin/vol
-    ln -s "$SCRIPTS_FOLDER/cmus-local/shuffle.sh" $HOME/bin/shuffle
-    ln -s "$SCRIPTS_FOLDER/cmus-local/seek.sh" $HOME/bin/seek
-    ln -s "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
-    ln -s "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
-    ln -s "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
+    cp "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
+    cp "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
+    cp "$SCRIPTS_FOLDER/cmus-local/next.sh" $HOME/bin/next
+    cp "$SCRIPTS_FOLDER/cmus-local/prev.sh" $HOME/bin/prev
+    cp "$SCRIPTS_FOLDER/cmus-local/vol.sh" $HOME/bin/vol
+    cp "$SCRIPTS_FOLDER/cmus-local/shuffle.sh" $HOME/bin/shuffle
+    cp "$SCRIPTS_FOLDER/cmus-local/seek.sh" $HOME/bin/seek
+    cp "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
+    cp "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
+    cp "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
     
     # Binaries
-    ln -s "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
-    ln -s "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
-    ln -s "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
-    ln -s "$BINARIES_FOLDER/cm" $HOME/bin/cm
-    ln -s "$BINARIES_FOLDER/stats" $HOME/bin/stats
-    ln -s "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
-    ln -s "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
+    cp "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
+    cp "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
+    cp "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
+    cp "$BINARIES_FOLDER/cm" $HOME/bin/cm
+    cp "$BINARIES_FOLDER/stats" $HOME/bin/stats
+    cp "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
+    cp "$BINARIES_FOLDER/rthreads.py" $HOME/bin/rthreads
 fi
 
 # Folders
 if [ $FOLDER_LINKS == "y" ]; then
-    ln -s $HOME/Documents/ $HOME/Desktop/Documents
-    ln -s $HOME/Documents/Carti/ $HOME/Desktop/Carti
-    ln -s $HOME/Music/  $HOME/Desktop/Music
-    ln -s $HOME/Downloads/  $HOME/Desktop/Downloads
-    ln -s "$CODE_FOLDER" $HOME/Desktop/Code
-    ln -s "$SCRIPTS_FOLDER" $HOME/Desktop/Scripts
+    rmdir $HOME/Documents 2> /dev/null
+    ln -s "$DOCUMENTS_FOLDER" $HOME/Documents
+    rmdir $HOME/Music 2> /dev/null
+    ln -s "$MUSIC_FOLDER" $HOME/Music
+    rmdir $HOME/Pictures 2> /dev/null
+    ln -s "$PICTURES_FOLDER" $HOME/Pictures
+    rmdir $HOME/Videos 2> /dev/null
+    ln -s "$VIDEOS_FOLDER" $HOME/Videos
+    rmdir $HOME/Downloads 2> /dev/null
+    ln -s "$DOWNLOADS_FOLDER" $HOME/Downloads
+    ln -s "$CODE_FOLDER" $HOME/Code
     ln -s "$SCRIPTS_FOLDER" $HOME/Scripts
 fi
 
