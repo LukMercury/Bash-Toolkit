@@ -272,8 +272,10 @@ rm -rf MangoHud
 if [ "$X_VERSION" == "g" ]; then
     sudo apt install -y doublecmd-gtk
     sudo apt install -y gnome-tweaks
+    sudo apt install -y pavucontrol
 else 
     sudo apt install -y doublecmd-qt
+    sudo apt install -y pavucontrol-qt
 fi
 
 # INSTALL/pip3
