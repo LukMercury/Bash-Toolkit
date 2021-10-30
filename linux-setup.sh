@@ -221,6 +221,7 @@ sudo apt install -y img2pdf
 sudo apt install -y fbreader
 sudo apt install -y typora
 sudo apt install -y cmus
+sudo apt install -y kodi
 sudo apt install -y cava
 sudo apt install -y audacious
 sudo apt install -y audacious-plugins
@@ -569,6 +570,7 @@ echo "nnoremap <C-h> <C-w>h" >> $HOME/.vimrc
 echo "nnoremap <C-j> <C-w>j" >> $HOME/.vimrc
 echo "nnoremap <C-k> <C-w>k" >> $HOME/.vimrc
 echo "nnoremap <C-l> <C-w>l" >> $HOME/.vimrc
+echo 'cnoremap W w !sudo tee % > /dev/null' >> $HOME/.vimrc
 
 # SETTINGS/nvim
 mkdir -p $HOME/.config/nvim
