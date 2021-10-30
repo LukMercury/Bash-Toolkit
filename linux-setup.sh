@@ -165,6 +165,7 @@ sudo apt install -y xdotool
 sudo apt install -y taskwarrior
 sudo apt install -y gpaste
 sudo apt install -y gnome-shell-extensions-gpaste
+sudo apt install -y caffeine
 sudo apt install -y libnotify-bin
 sudo apt install -y rwho
 sudo apt install -y openssh-server
@@ -688,6 +689,7 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
     cp "$SCRIPTS_FOLDER/cmd.sh" $HOME/bin/cmd
     cp "$SCRIPTS_FOLDER/sample-rate.sh" $HOME/bin/sr
+    cp "$SCRIPTS_FOLDER/k_o_d_i_scr.sh" $HOME/bin/k_o_d_i_scr
     # Cmus
     cp "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
     cp "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
