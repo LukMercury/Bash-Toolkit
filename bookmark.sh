@@ -4,8 +4,8 @@
 # Has a few basic options: list, search, get (to clipboard), edit, 
 # delete, re-add last deleted, backup, clear, import, help
 
-LOG_FILE=/home/$USER/Documents/Notite/useful-links.txt
-BACKUP_FILE=/home/$USER/Documents/Notite/backup.useful-links.txt
+LOG_FILE=$HOME/Documents/Notite/useful-links.txt
+BACKUP_FILE=$HOME/Documents/Notite/backup.useful-links.txt
 
 USAGE="\nDefault - add clipboard entry to Bookmarks
 -l, list - list Bookmarks using cat
