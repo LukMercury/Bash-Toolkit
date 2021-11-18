@@ -244,6 +244,10 @@ sudo apt install -y libgl1-mesa-dri:i386
 # Support for Vulkan API
 sudo apt install -y mesa-vulkan-drivers 
 sudo apt install -y mesa-vulkan-drivers:i386
+# Enable Vulkan on Radeon R9 200/300 series
+#echo "blacklist radeon" | sudo tee --append /etc/modprobe.d/blacklist.conf
+#echo "options amdgpu si_support=1 cik_support=1" | sudo tee --append /etc/modprobe.d/amdgpu.conf
+#sudo update-initramfs -u
 
 # Wine
 sudo apt install -y --install-recommends winehq-stable
