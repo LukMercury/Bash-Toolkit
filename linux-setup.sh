@@ -32,28 +32,27 @@ export DEFAULT_PHONE_IP=192.168.0.102
 # ONLINE SOURCES
 
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
-VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.18/virtualbox-6.1_6.1.18-142142~Ubuntu~eoan_amd64.deb"
-VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.1.18/Oracle_VM_VirtualBox_Extension_Pack-6.1.18.vbox-extpack"
+VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.28/virtualbox-6.1_6.1.28-147628~Ubuntu~eoan_amd64.deb"
+VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.1.28/Oracle_VM_VirtualBox_Extension_Pack-6.1.28.vbox-extpack"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
-VNCVIEWER="/download/file/viewer.files/VNC-Viewer-6.20.529-Linux-x64.deb"
-ATOM="https://atom.io/download/deb"
-DMD="https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.096.0-0_amd64.deb"
+VNCVIEWER="https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.21.920-Linux-x64.deb"
+DMD="https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.098.0-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
-TOR_BROWSER="https://dist.torproject.org/torbrowser/10.0.13/tor-browser-linux64-10.0.13_en-US.tar.xz"
-VSCODE="https://az764295.vo.msecnd.net/stable/f30a9b73e8ffc278e71575118b6bf568f04587c8/code_1.54.1-1614898113_amd64.deb"
-CLION="https://download.jetbrains.com/cpp/CLion-2020.3.2.tar.gz"
-PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2020.3.3.tar.gz"
-INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2020.3.2.tar.gz"
-GOLAND="https://download-cf.jetbrains.com/go/goland-2020.3.3.tar.gz"
-WEBSTORM="https://download.jetbrains.com/webstorm/WebStorm-2020.3.2.tar.gz"
-PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2020.3.2.tar.gz"
+TOR_BROWSER="https://dist.torproject.org/torbrowser/11.0.1/tor-browser-linux64-11.0.1_en-US.tar.xz"
+VSCODE="https://az764295.vo.msecnd.net/stable/3a6960b964327f0e3882ce18fcebd07ed191b316/code_1.62.2-1636665017_amd64.deb"
+CLION="https://download.jetbrains.com/cpp/CLion-2020.3.4.tar.gz"
+PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2020.3.5.tar.gz"
+INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2020.3.4.tar.gz"
+GOLAND="https://download-cf.jetbrains.com/go/goland-2020.3.5.tar.gz"
+WEBSTORM="https://download.jetbrains.com/webstorm/WebStorm-2020.3.3.tar.gz"
+PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2020.3.3.tar.gz"
 DATAGRIP="https://download-cf.jetbrains.com/datagrip/datagrip-2020.3.2.tar.gz"
 GIT_KRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.tar.gz"
 POSTMAN="https://dl.pstmn.io/download/latest/linux64"
-MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.23-1ubuntu20.10_amd64.deb"
+MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.27-1ubuntu21.04_amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -100,11 +99,11 @@ fi
 # REPOSITORIES
 
 # REPOSITORIES/Sublime Text
-wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/sublimetext-archive-keyring.gpg
-sudo bash -c 'echo "deb https://download.sublimetext.com/ apt/stable/" > /etc/apt/sources.list.d/sublime-text.list'
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 # REPOSITORIES/Wine
-wget -nc https://dl.winehq.org/wine-builds/winehq.key -O- | gpg --dearmor | sudo tee /usr/share/keyrings/wine-archive-keyring.gpg
+wget -nc https://dl.winehq.org/wine-builds/winehq.key -O- | sudo apt-key add -
 sudo apt-add-repository -y "deb https://dl.winehq.org/wine-builds/ubuntu/ $UBUNTU_CODENAME main"
 
 # REPOSITORIES/Lutris
@@ -115,10 +114,6 @@ sudo add-apt-repository -y ppa:kisak/kisak-mesa
 
 # REPOSITORIES/webupd8
 sudo add-apt-repository -y ppa:nilarimogard/webupd8
-
-# REPOSITORIES/Typora
-wget -qO- https://typora.io/linux/public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/typora-archive-keyring.gpg
-sudo add-apt-repository -y 'deb https://typora.io/linux ./'
 
 # REPOSITORIES/bashtop
 sudo add-apt-repository ppa:bashtop-monitor/bashtop
@@ -220,7 +215,6 @@ sudo apt install -y pandoc
 sudo apt install -y texlive
 sudo apt install -y img2pdf
 sudo apt install -y fbreader
-sudo apt install -y typora
 sudo apt install -y cmus
 sudo apt install -y kodi
 sudo apt install -y cava
@@ -260,15 +254,6 @@ sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
 # Protontricks
 bash -c 'pipx install protontricks'
-
-# MangoHud
-git clone https://github.com/flightlessmango/MangoHud.git
-cd MangoHud
-./build.sh build
-./build.sh package
-./build.sh install
-cd -
-rm -rf MangoHud
 
 # INSTALL/apt/gnome or kde
 if [ "$X_VERSION" == "g" ]; then
@@ -323,11 +308,6 @@ rm -f teamviewer.deb
 wget -O vncviewer.deb "$VNCVIEWER" 2> /dev/null   
 sudo dpkg -i vncviewer.deb || sudo apt install -f -y
 rm -f vncviewer.deb
-
-# INSTALL/Download/Atom
-wget -O atom.deb "$ATOM" 2> /dev/null 
-sudo dpkg -i atom.deb || sudo apt install -f -y
-rm -f atom.deb
 
 # INSTALL/Download/DMD
 wget -O dmd.deb "$DMD" 2> /dev/null    
@@ -502,7 +482,7 @@ unset EMAIL
 # timedatectl set-local-rtc 1 --adjust-system-clock
 
 # SETTINGS/Default Editor
-sudo update-alternatives --set editor /usr/bin/vim
+sudo update-alternatives --set editor /usr/bin/vim.basic
 
 # SETTINGS/zsh
 rm -rf $HOME/.oh-my-zsh/
@@ -663,11 +643,8 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
     cp "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
     cp "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
-    cp "$SCRIPTS_FOLDER/compile.sh" $HOME/bin/compile
     cp "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
     cp "$SCRIPTS_FOLDER/clean-usb-fat32.sh" $HOME/bin/clean-usb-fat32
-    cp "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lookup
-    cp "$SCRIPTS_FOLDER/lookup.sh" $HOME/bin/lk
     cp "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
     cp "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
     cp "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
@@ -677,12 +654,12 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/search
     cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/s
     cp "$SCRIPTS_FOLDER/wordwrap-paste.sh" $HOME/bin/wp
-    cp "$SCRIPTS_FOLDER/sound.sh" $HOME/bin/sound
+    cp "$SCRIPTS_FOLDER/sound-restart.sh" $HOME/bin/sound-restart
+    cp "$SCRIPTS_FOLDER/sound-restart.sh" $HOME/bin/sr
     cp "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
     cp "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
     cp "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
     cp "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
-    cp "$SCRIPTS_FOLDER/edit-server-env.sh" $HOME/bin/edit-server-env
     cp "$SCRIPTS_FOLDER/tolower.py" $HOME/bin/tolower
     cp "$SCRIPTS_FOLDER/toupper.py" $HOME/bin/toupper
     cp "$SCRIPTS_FOLDER/insert-address.sh" $HOME/bin/insert-address
