@@ -1,6 +1,5 @@
 #!/bin/bash
 
-###
 # Linux post install setup file
 # Created by Mihai Luca <mihailuca406@gmail.com>
 # Distribution currently used: Pop!_OS based on Ubuntu
