@@ -21,6 +21,7 @@ export VIDEOS_FOLDER=/mnt/raid1/Videos
 export DOWNLOADS_FOLDER=/mnt/raid1/Downloads
 export SCRIPTS_FOLDER=/mnt/raid1/Scripts
 export BINARIES_FOLDER=/mnt/raid1/Binaries
+export SOFTWARE_FOLDER=/mnt/raid1/Kituri
 export CODE_FOLDER=/mnt/raid1/Code
 export RAMDISK_MOUNT_POINT=/mnt/ramdisk
 export UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
@@ -43,16 +44,6 @@ ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
 TOR_BROWSER="https://dist.torproject.org/torbrowser/11.0.1/tor-browser-linux64-11.0.1_en-US.tar.xz"
 VSCODE="https://az764295.vo.msecnd.net/stable/3a6960b964327f0e3882ce18fcebd07ed191b316/code_1.62.2-1636665017_amd64.deb"
-CLION="https://download.jetbrains.com/cpp/CLion-2020.3.4.tar.gz"
-PYCHARM="https://download.jetbrains.com/python/pycharm-professional-2020.3.5.tar.gz"
-INTELLIJ="https://download.jetbrains.com/idea/ideaIU-2020.3.4.tar.gz"
-GOLAND="https://download-cf.jetbrains.com/go/goland-2020.3.5.tar.gz"
-WEBSTORM="https://download.jetbrains.com/webstorm/WebStorm-2020.3.3.tar.gz"
-PHPSTORM="https://download.jetbrains.com/webide/PhpStorm-2020.3.3.tar.gz"
-DATAGRIP="https://download-cf.jetbrains.com/datagrip/datagrip-2020.3.2.tar.gz"
-GIT_KRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.tar.gz"
-POSTMAN="https://dl.pstmn.io/download/latest/linux64"
-MYSQL_WORKBENCH="https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.27-1ubuntu21.04_amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -243,10 +234,6 @@ sudo apt install -y libgl1-mesa-dri:i386
 # Support for Vulkan API
 sudo apt install -y mesa-vulkan-drivers 
 sudo apt install -y mesa-vulkan-drivers:i386
-# Enable Vulkan on Radeon R9 200/300 series
-#echo "blacklist radeon" | sudo tee --append /etc/modprobe.d/blacklist.conf
-#echo "options amdgpu si_support=1 cik_support=1" | sudo tee --append /etc/modprobe.d/amdgpu.conf
-#sudo update-initramfs -u
 
 # Wine
 sudo apt install -y --install-recommends winehq-stable
@@ -323,65 +310,6 @@ wget -O vscode.deb "$VSCODE" 2> /dev/null
 sudo dpkg -i vscode.deb || sudo apt install -f -y
 rm -f vscode.deb
 
-# INSTALL/Download/Clion
-wget -O clion.tar.gz "$CLION" 2> /dev/null 
-tar -xzvf clion.tar.gz
-rm -rf clion.tar.gz
-sudo mv clion* /opt/
-
-# INSTALL/Download/PyCharm
-wget -O pycharm.tar.gz "$PYCHARM" 2> /dev/null 
-tar -xzvf pycharm.tar.gz
-rm -rf pycharm.tar.gz
-sudo mv pycharm* /opt/
-
-# INSTALL/Download/IntelliJ IDEA
-wget -O ideaiu.tar.gz "$INTELLIJ" 2> /dev/null 
-tar -xzvf ideaiu.tar.gz
-rm -rf ideaiu.tar.gz
-sudo mv idea-IU* /opt/
-
-# INSTALL/Download/GoLand
-wget -O goland.tar.gz "$GOLAND" 2> /dev/null 
-tar -xzvf goland.tar.gz
-rm -rf goland.tar.gz
-sudo mv GoLand* /opt/
-
-# INSTALL/Download/WebStorm
-wget -O webstorm.tar.gz "$WEBSTORM" 2> /dev/null 
-tar -xzvf webstorm.tar.gz
-rm -rf webstorm.tar.gz
-sudo mv WebStorm* /opt/
-
-# INSTALL/Download/PhpStorm
-wget -O phpstorm.tar.gz "$PHPSTORM" 2> /dev/null 
-tar -xzvf phpstorm.tar.gz
-rm -rf phpstorm.tar.gz
-sudo mv PhpStorm* /opt/
-
-# INSTALL/Download/DataGrip
-wget -O datagrip.tar.gz "$DATAGRIP" 2> /dev/null 
-tar -xzvf datagrip.tar.gz
-rm -rf datagrip.tar.gz
-sudo mv DataGrip* /opt/
-
-# INSTALL/Download/GitKraken
-wget -O gitkraken.tar.gz "$GIT_KRAKEN" 2> /dev/null 
-tar -xzvf gitkraken.tar.gz
-rm -f gitkraken.tar.gz
-sudo mv gitkraken* /opt/
-
-# INSTALL/Download/Postman
-wget -O postman.tar.gz "$POSTMAN" 2> /dev/null 
-tar -xzvf postman.tar.gz
-rm -rf postman.tar.gz
-sudo mv Postman /opt/
-
-# INSTALL/Download/Mysql Workbench
-wget -O mysql-workbench.deb "$MYSQL_WORKBENCH" 2> /dev/null    
-sudo dpkg -i mysql-workbench.deb || sudo apt install -f -y
-rm -f mysql-workbench.deb
-
 # INSTALL/Download/Skype
 wget -O skype.deb "$SKYPE" 2> /dev/null    
 sudo dpkg -i skype.deb || sudo apt install -f -y
@@ -396,7 +324,6 @@ rm -f zoom.deb
 wget -O teams.deb "$MS_TEAMS" 2> /dev/null    
 sudo dpkg -i teams.deb || sudo apt install -f -y
 rm -f teams.deb
-
 
 # INSTALL/Download/Tor Browser
 wget -O tor-browser.tar.xz "$TOR_BROWSER" 2> /dev/null    
@@ -708,6 +635,8 @@ if [ $FOLDER_LINKS == "y" ]; then
     ln -s "$DOWNLOADS_FOLDER" $HOME/Downloads
     ln -s "$CODE_FOLDER" $HOME/Code
     ln -s "$SCRIPTS_FOLDER" $HOME/Scripts
+    ln -s "$SCRIPTS_FOLDER" $HOME/Scripts
+    ln -s "$SOFTWARE_FOLDER" $HOME/Kituri
 fi
 
 # SETTINGS/Autostart
@@ -774,6 +703,15 @@ gsettings set org.gnome.desktop.privacy remember-recent-files false
 # SETTINGS/hostname
 sudo -E bash -c "echo $HOSTNAME > /etc/hostname"
 
+# SETTINGS/Disable tracker
+#systemctl --user mask tracker-store.service tracker-miner-fs.service tracker-miner-rss.service tracker-extract.service tracker-miner-apps.service tracker-writeback.service
+#tracker reset --hard
+
+# SETTINGS/Enable Vulkan on Radeon R9 200/300 series (updates kernel, so this is last
+echo "blacklist radeon" | sudo tee --append /etc/modprobe.d/blacklist.conf
+echo "options amdgpu si_support=1 cik_support=1" | sudo tee --append /etc/modprobe.d/amdgpu.conf
+sudo update-initramfs -u
+
 # DONE
 echo -e "\nDone!"
 read -N 1000000 -t 0.001 # Clear input 
@@ -784,5 +722,4 @@ if [ "$DONE" == "n" ] || [ "$DONE" == "N" ]; then
 else
     sudo reboot
 fi
-
 
