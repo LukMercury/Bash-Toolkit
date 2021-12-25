@@ -270,6 +270,8 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 # INSTALL/flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# GKraken
+flatpak install -y flathub com.leinardi.gkraken
 # UberWriter
 flatpak install -y teamspeak
 flatpak install flathub de.wolfvollprecht.UberWriter
