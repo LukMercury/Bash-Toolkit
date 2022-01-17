@@ -277,6 +277,8 @@ flatpak install -y teamspeak
 flatpak install flathub de.wolfvollprecht.UberWriter
 flatpak install flathub de.wolfvollprecht.UberWriter.Plugin.TexLive
 flatpak install -y planner
+# Telegram
+flatpak install -y flathub org.telegram.desktop
 
 # INSTALL/Download
 
