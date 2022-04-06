@@ -199,6 +199,7 @@ sudo apt install -y ddd
 sudo apt install -y ddd-doc
 sudo apt install -y valgrind
 sudo apt install -y valgrind-dbg
+sudo apt install -y wireshark
 sudo apt install -y dia
 sudo apt install -y ttf-mscorefonts-installer
 sudo apt install -y fonts-inconsolata
