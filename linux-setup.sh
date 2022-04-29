@@ -107,7 +107,7 @@ sudo add-apt-repository -y ppa:kisak/kisak-mesa
 sudo add-apt-repository -y ppa:nilarimogard/webupd8
 
 # REPOSITORIES/bashtop
-sudo add-apt-repository ppa:bashtop-monitor/bashtop
+# sudo add-apt-repository ppa:bashtop-monitor/bashtop
 
 # REPOSITORIES/Spotify
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
@@ -141,6 +141,7 @@ sudo apt install -y tree
 sudo apt install -y top
 sudo apt install -y htop
 sudo apt install -y bashtop
+sudo apt install -y btop
 sudo apt install -y anacron
 sudo apt install -y errno
 sudo apt install -y pstree
