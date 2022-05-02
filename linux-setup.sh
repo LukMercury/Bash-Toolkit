@@ -357,13 +357,13 @@ sudo bash -c 'echo "vm.swappiness = 10" >> /etc/sysctl.conf'
 sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
 
 # SETTINGS/pulseaudio
-sed -i 's/; avoid-resampling/avoid-resampling/' /etc/pulse/daemon.conf
-sed -i 's/avoid-resampling = false/avoid-resampling = true/' /etc/pulse/daemon.conf
-sed -i '54 resample-method = src-sinc-best-quality'
-sed -i '81 i default-sample-format = s32le/' /etc/pulse/daemon.conf
-sed -i '83 i default-sample-rate = 192000/' /etc/pulse/daemon.conf
-pulseaudio -k
-pactl list short sinks >> install-log.txt 
+# sed -i 's/; avoid-resampling/avoid-resampling/' /etc/pulse/daemon.conf
+# sed -i 's/avoid-resampling = false/avoid-resampling = true/' /etc/pulse/daemon.conf
+# sed -i '54 resample-method = src-sinc-best-quality'
+# sed -i '81 i default-sample-format = s32le/' /etc/pulse/daemon.conf
+# sed -i '83 i default-sample-rate = 192000/' /etc/pulse/daemon.conf
+# pulseaudio -k
+# pactl list short sinks >> install-log.txt 
 
 # SETTINGS/Email
 # Required software already installed in the INSTALL/apt section
@@ -541,7 +541,6 @@ echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
 echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
 echo "alias push='git push -u origin master'" >> $HOME/.bash_aliases
 echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
-echo "alias pk='pulseaudio -k'" >> $HOME/.bash_aliases
 echo "alias kodi='xrun caffeinate kodi'" >> $HOME/.bash_aliases
 
 
