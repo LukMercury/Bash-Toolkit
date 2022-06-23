@@ -23,7 +23,6 @@ export SCRIPTS_FOLDER=/mnt/raid1/Scripts
 export BINARIES_FOLDER=/mnt/raid1/Binaries
 export SOFTWARE_FOLDER=/mnt/raid1/Kituri
 export CODE_FOLDER=/mnt/raid1/Code
-export RAMDISK_MOUNT_POINT=/mnt/ramdisk
 export UBUNTU_CODENAME="$(lsb_release -a 2> /dev/null | grep Codename | tr -d [:space:] | cut -d: -f2)"
 export DEFAULT_TERMINAL_EMULATOR=/usr/bin/terminology
 export CURRENT_USER=$USER
@@ -560,8 +559,6 @@ sudo bash -c 'echo -e "WantedBy=multi-user.target\n" >> /etc/systemd/system/wol@
 NI="$(ip link show | head -3 | tail -1 | tr -s ' ' | cut -d ' ' -f 2 | tr -d ':')"
 sudo systemctl enable wol@${NI}
 
-# SETTINGS/Ramdisk
-sudo mkdir $RAMDISK_MOUNT_POINT
 
 # SETTINGS/Folders and Links
 
@@ -595,7 +592,6 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/search-replace.sh" $HOME/bin/search-replace
     cp "$SCRIPTS_FOLDER/goto.sh" $HOME/bin/goto
     cp "$SCRIPTS_FOLDER/work-done.sh" $HOME/bin/work-done
-    cp "$SCRIPTS_FOLDER/ramdisk.sh" $HOME/bin/ramdisk
     cp "$SCRIPTS_FOLDER/tolower.py" $HOME/bin/tolower
     cp "$SCRIPTS_FOLDER/toupper.py" $HOME/bin/toupper
     cp "$SCRIPTS_FOLDER/insert-address.sh" $HOME/bin/insert-address
@@ -620,6 +616,8 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
     cp "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
     cp "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
+    cp "$BINARIES_FOLDER/far" $HOME/bin/far
+    cp "$BINARIES_FOLDER/cel" $HOME/bin/cel
     cp "$BINARIES_FOLDER/cm" $HOME/bin/cm
     cp "$BINARIES_FOLDER/stats" $HOME/bin/stats
     cp "$BINARIES_FOLDER/word-frequency" $HOME/bin/word-frequency
