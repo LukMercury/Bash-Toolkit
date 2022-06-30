@@ -141,6 +141,7 @@ sudo apt install -y top
 sudo apt install -y htop
 sudo apt install -y bashtop
 sudo apt install -y btop
+sudo apt install -y duf
 sudo apt install -y anacron
 sudo apt install -y errno
 sudo apt install -y pstree
@@ -441,6 +442,10 @@ which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR
 sudo update-alternatives --set x-terminal-emulator $DEFAULT_TERMINAL_EMULATOR
 gsettings set org.gnome.desktop.default-applications.terminal exec $DEFAULT_TERMINAL_EMULATOR
 
+# SETTINGS/tmux
+mkdir -p $HOME/.config/tmux
+echo 'set -g default-terminal "screen-256color"' > .config/tmux/tmux.conf
+
 # SETTINGS/grub
 # sed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' /etc/default/grub 
 # sudo bash -c 'echo "GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT" >> /etc/default/grub'
@@ -487,7 +492,7 @@ echo "nnoremap <C-h> <C-w>h" >> $HOME/.vimrc
 echo "nnoremap <C-j> <C-w>j" >> $HOME/.vimrc
 echo "nnoremap <C-k> <C-w>k" >> $HOME/.vimrc
 echo "nnoremap <C-l> <C-w>l" >> $HOME/.vimrc
-echo 'cnoremap W w !sudo tee % > /dev/null' >> $HOME/.vimrc
+echo "cnoremap W w !sudo tee % > /dev/null" >> $HOME/.vimrc
 
 # SETTINGS/nvim
 mkdir -p $HOME/.config/nvim
@@ -535,16 +540,12 @@ if [ -f $HOME/.bash_aliases ]; then
 fi
 
 echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
-echo "alias tmux='tmux -2'" >> $HOME/.bash_aliases
 echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
 echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
 echo "alias push='git push -u origin master'" >> $HOME/.bash_aliases
 echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
 echo "alias kodi='xrun caffeinate kodi'" >> $HOME/.bash_aliases
 
-
-# SETTINGS/anacrontab
-sudo -E bash -c 'echo -e "20\t0\tcron.monthly\t/bin/bash\t$SCRIPTS_FOLDER/monthly.sh" >> /etc/anacrontab'
 
 # SETTINGS/Wake on LAN
 sudo bash -c 'echo -e "[Unit]\n" >> /etc/systemd/system/wol@.service'
