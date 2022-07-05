@@ -220,6 +220,7 @@ sudo apt install -y alacarte
 sudo apt install -y qbittorrent
 sudo apt install -y transmission-cli
 sudo apt install -y youtube-dl
+sudo apt install -y krita
 sudo apt install -y gimp
 # Wine dependencies
 sudo apt install -y libgnutls30:i386 
