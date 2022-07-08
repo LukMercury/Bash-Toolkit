@@ -247,7 +247,7 @@ sudo apt install -y npm
 sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
 # Protontricks
-bash -c 'pipx install protontricks'
+bash -c 'python3 -m pip install protontricks'
 
 # INSTALL/apt/gnome or kde
 if [ "$X_VERSION" == "g" ]; then
