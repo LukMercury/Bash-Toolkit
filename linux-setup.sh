@@ -618,7 +618,7 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
     cp "$BINARIES_FOLDER/kmtomiles" $HOME/bin/kmtomiles
     cp "$BINARIES_FOLDER/ftin" $HOME/bin/ftin
-    cp "$BINARIES_FOLDER/far" $HOME/bin/far
+    cp "$BINARIES_FOLDER/fahr" $HOME/bin/fahr
     cp "$BINARIES_FOLDER/cel" $HOME/bin/cel
     cp "$BINARIES_FOLDER/cm" $HOME/bin/cm
     cp "$BINARIES_FOLDER/stats" $HOME/bin/stats

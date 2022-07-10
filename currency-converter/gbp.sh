@@ -3,8 +3,10 @@
 # Convert USD to RON
 # Usage: eur [amount 1] [amount 2] ...
 
-EUR_RON=$(curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep RON | cut -d= -f3 | tr -d "/>'")
-EUR_GBP=$(curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep GBP | cut -d= -f3 | tr -d "/>'")
+#EUR_RON=$(curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep RON | cut -d= -f3 | tr -d "/>'")
+EUR_RON=$(wget -qO - https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep RON | cut -d= -f3 | tr -d "/>'")
+#EUR_GBP=$(curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep GBP | cut -d= -f3 | tr -d "/>'")
+EUR_GBP=$(wget -qO - https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep GBP | cut -d= -f3 | tr -d "/>'")
 
 GBP_RON=$(bc<<<"scale=4; $EUR_RON/$EUR_GBP")
 

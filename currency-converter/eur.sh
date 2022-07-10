@@ -3,7 +3,8 @@
 # Convert EUR to RON
 # Usage: eur [amount 1] [amount 2] ...
 
-EUR_RON=$(curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep RON | cut -d= -f3 | tr -d "/>'")
+#EUR_RON=$(curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep RON | cut -d= -f3 | tr -d "/>'")
+EUR_RON=$(wget -qO - https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml | grep RON | cut -d= -f3 | tr -d "/>'")
 
 if [ -z $1 ]; then
     AMOUNT=1
