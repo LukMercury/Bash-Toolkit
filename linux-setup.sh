@@ -713,9 +713,9 @@ sudo -E bash -c "echo $HOSTNAME > /etc/hostname"
 #tracker reset --hard
 
 # SETTINGS/Enable Vulkan on Radeon R9 200/300 series (updates kernel, so this is last)
-echo "blacklist radeon" | sudo tee --append /etc/modprobe.d/blacklist.conf
-echo "options amdgpu si_support=1 cik_support=1" | sudo tee --append /etc/modprobe.d/amdgpu.conf
-sudo update-initramfs -u
+#echo "blacklist radeon" | sudo tee --append /etc/modprobe.d/blacklist.conf
+#echo "options amdgpu si_support=1 cik_support=1" | sudo tee --append /etc/modprobe.d/amdgpu.conf
+#sudo update-initramfs -u
 
 # DONE
 echo -e "\nDone!"
