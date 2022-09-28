@@ -2,6 +2,7 @@
 
 # Start and minimize GKraken at startup
 
-nohup nohup flatpak run com.leinardi.gkraken &> /dev/null  &
+nohup flatpak run com.leinardi.gkraken &> /dev/null  &
 
-xdotool search --class gkraken  windowclose
+flatpak kill com.leinardi.gkraken &> /dev/null 
+
