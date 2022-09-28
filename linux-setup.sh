@@ -580,7 +580,6 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/sw.sh" $HOME/bin/sw
     cp "$SCRIPTS_FOLDER/to.sh" $HOME/bin/to
     cp "$SCRIPTS_FOLDER/empty-trash.sh" $HOME/bin/empty-trash
-    cp "$SCRIPTS_FOLDER/dark.sh" $HOME/bin/dark
     cp "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
     cp "$SCRIPTS_FOLDER/clean-usb-fat32.sh" $HOME/bin/clean-usb-fat32
     cp "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bookmark
