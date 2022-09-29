@@ -1,12 +1,8 @@
+#!/bin/bash
+
 # Start cmus music player in a tmux session
 
-ps -e | grep tmux | grep -v \<defunct\> || terminology -e tmux
+xdotool search --class terminology windowactivate
 
-cmusStart() 
-{
-    tmux new-window -ncmus 'cmus'
-    tmux swap-window -t 0
-}
-
-ps -e | grep cmus | grep -v \<defunct\> || cmusStart
-
+tmux new-window -ncmus 'cmus'
+tmux swap-window -t 0
