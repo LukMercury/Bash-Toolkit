@@ -615,6 +615,7 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
     cp "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
     cp "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
+    cp "$SCRIPTS_FOLDER/cmus-local/cmus-start.sh" $HOME/bin/cmus-start
     
     # Binaries
     cp "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
