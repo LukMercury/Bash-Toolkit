@@ -4,7 +4,7 @@
 
 nohup streamdeck &> /dev/null  &
 
-sleep 4
+sleep 2
 
 xdotool search --name Stream\ Deck\ UI windowclose 
 

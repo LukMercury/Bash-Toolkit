@@ -603,7 +603,8 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/worldclock.sh" $HOME/bin/worldclock
     cp "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
     cp "$SCRIPTS_FOLDER/cmd.sh" $HOME/bin/cmd
-    cp "$SCRIPTS_FOLDER/sample-rate.sh" $HOME/bin/sr
+    cp "$SCRIPTS_FOLDER/output-FiiO.sh" $HOME/bin/output-FiiO
+    cp "$SCRIPTS_FOLDER/output-Schiit.sh" $HOME/bin/output-Schiit
     # Cmus
     cp "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
     cp "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
