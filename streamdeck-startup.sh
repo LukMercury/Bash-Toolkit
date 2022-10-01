@@ -6,5 +6,8 @@ nohup streamdeck &> /dev/null  &
 
 sleep 2
 
-xdotool search --name Stream\ Deck\ UI windowclose 
+xdotool search --name Stream\ Deck\ UI windowactivate 
+xdotool mousemove 920 45
+xdotool click 1
+xdotool mousemove 960 540
 
