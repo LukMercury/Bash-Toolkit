@@ -1,5 +1,7 @@
 #!/bin/bash
 
+wpctl set-default $(wpctl status | grep Schiit | grep Digital | tr -d '*.' | tr -s ' ' | cut -d' ' -f3)
+
 COUNT=$(pactl list short sink-inputs | wc -l)
 
 for i in $(seq $COUNT); do
