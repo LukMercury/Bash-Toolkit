@@ -3,6 +3,7 @@
 # Adds clipboard entry (link copied from Browser Address Bar) to a list
 # Has a few basic options: list, search, get (to clipboard), edit, 
 # delete, re-add last deleted, backup, clear, import, help
+# Version to be used with Stream Deck Buttons (uses notify-send)
 
 LOG_FILE=$HOME/Documents/Notite/useful-links.txt
 BACKUP_FILE=$HOME/Documents/Notite/backup.useful-links.txt
@@ -27,7 +28,7 @@ addBookmark()
 {
     xclip -selection c -o >> "$LOG_FILE" && echo >> "$LOG_FILE" 
     if [ $? -eq 0 ]; then
-        echo "Added to Bookmarks: $(xclip -selection c -o)"
+        nohup notify-send "Added to Bookmarks:" "$(xclip -selection c -o)" &> /dev/null &
     fi
 }
 
@@ -36,7 +37,7 @@ reAddBookmark()
 {
     xclip -selection s -o >> "$LOG_FILE" && echo >> "$LOG_FILE" 
     if [ $? -eq 0 ]; then
-        echo "Added to Bookmarks: $(xclip -selection s -o)"
+        nohup notify-send "Added to Bookmarks: $(xclip -selection s -o)" &> /dev/null &
     fi
 }
 
@@ -167,7 +168,7 @@ case "$1" in
     "help" | "-h" | "usage" | "?")
         echo -e "$USAGE"
         ;;
-    # No parameter adds clipboard content entry to list
+    # No parameter adds clipboard entry to list
     "")
         addBookmark
         ;;
