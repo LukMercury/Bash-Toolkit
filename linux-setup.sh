@@ -43,6 +43,7 @@ ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
 TOR_BROWSER="https://dist.torproject.org/torbrowser/11.0.1/tor-browser-linux64-11.0.1_en-US.tar.xz"
 VSCODE="https://az764295.vo.msecnd.net/stable/3a6960b964327f0e3882ce18fcebd07ed191b316/code_1.62.2-1636665017_amd64.deb"
+GITKRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -246,11 +247,16 @@ sudo apt install -y --install-recommends winehq-stable
 sudo apt install -y playonlinux
 sudo apt install -y lutris
 sudo apt install -y steam
-sudo apt install -y npm
-sudo apt install -y flatpak
-sudo apt install -y gnome-software-plugin-flatpak
+
 # Protontricks
 bash -c 'python3 -m pip install protontricks'
+
+# Streamdeck UI
+# python3-pip installed above
+sudo apt install -y libhidapi-libusb0
+sudo apt install -y libxcb-xinerama0
+sudo bash -c 'echo "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"0fd9\", TAG+=\"uaccess\"" > /etc/udev/rules.d/70-streamdeck.rules'
+pip3 install streamdeck-ui --user
 
 # INSTALL/apt/gnome or kde
 if [ "$X_VERSION" == "g" ]; then
@@ -268,6 +274,7 @@ pip3 install lxml
 pip3 install wget
 
 # INSTALL/npm
+sudo apt install -y npm
 sudo npm i console-stopwatch --global
 sudo npm install jsonlint -g
 
@@ -275,15 +282,13 @@ sudo npm install jsonlint -g
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 # INSTALL/flatpak
+sudo apt install -y flatpak
+sudo apt install -y gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-# GKraken
 flatpak install -y flathub com.leinardi.gkraken
-# UberWriter
 flatpak install -y teamspeak
-flatpak install flathub de.wolfvollprecht.UberWriter
-flatpak install flathub de.wolfvollprecht.UberWriter.Plugin.TexLive
+flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
 flatpak install -y planner
-# Telegram
 flatpak install -y flathub org.telegram.desktop
 
 # INSTALL/Download
@@ -319,6 +324,11 @@ rm -f dmd.deb
 wget -O vscode.deb "$VSCODE" 2> /dev/null 
 sudo dpkg -i vscode.deb || sudo apt install -f -y
 rm -f vscode.deb
+
+# INSTALL/Download/GitKraken
+wget -O gitkraken.deb "$GITKRAKEN" 2> /dev/null 
+sudo dpkg -i gitkraken.deb || sudo apt install -f -y
+rm -f gitkraken.deb
 
 # INSTALL/Download/Skype
 wget -O skype.deb "$SKYPE" 2> /dev/null    
