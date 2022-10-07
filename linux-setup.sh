@@ -289,6 +289,7 @@ flatpak install -y flathub com.leinardi.gkraken
 flatpak install -y teamspeak
 flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
 flatpak install -y planner
+flatpak install -y flathub com.axosoft.GitKraken
 flatpak install -y flathub org.telegram.desktop
 
 # INSTALL/Download
@@ -324,11 +325,6 @@ rm -f dmd.deb
 wget -O vscode.deb "$VSCODE" 2> /dev/null 
 sudo dpkg -i vscode.deb || sudo apt install -f -y
 rm -f vscode.deb
-
-# INSTALL/Download/GitKraken
-wget -O gitkraken.deb "$GITKRAKEN" 2> /dev/null 
-sudo dpkg -i gitkraken.deb || sudo apt install -f -y
-rm -f gitkraken.deb
 
 # INSTALL/Download/Skype
 wget -O skype.deb "$SKYPE" 2> /dev/null    
