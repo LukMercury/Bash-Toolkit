@@ -608,9 +608,12 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/showmyip.sh" $HOME/bin/showmyip
     cp "$SCRIPTS_FOLDER/worldclock.sh" $HOME/bin/worldclock
     cp "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
-    cp "$SCRIPTS_FOLDER/cmd.sh" $HOME/bin/cmd
     cp "$SCRIPTS_FOLDER/output-FiiO.sh" $HOME/bin/output-FiiO
     cp "$SCRIPTS_FOLDER/output-Schiit.sh" $HOME/bin/output-Schiit
+    cp "$SCRIPTS_FOLDER/gkraken-startup.sh" $HOME/bin/gkraken-startup
+    cp "$SCRIPTS_FOLDER/streamdeck-startup.sh" $HOME/bin/streamdeck-startup
+    cp "$SCRIPTS_FOLDER/start-qbittorrent.sh" $HOME/bin/start-qbittorrent
+    cp "$SCRIPTS_FOLDER/startup.sh" $HOME/bin/startup
     # Cmus
     cp "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
     cp "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
@@ -684,6 +687,60 @@ bash -c 'echo "Name[en_US]=Cmus PS4 controls" >> $HOME/.config/autostart/CmusCon
 bash -c 'echo "Name=Cmus PS4 controls" >> $HOME/.config/autostart/CmusControls.py.desktop'
 bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/CmusControls.py.desktop'
 bash -c 'echo "Comment=" >> $HOME/.config/autostart/CmusControls.py.desktop'
+
+# GKraken
+> $HOME/.config/autostart/gkraken-startup.desktop
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "Exec=/home/mercury/bin/gkraken-startup" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "Name[en_US]=GKraken" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "Name=GKraken" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/gkraken-startup.desktop'
+bash -c 'echo "Comment=" >> $HOME/.config/autostart/gkraken-startup.desktop'
+
+# startup.desktop
+> $HOME/.config/autostart/startup.desktop
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Exec=/home/mercury/bin/startup" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Name[en_US]=Startup" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Name=Startup" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Comment=Commits and no trash" >> $HOME/.config/autostart/startup.desktop'
+
+# streamdeck-startup.desktop
+> $HOME/.config/autostart/streamdeck-startup.desktop
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "Exec=/home/mercury/bin/streamdeck-startup" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "Name[en_US]=StreamDeck UI" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "Name=StreamDeck UI" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+bash -c 'echo "Comment=" >> $HOME/.config/autostart/streamdeck-startup.desktop'
+
+# trackall.desktop
+> $HOME/.config/autostart/trackall.desktop
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "Exec=/mnt/raid1/Code/Useful/Heimdallr/trackall_wait.py" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "Name[en_US]=Price/Availability tracker" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "Name=Price/Availability tracker" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "Comment=" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+
+
 
 # SETTINGS/Cosmetics
 
