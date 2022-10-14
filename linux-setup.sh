@@ -701,19 +701,6 @@ bash -c 'echo "Name=GKraken" >> $HOME/.config/autostart/gkraken-startup.desktop'
 bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/gkraken-startup.desktop'
 bash -c 'echo "Comment=" >> $HOME/.config/autostart/gkraken-startup.desktop'
 
-# startup.desktop
-> $HOME/.config/autostart/startup.desktop
-bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "Type=Application" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "Exec=/home/mercury/bin/startup" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "Name[en_US]=Startup" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "Name=Startup" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/startup.desktop'
-bash -c 'echo "Comment=Commits and no trash" >> $HOME/.config/autostart/startup.desktop'
-
 # streamdeck-startup.desktop
 > $HOME/.config/autostart/streamdeck-startup.desktop
 bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/streamdeck-startup.desktop'
@@ -740,6 +727,18 @@ bash -c 'echo "Name=Price/Availability tracker" >> $HOME/.config/autostart/" >> 
 bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
 bash -c 'echo "Comment=" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
 
+# startup.desktop
+> $HOME/.config/autostart/startup.desktop
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Exec=/home/mercury/bin/startup" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Name[en_US]=Startup" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Name=Startup" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/startup.desktop'
+bash -c 'echo "Comment=Commits and no trash" >> $HOME/.config/autostart/startup.desktop'
 
 
 # SETTINGS/Cosmetics
