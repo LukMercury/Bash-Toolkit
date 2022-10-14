@@ -32,8 +32,8 @@ export DEFAULT_PHONE_IP=192.168.0.102
 # ONLINE SOURCES
 
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
-VIRTUALBOX="https://download.virtualbox.org/virtualbox/6.1.28/virtualbox-6.1_6.1.28-147628~Ubuntu~eoan_amd64.deb"
-VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/6.1.28/Oracle_VM_VirtualBox_Extension_Pack-6.1.28.vbox-extpack"
+VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.0.0/virtualbox-7.0_7.0.0-153978~Ubuntu~jammy_amd64.deb"
+VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.0.0/Oracle_VM_VirtualBox_Extension_Pack-7.0.0.vbox-extpack"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 VNCVIEWER="https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.21.920-Linux-x64.deb"
@@ -42,7 +42,7 @@ SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
 TOR_BROWSER="https://dist.torproject.org/torbrowser/11.0.1/tor-browser-linux64-11.0.1_en-US.tar.xz"
-VSCODE="https://az764295.vo.msecnd.net/stable/3a6960b964327f0e3882ce18fcebd07ed191b316/code_1.62.2-1636665017_amd64.deb"
+VSCODE="https://az764295.vo.msecnd.net/stable/d045a5eda657f4d7b676dedbfa7aab8207f8a075/code_1.72.2-1665614327_amd64.deb"
 GITKRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
