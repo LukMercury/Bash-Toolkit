@@ -378,52 +378,52 @@ sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
 # SETTINGS/Email
 # Required software already installed in the INSTALL/apt section
 # Configure Authetication
-export SMTP_SERVER='[smtp.gmail.com]:587'
-read -N 1000000 -t 0.001 # Clear input
-echo "Enter the Email address for your account: "
-read EMAIL
-echo "Enter your password: "
-read -s PASSWORD
-echo "Confirm your password: "
-read -s PASSWORD2
-while [ "$PASSWORD" != "$PASSWORD2" ]; do
-    read -N 1000000 -t 0.001 # Clear input
-    echo "The passwords did not match. Try again."
-    echo "Enter your password: "
-    read -s PASSWORD
-    echo "Confirm your password: "
-    read -s PASSWORD2
-done
-unset PASSWORD2
-echo "$SMTP_SERVER    $EMAIL:$PASSWORD" > sasl_passwd
-unset PASSWORD
-sudo chown root:root sasl_passwd
-sudo chmod 600 sasl_passwd
-sudo mv sasl_passwd /etc/postfix/
-# Configure Postfix
-sudo bash -c 'echo "" >> /etc/postfix/main.cf'
-sudo -E bash -c 'echo "# $CURRENT_USER" >> /etc/postfix/main.cf'
-sudo vim /etc/postfix/main.cf -c 'g/^relayhost\ =\ *$/d' -c wq
-sudo -E bash -c 'echo "relayhost = $SMTP_SERVER" >> /etc/postfix/main.cf'
-sudo bash -c 'echo "smtp_use_tls = yes" >> /etc/postfix/main.cf'
-sudo bash -c 'echo "smtp_sasl_auth_enable = yes" >> /etc/postfix/main.cf'
-sudo bash -c 'echo "smtp_sasl_security_options = noanonymous" >> /etc/postfix/main.cf'
-sudo bash -c 'echo "smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd" >> /etc/postfix/main.cf'
-sudo bash -c 'echo "smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt" >> /etc/postfix/main.cf'
-# Process Password File
-sudo postmap /etc/postfix/sasl_passwd 
-# Enable large messages
-sudo postconf -e mailbox_size_limit=0
-sudo postconf -e message_size_limit=0
-# Restart Postfix
-sudo systemctl restart postfix.service
-# Enable Postfix on boot (may not be needed)
-sudo systemctl enable postfix.service
-# Less secure apps have to be enabled in Gmail
-echo "Less secure apps have to be enabled in Gmail: https://myaccount.google.com/lesssecureapps" 1>&2
-# Test Email
-echo "Linux Email configuration completed." | mail -s "Linux Email" "$EMAIL"
-unset EMAIL
+# export SMTP_SERVER='[smtp.gmail.com]:587'
+# read -N 1000000 -t 0.001 # Clear input
+# echo "Enter the Email address for your account: "
+# read EMAIL
+# echo "Enter your password: "
+# read -s PASSWORD
+# echo "Confirm your password: "
+# read -s PASSWORD2
+# while [ "$PASSWORD" != "$PASSWORD2" ]; do
+#     read -N 1000000 -t 0.001 # Clear input
+#     echo "The passwords did not match. Try again."
+#     echo "Enter your password: "
+#     read -s PASSWORD
+#     echo "Confirm your password: "
+#     read -s PASSWORD2
+# done
+# unset PASSWORD2
+# echo "$SMTP_SERVER    $EMAIL:$PASSWORD" > sasl_passwd
+# unset PASSWORD
+# sudo chown root:root sasl_passwd
+# sudo chmod 600 sasl_passwd
+# sudo mv sasl_passwd /etc/postfix/
+# # Configure Postfix
+# sudo bash -c 'echo "" >> /etc/postfix/main.cf'
+# sudo -E bash -c 'echo "# $CURRENT_USER" >> /etc/postfix/main.cf'
+# sudo vim /etc/postfix/main.cf -c 'g/^relayhost\ =\ *$/d' -c wq
+# sudo -E bash -c 'echo "relayhost = $SMTP_SERVER" >> /etc/postfix/main.cf'
+# sudo bash -c 'echo "smtp_use_tls = yes" >> /etc/postfix/main.cf'
+# sudo bash -c 'echo "smtp_sasl_auth_enable = yes" >> /etc/postfix/main.cf'
+# sudo bash -c 'echo "smtp_sasl_security_options = noanonymous" >> /etc/postfix/main.cf'
+# sudo bash -c 'echo "smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd" >> /etc/postfix/main.cf'
+# sudo bash -c 'echo "smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt" >> /etc/postfix/main.cf'
+# # Process Password File
+# sudo postmap /etc/postfix/sasl_passwd 
+# # Enable large messages
+# sudo postconf -e mailbox_size_limit=0
+# sudo postconf -e message_size_limit=0
+# # Restart Postfix
+# sudo systemctl restart postfix.service
+# # Enable Postfix on boot (may not be needed)
+# sudo systemctl enable postfix.service
+# # Less secure apps have to be enabled in Gmail
+# echo "Less secure apps have to be enabled in Gmail: https://myaccount.google.com/lesssecureapps" 1>&2
+# # Test Email
+# echo "Linux Email configuration completed." | mail -s "Linux Email" "$EMAIL"
+# unset EMAIL
 
 # SETTINGS/Set hardware clock to local time (if you are using dual-boot with Windows)
 # timedatectl set-local-rtc 1 --adjust-system-clock
