@@ -656,9 +656,10 @@ fi
 
 # SETTINGS/Autostart
 
-# Terminal
 which $DEFAULT_TERMINAL_EMULATOR > /dev/null || export DEFAULT_TERMINAL_EMULATOR=gnome-terminal
 mkdir -p $HOME/.config/autostart
+
+# Terminal
 > $HOME/.config/autostart/terminology.desktop
 bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/terminology.desktop'
 bash -c 'echo "Type=Application" >> $HOME/.config/autostart/terminology.desktop'
@@ -670,6 +671,19 @@ bash -c 'echo "Name[en_US]=Terminal" >> $HOME/.config/autostart/terminology.desk
 bash -c 'echo "Name=terminal" >> $HOME/.config/autostart/terminology.desktop'
 bash -c 'echo "Comment[en_US]=Open terminal at startup" >> $HOME/.config/autostart/terminology.desktop'
 bash -c 'echo "Comment=open terminal at startup" >> $HOME/.config/autostart/terminology.desktop'
+
+# CmusControls
+> $HOME/.config/autostart/CmusControls.py.desktop
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "Exec=/mnt/raid1/Code/Useful/Gamepad/CmusControls.py" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "Name[en_US]=Cmus PS4 controls" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "Name=Cmus PS4 controls" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/CmusControls.py.desktop'
+bash -c 'echo "Comment=" >> $HOME/.config/autostart/CmusControls.py.desktop'
 
 # SETTINGS/Cosmetics
 
