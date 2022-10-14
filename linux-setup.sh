@@ -292,6 +292,7 @@ sudo apt install --user -y flatpak
 sudo apt install --user -y gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install --user -y flathub com.leinardi.gkraken
+flatpak run com.leinardi.gkraken --add-udev-rule
 flatpak install --user -y teamspeak
 flatpak install --user -y flathub org.gnome.gitlab.somas.Apostrophe
 flatpak install --user -y planner
@@ -631,7 +632,7 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     
     cp "$SCRIPTS_FOLDER/cmus-local/playlists.sh" $HOME/bin/playlists     
     cp "$SCRIPTS_FOLDER/cmus-local/song.sh" $HOME/bin/song            
-    cp "$SCRIPTS_FOLDER/cmus-local/cmus-start.sh" $HOME/bin/cmus-start
+    cp "$SCRIPTS_FOLDER/cmus-local/player-start.sh" $HOME/bin/player-start
     
     # Binaries
     cp "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
