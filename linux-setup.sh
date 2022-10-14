@@ -47,6 +47,17 @@ GITKRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
+# First Upgrade System
+if [ ! -f "upgraded" ]; then
+    sudo apt clean -y
+    sudo apt update -y
+    sudo dpkg --configure -a
+    sudo apt full-upgrade -y
+    sudo apt autoremove --purge -y
+    touch upgraded
+    echo "Upgrade complete. Please restart your system."
+    exit 0
+fi
 
 # PRELIMINARY SETTINGS & CHECKS
 
@@ -120,11 +131,6 @@ sudo dpkg --add-architecture i386
 
 # INSTALL/apt
 
-sudo apt clean -y
-sudo apt update -y
-sudo dpkg --configure -a
-sudo apt full-upgrade -y
-sudo apt autoremove --purge -y
 # Cleanup
 sudo apt purge -y apport
 sudo apt autoremove -y
@@ -282,15 +288,15 @@ sudo npm install jsonlint -g
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
 # INSTALL/flatpak
-sudo apt install -y flatpak
-sudo apt install -y gnome-software-plugin-flatpak
+sudo apt install --user -y flatpak
+sudo apt install --user -y gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install -y flathub com.leinardi.gkraken
-flatpak install -y teamspeak
-flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
-flatpak install -y planner
-flatpak install -y flathub com.axosoft.GitKraken
-flatpak install -y flathub org.telegram.desktop
+flatpak install --user -y flathub com.leinardi.gkraken
+flatpak install --user -y teamspeak
+flatpak install --user -y flathub org.gnome.gitlab.somas.Apostrophe
+flatpak install --user -y planner
+flatpak install --user -y flathub com.axosoft.GitKraken
+flatpak install --user -y flathub org.telegram.desktop
 
 # INSTALL/Download
 
