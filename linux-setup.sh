@@ -624,6 +624,7 @@ if [ $BINARY_LINKS == "y" ]; then
     # Cmus
     cp "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
     cp "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
+    cp "$SCRIPTS_FOLDER/cmus-local/stop.sh" $HOME/bin/stop
     cp "$SCRIPTS_FOLDER/cmus-local/next.sh" $HOME/bin/next
     cp "$SCRIPTS_FOLDER/cmus-local/prev.sh" $HOME/bin/prev
     cp "$SCRIPTS_FOLDER/cmus-local/vol.sh" $HOME/bin/vol
