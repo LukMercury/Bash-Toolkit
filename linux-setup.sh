@@ -621,6 +621,7 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/streamdeck-startup.sh" $HOME/bin/streamdeck-startup
     cp "$SCRIPTS_FOLDER/start-qbittorrent.sh" $HOME/bin/start-qbittorrent
     cp "$SCRIPTS_FOLDER/startup.sh" $HOME/bin/startup
+    ln -s "$CODE_FOLDER/Useful/Heimdallr/trackall.py" $HOME/bin/trackall
     # Cmus
     cp "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
     cp "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
@@ -725,16 +726,16 @@ bash -c 'echo "Comment=" >> $HOME/.config/autostart/streamdeck-startup.desktop'
 
 # trackall.desktop
 > $HOME/.config/autostart/trackall.desktop
-bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "Type=Application" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "Exec=/mnt/raid1/Code/Useful/Heimdallr/trackall_wait.py" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "Name[en_US]=Price/Availability tracker" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "Name=Price/Availability tracker" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
-bash -c 'echo "Comment=" >> $HOME/.config/autostart/" >> $HOME/.config/autostart/'
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "Exec=/mnt/raid1/Code/Useful/Heimdallr/trackall_wait.py" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "Name[en_US]=Price/Availability tracker" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "Name=Price/Availability tracker" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/trackall.desktop'
+bash -c 'echo "Comment=" >> $HOME/.config/autostart/trackall.desktop'
 
 # startup.desktop
 > $HOME/.config/autostart/startup.desktop
