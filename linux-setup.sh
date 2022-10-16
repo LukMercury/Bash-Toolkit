@@ -596,6 +596,7 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/clean-usb.sh" $HOME/bin/clean-usb
     cp "$SCRIPTS_FOLDER/clean-usb-fat32.sh" $HOME/bin/clean-usb-fat32
     cp "$SCRIPTS_FOLDER/bookmark.sh" $HOME/bin/bk
+    cp "$SCRIPTS_FOLDER/bookmark-streamdeck.sh" $HOME/bin/bookmark-streamdeck
     cp "$SCRIPTS_FOLDER/note.sh" $HOME/bin/note
     cp "$SCRIPTS_FOLDER/timer.sh" $HOME/bin/timer
     cp "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
