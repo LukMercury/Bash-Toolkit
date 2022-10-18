@@ -173,6 +173,7 @@ sudo apt install -y nmap
 sudo apt install -y tcpdump
 sudo apt install -y whois
 sudo apt install -y remmina
+sudo apt install -y kazam
 sudo apt install -y nnn
 sudo apt install -y w3m
 sudo apt install -y postfix
