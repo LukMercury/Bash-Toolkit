@@ -248,12 +248,12 @@ sudo apt install -y libgl1-mesa-dri:i386
 # Support for Vulkan API
 sudo apt install -y mesa-vulkan-drivers 
 sudo apt install -y mesa-vulkan-drivers:i386
-
 # Wine
 sudo apt install -y --install-recommends winehq-stable
 sudo apt install -y playonlinux
 sudo apt install -y lutris
 sudo apt install -y steam
+sudo apt install -y mangohud
 
 # Protontricks
 bash -c 'python3 -m pip install protontricks'
