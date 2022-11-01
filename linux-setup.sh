@@ -463,6 +463,7 @@ gsettings set org.gnome.desktop.default-applications.terminal exec $DEFAULT_TERM
 # SETTINGS/tmux
 mkdir -p $HOME/.config/tmux
 echo 'set -g default-terminal "screen-256color"' > .config/tmux/tmux.conf
+echo 'set -g history-limit 10000' > .config/tmux/tmux.conf
 
 # SETTINGS/grub
 # sed -i 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=2/' /etc/default/grub 
