@@ -298,7 +298,6 @@ flatpak install --user -y teamspeak
 flatpak install --user -y flathub org.gnome.gitlab.somas.Apostrophe
 flatpak install --user -y planner
 flatpak install --user -y flathub com.axosoft.GitKraken
-flatpak install --user -y flathub org.telegram.desktop
 
 # INSTALL/Download
 
