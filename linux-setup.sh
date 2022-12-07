@@ -806,10 +806,17 @@ sudo -E bash -c "echo $HOSTNAME > /etc/hostname"
 #systemctl --user mask tracker-store.service tracker-miner-fs.service tracker-miner-rss.service tracker-extract.service tracker-miner-apps.service tracker-writeback.service
 #tracker reset --hard
 
-# SETTINGS/Enable Vulkan on Radeon R9 200/300 series (updates kernel, so this is last)
+# SETTINGS/Kernel modules
+
+# SETTINGS/Kernel modules/Enable Vulkan on Radeon R9 200/300 series (updates kernel, so this is last)
 #echo "blacklist radeon" | sudo tee --append /etc/modprobe.d/blacklist.conf
 #echo "options amdgpu si_support=1 cik_support=1" | sudo tee --append /etc/modprobe.d/amdgpu.conf
-#sudo update-initramfs -u
+
+# SETTINGS/Kernel modules/Function keys for Varmilo Keyboard
+echo "options hid_apple fnmode=2" | sudo tee --append /etc/modprobe.d/hid_apple.conf
+
+# SETTINGS/Kernel modules/update-initramfs
+sudo update-initramfs -u
 
 # DONE
 echo -e "\nDone!"
