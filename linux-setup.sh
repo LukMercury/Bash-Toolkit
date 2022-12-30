@@ -546,10 +546,10 @@ echo >> $HOME/.profile
 echo 'export DISPLAY=":0"' >> $HOME/.profile
 # nvm
 echo >> $HOME/.profile
-echo '# nvm' >> $HOME/.profile
-echo 'export NVM_DIR="$HOME/.nvm"' >> $HOME/.profile
-echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm' >> $HOME/.profile
-echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion' >> $HOME/.profile
+#echo '# nvm' >> $HOME/.profile
+#echo 'export NVM_DIR="$HOME/.nvm"' >> $HOME/.profile
+#echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm' >> $HOME/.profile
+#echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion' >> $HOME/.profile
 
 # SETTINGS/aliases
 if [ -f $HOME/.bash_aliases ]; then
