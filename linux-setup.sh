@@ -573,22 +573,6 @@ sudo bash -c 'echo -e "WantedBy=multi-user.target\n" >> /etc/systemd/system/wol@
 NI="$(ip link show | head -3 | tail -1 | tr -s ' ' | cut -d ' ' -f 2 | tr -d ':')"
 sudo systemctl enable wol@${NI}
 
-# SETTINGS/Fix bluetooth can't be turned on
-echo "#!/bin/bash" > $HOME/bin/bluetooth_fix
-echo -e "# run as root\n" >> $HOME/bin/bluetooth_fix
-echo "rmmod btusb" >> $HOME/bin/bluetooth_fix
-echo "modprobe btusb" >> $HOME/bin/bluetooth_fix
-
-export USER_HOME=$HOME
-sudo bash -c 'echo "[Unit]" > /etc/systemd/system/bluetooth_fix.service'
-sudo bash -c "echo -e \"Description=Fix bluetooth can't be turned on\n\" >> /etc/systemd/system/bluetooth_fix.service"
-sudo bash -c 'echo "[Service]" >> /etc/systemd/system/bluetooth_fix.service'
-sudo -E bash -c "echo -e \"ExecStart=$USER_HOME/bin/bluetooth_fix\n\" >> /etc/systemd/system/bluetooth_fix.service"
-sudo bash -c 'echo "[Install]" >> /etc/systemd/system/bluetooth_fix.service'
-sudo bash -c "echo -e \"WantedBy=multi-user.target\" >> /etc/systemd/system/bluetooth_fix.service"
-
-sudo systemctl enable bluetooth_fix.service
-
 # SETTINGS/Folders and Links
 
 # ~/bin/
