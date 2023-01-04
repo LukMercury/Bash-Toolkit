@@ -218,6 +218,7 @@ sudo apt install -y fonts-inconsolata
 sudo apt install -y pandoc
 sudo apt install -y texlive
 sudo apt install -y img2pdf
+sudo apt install -y calibre
 sudo apt install -y fbreader
 sudo apt install -y cmus
 sudo apt install -y kodi
