@@ -12,7 +12,7 @@ if [ $? -eq 0 ]; then
     exit 0
 fi
 
-ps -e | grep cmus | grep -v '\<defunct\>' &> /dev/null || tmux new-window -ncmus 'cmus' && tmux swap-window -t0
+tmux new-window -ncmus 'cmus' && tmux swap-window -t0
 xdotool key ctrl+b
 xdotool key 0
 
