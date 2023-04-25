@@ -40,7 +40,6 @@ VNCVIEWER="https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.21.92
 DMD="https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.098.0-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
-MS_TEAMS="https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US"
 TOR_BROWSER="https://dist.torproject.org/torbrowser/11.0.1/tor-browser-linux64-11.0.1_en-US.tar.xz"
 VSCODE="https://az764295.vo.msecnd.net/stable/d045a5eda657f4d7b676dedbfa7aab8207f8a075/code_1.72.2-1665614327_amd64.deb"
 GITKRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.deb"
@@ -299,6 +298,7 @@ flatpak install --user -y teamspeak
 flatpak install --user -y flathub org.gnome.gitlab.somas.Apostrophe
 flatpak install --user -y planner
 flatpak install --user -y flathub com.axosoft.GitKraken
+flatpak install --user -y com.github.IsmaelMartinez.teams_for_linux
 
 # INSTALL/Download
 
@@ -343,11 +343,6 @@ rm -f skype.deb
 wget -O zoom.deb "$ZOOM" 2> /dev/null    
 sudo dpkg -i zoom.deb || sudo apt install -f -y
 rm -f zoom.deb
-
-# INSTALL/Download/Teams
-wget -O teams.deb "$MS_TEAMS" 2> /dev/null    
-sudo dpkg -i teams.deb || sudo apt install -f -y
-rm -f teams.deb
 
 # INSTALL/Download/Tor Browser
 wget -O tor-browser.tar.xz "$TOR_BROWSER" 2> /dev/null    
