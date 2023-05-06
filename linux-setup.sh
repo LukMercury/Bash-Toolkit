@@ -551,7 +551,6 @@ fi
 echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
 echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
 echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
-echo "alias push='git push -u origin master'" >> $HOME/.bash_aliases
 echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
 echo "alias dff='duf -only local'" >> $HOME/.bash_aliases
 echo "alias kodi='xrun caffeinate kodi'" >> $HOME/.bash_aliases
