@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wpctl set-default $(wpctl status | grep FiiO | grep Digital | tr -d '*.' | tr -s ' ' | cut -d' ' -f3)
+wpctl set-default $(wpctl status | grep Modi+ | grep Digital | tr -d '*.' | tr -s ' ' | cut -d' ' -f3)
 
 COUNT=$(pactl list short sink-inputs | wc -l)
 
