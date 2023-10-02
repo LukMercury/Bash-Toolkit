@@ -613,11 +613,17 @@ if [ $BINARY_LINKS == "y" ]; then
     ln -s "$CODE_FOLDER/Useful/Heimdallr/trackall.py" $HOME/bin/trackall
     # Cmus
     cp "$SCRIPTS_FOLDER/cmus-lyrics-master/cmus-lyrics" $HOME/bin/lyrics
-    cp "$SCRIPTS_FOLDER/cmus-local/play-pause.sh" $HOME/bin/pp
-    cp "$SCRIPTS_FOLDER/cmus-local/stop.sh" $HOME/bin/stop
-    cp "$SCRIPTS_FOLDER/cmus-local/next.sh" $HOME/bin/next
-    cp "$SCRIPTS_FOLDER/cmus-local/prev.sh" $HOME/bin/prev
-    cp "$SCRIPTS_FOLDER/cmus-local/vol.sh" $HOME/bin/vol
+    cp "$SCRIPTS_FOLDER/cmus-local/pp-local" $HOME/bin/pp-local
+    cp "$SCRIPTS_FOLDER/cmus-local/stop-local" $HOME/bin/stop-local
+    cp "$SCRIPTS_FOLDER/cmus-local/next-local" $HOME/bin/next-local
+    cp "$SCRIPTS_FOLDER/cmus-local/prev-local" $HOME/bin/prev-local
+    cp "$SCRIPTS_FOLDER/cmus-local/set-local" $HOME/bin/set-local
+    cp "$SCRIPTS_FOLDER/cmus-local/pp-remote" $HOME/bin/pp-remote
+    cp "$SCRIPTS_FOLDER/cmus-local/stop-remote" $HOME/bin/stop-remote
+    cp "$SCRIPTS_FOLDER/cmus-local/next-remote" $HOME/bin/next-remote
+    cp "$SCRIPTS_FOLDER/cmus-local/prev-remote" $HOME/bin/prev-remote
+    cp "$SCRIPTS_FOLDER/cmus-local/set-remote" $HOME/bin/set-remote
+    cp "$SCRIPTS_FOLDER/cmus-local/vol" $HOME/bin/vol
     cp "$SCRIPTS_FOLDER/cmus-local/shuffle.sh" $HOME/bin/shuffle
     cp "$SCRIPTS_FOLDER/cmus-local/seek.sh" $HOME/bin/seek
     cp "$SCRIPTS_FOLDER/cmus-local/playlist.sh" $HOME/bin/playlist     

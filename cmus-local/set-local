@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ln -sf ~/bin/next-local ~/bin/next
+ln -sf ~/bin/prev-local ~/bin/prev
+ln -sf ~/bin/pp-local ~/bin/pp
+ln -sf ~/bin/stop-local ~/bin/stop
