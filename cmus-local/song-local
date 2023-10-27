@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Display currently playing
+
+CURRENTLY_PLAYING="$(cmus-remote -C status | head -2 | tail -1 | tr -s '/' | cut -d' ' -f2- | cut -d'/' -f4-)"
+
+echo "~/$CURRENTLY_PLAYING"
+notify-send "Currently playing" "~/$CURRENTLY_PLAYING"
+

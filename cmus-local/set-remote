@@ -4,3 +4,4 @@ ln -sf ~/bin/next-remote ~/bin/next
 ln -sf ~/bin/prev-remote ~/bin/prev
 ln -sf ~/bin/pp-remote ~/bin/pp
 ln -sf ~/bin/stop-remote ~/bin/stop
+ln -sf ~/bin/song-remote ~/bin/song
