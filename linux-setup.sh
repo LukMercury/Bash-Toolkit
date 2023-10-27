@@ -549,11 +549,8 @@ if [ -f $HOME/.bash_aliases ]; then
 fi
 
 echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
-echo "alias subl='xrun subl'" >> $HOME/.bash_aliases
-echo "alias smerge='xrun smerge'" >> $HOME/.bash_aliases
 echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
 echo "alias dff='duf -only local'" >> $HOME/.bash_aliases
-echo "alias kodi='xrun caffeinate kodi'" >> $HOME/.bash_aliases
 
 # SETTINGS/Wake on LAN
 sudo bash -c 'echo -e "[Unit]\n" >> /etc/systemd/system/wol@.service'
