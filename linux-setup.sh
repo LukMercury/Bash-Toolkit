@@ -601,8 +601,6 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/showmyip.sh" $HOME/bin/showmyip
     cp "$SCRIPTS_FOLDER/worldclock.sh" $HOME/bin/worldclock
     cp "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
-    cp "$SCRIPTS_FOLDER/output-FiiO.sh" $HOME/bin/output-FiiO
-    cp "$SCRIPTS_FOLDER/output-Schiit.sh" $HOME/bin/output-Schiit
     cp "$SCRIPTS_FOLDER/gkraken-startup.sh" $HOME/bin/gkraken-startup
     cp "$SCRIPTS_FOLDER/streamdeck-startup.sh" $HOME/bin/streamdeck-startup
     cp "$SCRIPTS_FOLDER/start-qbittorrent.sh" $HOME/bin/start-qbittorrent
@@ -629,8 +627,8 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/cmus-local/song-remote" $HOME/bin/song-remote            
     cp "$SCRIPTS_FOLDER/cmus-local/player-start.sh" $HOME/bin/player-start
     cp "$SCRIPTS_FOLDER/cmus-local/cmuscontrols.sh" $HOME/bin/cmuscontrols
-    cp "$SCRIPTS_FOLDER/mute-FiiO.sh" $HOME/bin/mute-FiiO
-    cp "$SCRIPTS_FOLDER/mute-Schiit.sh" $HOME/bin/mute-Schiit
+    cp "$SCRIPTS_FOLDER/mute-local" $HOME/bin/mute-local
+    cp "$SCRIPTS_FOLDER/mute-remote" $HOME/bin/mute-remote
     
     # Binaries
     cp "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
