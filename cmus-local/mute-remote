@@ -3,5 +3,8 @@
 USER=mercury
 IP=192.168.0.100
 
-SINK=$(ssh ${USER}@${IP} "pactl list short sinks | grep 'Modi_-00' | tr '\t' ' ' | cut -d' ' -f1")
+#SINK=$(ssh ${USER}@${IP} "pactl list short sinks | grep 'Modi_-00' | tr '\t' ' ' | cut -d' ' -f1")
+#ssh ${USER}@${IP} "pactl set-sink-mute ${SINK} toggle"
+
+SINK=0
 ssh ${USER}@${IP} "pactl set-sink-mute ${SINK} toggle"
