@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Start cmus music player in a tmux session
+# If cmus is started bring it to front
+
+xdotool search --class terminology windowactivate
+
+xdotool key ctrl+shift+t
+xdotool type 'mediaplayer'
+xdotool key Return
+xdotool type 'tm'
+xdotool key Return
