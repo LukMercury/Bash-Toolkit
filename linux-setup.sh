@@ -148,8 +148,8 @@ sudo apt install -y mc
 sudo apt install -y tree
 sudo apt install -y top
 sudo apt install -y htop
-sudo apt install -y bashtop
 sudo apt install -y btop
+sudo apt install -y radeontop
 sudo apt install -y duf
 sudo apt install -y anacron
 sudo apt install -y errno
@@ -165,6 +165,7 @@ sudo apt install -y libnotify-bin
 sudo apt install -y rwho
 sudo apt install -y openssh-server
 sudo apt install -y sshfs
+sudo apt install -y arp-scan
 sudo apt install -y traceroute
 sudo apt install -y bridge-utils
 sudo apt install -y nmap
