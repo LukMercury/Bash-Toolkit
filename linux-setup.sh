@@ -32,16 +32,15 @@ export DEFAULT_PHONE_IP=192.168.0.102
 # ONLINE SOURCES
 
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
-VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.0.0/virtualbox-7.0_7.0.0-153978~Ubuntu~jammy_amd64.deb"
-VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.0.0/Oracle_VM_VirtualBox_Extension_Pack-7.0.0.vbox-extpack"
+VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb"
+VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.0.12/Oracle_VM_VirtualBox_Extension_Pack-7.0.12.vbox-extpack"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
-VNCVIEWER="https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.21.920-Linux-x64.deb"
-DMD="https://s3.us-west-2.amazonaws.com/downloads.dlang.org/releases/2021/dmd_2.098.0-0_amd64.deb"
+VNCVIEWER="https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.9.0-Linux-x64.deb"
+DMD="https://downloads.dlang.org/releases/2.x/2.106.1/dmd_2.106.1-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
-TOR_BROWSER="https://dist.torproject.org/torbrowser/11.0.1/tor-browser-linux64-11.0.1_en-US.tar.xz"
-VSCODE="https://az764295.vo.msecnd.net/stable/d045a5eda657f4d7b676dedbfa7aab8207f8a075/code_1.72.2-1665614327_amd64.deb"
+VSCODE="https://vscode.download.prss.microsoft.com/dbazure/download/stable/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/code_1.85.1-1702462158_amd64.deb"
 GITKRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
@@ -344,15 +343,9 @@ wget -O zoom.deb "$ZOOM" 2> /dev/null
 sudo dpkg -i zoom.deb || sudo apt install -f -y
 rm -f zoom.deb
 
-# INSTALL/Download/Tor Browser
-wget -O tor-browser.tar.xz "$TOR_BROWSER" 2> /dev/null    
-tar -xvf tor-browser.tar.xz
-sudo mv tor-browser_en-US /opt/
-echo "Tor Browser installed in /opt. Create menu launcher manually." 1>&2
-rm -f tor-browser.tar.xz
-
 # INSTALL/Cleanup
 sudo apt autoremove -y
+sudo apt install -f -y
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -551,6 +544,7 @@ fi
 echo "alias xclip='xclip -selection c'" >> $HOME/.bash_aliases
 echo "alias tm='tmux attach -d'" >> $HOME/.bash_aliases
 echo "alias dff='duf -only local'" >> $HOME/.bash_aliases
+echo "alias mediaplayer='ssh -X mercury@192.168.0.101'" >> $HOME/.bash_aliases
 
 # SETTINGS/Wake on LAN
 sudo bash -c 'echo -e "[Unit]\n" >> /etc/systemd/system/wol@.service'
