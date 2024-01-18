@@ -580,6 +580,7 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/bookmark-streamdeck.sh" $HOME/bin/bookmark-streamdeck
     cp "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
     cp "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
+    cp "$SCRIPTS_FOLDER/toggle-terminology.sh" $HOME/bin/toggle-terminology
     cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/websearch
     cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/search
     cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/s
