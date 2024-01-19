@@ -187,7 +187,6 @@ sudo apt install -y php
 sudo apt install -y sqlite3
 sudo apt install -y python3-pip
 sudo apt install -y python3-setuptools
-sudo apt install -y python3-libs
 sudo apt install -y pipx
 sudo apt install -y python3-lxml
 sudo apt install -y git
@@ -223,7 +222,6 @@ sudo apt install -y kodi
 sudo apt install -y cava
 sudo apt install -y audacious
 sudo apt install -y audacious-plugins
-sudo apt install -y spotify-client
 sudo apt install -y vlc
 sudo apt install -y finch
 sudo apt install -y alacarte
@@ -234,7 +232,7 @@ sudo apt install -y krita
 sudo apt install -y gimp
 # Wine dependencies
 sudo apt install -y libgnutls30:i386 
-sudo apt install -y libldap-2.4-2:i386 
+sudo apt install -y libldap-2.5-0:i386 
 sudo apt install -y libgpg-error0:i386 
 sudo apt install -y libsqlite3-0:i386
 # Lutris Drivers Nvidia
