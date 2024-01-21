@@ -520,9 +520,6 @@ if [ ! -f $HOME/.profile ] || [ $(wc -l < $HOME/.profile) -eq 0 ]; then
     echo -e "    export PATH=\$PATH:\$HOME/bin" >> $HOME/.profile
     echo "fi" >> $HOME/.profile
 fi
-# set Java home
-echo >> $HOME/.profile
-echo 'export JAVA_HOME=/usr/lib/jvm/java-19-openjdk' >> $HOME/.profile
 # add "." to PATH to allow running executable scripts directly
 echo >> $HOME/.profile
 echo 'export PATH=\.:$PATH' >> $HOME/.profile
