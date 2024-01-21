@@ -182,7 +182,6 @@ sudo apt install -y psensor
 sudo apt install -y g++
 sudo apt install -y global
 sudo apt install -y ldc
-sudo apt install -y openjdk-19-jdk
 sudo apt install -y php
 sudo apt install -y sqlite3
 sudo apt install -y python3-pip
