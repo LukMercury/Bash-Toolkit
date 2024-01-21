@@ -32,8 +32,8 @@ export DEFAULT_PHONE_IP=192.168.0.102
 # ONLINE SOURCES
 
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
-VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb"
-VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.0.12/Oracle_VM_VirtualBox_Extension_Pack-7.0.12.vbox-extpack"
+# VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb"
+# VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.0.12/Oracle_VM_VirtualBox_Extension_Pack-7.0.12.vbox-extpack"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 VNCVIEWER="https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.9.0-Linux-x64.deb"
@@ -299,12 +299,12 @@ flatpak install --user -y com.github.IsmaelMartinez.teams_for_linux
 
 # INSTALL/Download
 
-# INSTALL/Download/VirtualBox
-wget -O virtualbox.deb "$VIRTUALBOX" 2> /dev/null # get rid of excessive output
-sudo dpkg -i virtualbox.deb || sudo apt install -f -y
-rm -f virtualbox.deb
-wget $VBOX_EXTENSION_PACK 2> /dev/null  # get rid of excessive output
-echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
+# # INSTALL/Download/VirtualBox
+# wget -O virtualbox.deb "$VIRTUALBOX" 2> /dev/null # get rid of excessive output
+# sudo dpkg -i virtualbox.deb || sudo apt install -f -y
+# rm -f virtualbox.deb
+# wget $VBOX_EXTENSION_PACK 2> /dev/null  # get rid of excessive output
+# echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
 
 # INSTALL/Download/Discord
 wget -O discord.deb "$DISCORD" 2> /dev/null   
