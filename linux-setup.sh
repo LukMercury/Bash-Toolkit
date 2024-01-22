@@ -300,11 +300,10 @@ flatpak install --user -y com.github.IsmaelMartinez.teams_for_linux
 # INSTALL/Download
 
 # INSTALL/Download/PCPanel
-wget -O pcpanel.deb "$PCPANEL" 2>  /dev/null
+wget -O pcpanel.deb "$PCPANEL" 2> /dev/null
 sudo dpkg -i pcpanel.deb || sudo apt install -f -y
 rm -f pcpanel.deb
 sudo bash -c 'echo "java-options=-Ddisable.tray" >> /opt/pcpanel/lib/app/PCPanel.cfg'
-#test
 
 # # INSTALL/Download/VirtualBox
 # wget -O virtualbox.deb "$VIRTUALBOX" 2> /dev/null # get rid of excessive output
