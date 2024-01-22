@@ -32,6 +32,7 @@ export DEFAULT_PHONE_IP=192.168.0.102
 # ONLINE SOURCES
 
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+PCPANEL="https://github.com/nvdweem/PCPanel/releases/download/1.6/pcpanel_1.6_amd64.deb"
 # VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb"
 # VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.0.12/Oracle_VM_VirtualBox_Extension_Pack-7.0.12.vbox-extpack"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
@@ -298,6 +299,12 @@ flatpak install --user -y com.github.IsmaelMartinez.teams_for_linux
 
 # INSTALL/Download
 
+# INSTALL/Download/PCPanel
+wget -O pcpanel.deb "$PCPANEL" 2>  /dev/null
+sudo dpkg -i pcpanel.deb || sudo apt install -f -y
+rm -f pcpanel.deb
+sudo bash -c 'echo "java-options=-Ddisable.tray" >> /opt/pcpanel/lib/app/PCPanel.cfg'
+
 # # INSTALL/Download/VirtualBox
 # wget -O virtualbox.deb "$VIRTUALBOX" 2> /dev/null # get rid of excessive output
 # sudo dpkg -i virtualbox.deb || sudo apt install -f -y
@@ -306,27 +313,27 @@ flatpak install --user -y com.github.IsmaelMartinez.teams_for_linux
 # echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
 
 # INSTALL/Download/Discord
-wget -O discord.deb "$DISCORD" 2> /dev/null   
+wget -O discord.deb "$DISCORD" 2> /dev/null
 sudo dpkg -i discord.deb || sudo apt install -f -y
 rm -f discord.deb
 
 # INSTALL/Download/TeamViewer
-wget -O teamviewer.deb "$TEAMVIEWER" 2> /dev/null   
+wget -O teamviewer.deb "$TEAMVIEWER" 2> /dev/null
 sudo dpkg -i teamviewer.deb || sudo apt install -f -y
 rm -f teamviewer.deb
 
 # INSTALL/Download/VNC Viewer
-wget -O vncviewer.deb "$VNCVIEWER" 2> /dev/null   
+wget -O vncviewer.deb "$VNCVIEWER" 2> /dev/null
 sudo dpkg -i vncviewer.deb || sudo apt install -f -y
 rm -f vncviewer.deb
 
 # INSTALL/Download/DMD
-wget -O dmd.deb "$DMD" 2> /dev/null    
+wget -O dmd.deb "$DMD" 2> /dev/null
 sudo dpkg -i dmd.deb || sudo apt install -f -y
 rm -f dmd.deb
 
 # INSTALL/Download/Visual Studio Code
-wget -O vscode.deb "$VSCODE" 2> /dev/null 
+wget -O vscode.deb "$VSCODE" 2> /dev/null
 sudo dpkg -i vscode.deb || sudo apt install -f -y
 rm -f vscode.deb
 
@@ -672,18 +679,18 @@ bash -c 'echo "Name=terminal" >> $HOME/.config/autostart/terminology.desktop'
 bash -c 'echo "Comment[en_US]=Open terminal at startup" >> $HOME/.config/autostart/terminology.desktop'
 bash -c 'echo "Comment=open terminal at startup" >> $HOME/.config/autostart/terminology.desktop'
 
-# CmusControls
-> $HOME/.config/autostart/CmusControls.py.desktop
-bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "Type=Application" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "Exec=/mnt/raid1/Code/Useful/Gamepad/CmusControls.py" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "Name[en_US]=Cmus PS4 controls" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "Name=Cmus PS4 controls" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/CmusControls.py.desktop'
-bash -c 'echo "Comment=" >> $HOME/.config/autostart/CmusControls.py.desktop'
+# PCPanel
+> $HOME/.config/autostart/PCPanel.desktop
+bash -c 'echo "[Desktop Entry]" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "Type=Application" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "Exec=/opt/pcpanel/bin/PCPanel quiet" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "Hidden=false" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "NoDisplay=false" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "X-GNOME-Autostart-enabled=true" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "Name[en_US]=PCPanel" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "Name=PCPanel" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "Comment[en_US]=" >> $HOME/.config/autostart/PCPanel.desktop'
+bash -c 'echo "Comment=" >> $HOME/.config/autostart/PCPanel.desktop'
 
 # GKraken
 > $HOME/.config/autostart/gkraken-startup.desktop
