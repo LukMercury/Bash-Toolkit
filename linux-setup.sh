@@ -138,6 +138,7 @@ sudo apt install -f -y
 # Install
 sudo apt install -y firefox
 sudo apt install -y firefox-locale-en
+sudo apt install -y google-chrome-stable
 sudo apt install -y vim
 sudo apt install -y neovim
 rm -f $HOME/.zshrc
