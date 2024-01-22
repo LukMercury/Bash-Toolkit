@@ -602,7 +602,6 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/check-connection.sh" $HOME/bin/check-connection
     cp "$SCRIPTS_FOLDER/gkraken-startup.sh" $HOME/bin/gkraken-startup
     cp "$SCRIPTS_FOLDER/streamdeck-startup.sh" $HOME/bin/streamdeck-startup
-    cp "$SCRIPTS_FOLDER/pcpanel-startup.sh" $HOME/bin/pcpanel-startup
     cp "$SCRIPTS_FOLDER/start-qbittorrent.sh" $HOME/bin/start-qbittorrent
     cp "$SCRIPTS_FOLDER/startup.sh" $HOME/bin/startup
     ln -s "$CODE_FOLDER/Useful/Heimdallr/trackall.py" $HOME/bin/trackall
