@@ -99,10 +99,6 @@ fi
 
 # REPOSITORIES
 
-# REPOSITORIES/Sublime Text
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-
 # REPOSITORIES/Wine
 wget -nc https://dl.winehq.org/wine-builds/winehq.key -O- | sudo apt-key add -
 sudo apt-add-repository -y "deb https://dl.winehq.org/wine-builds/ubuntu/ $UBUNTU_CODENAME main"
@@ -193,8 +189,6 @@ sudo apt install -y python3-lxml
 sudo apt install -y git
 sudo apt install -y cmake
 sudo apt install -y cmake-gui
-sudo apt install -y sublime-text
-sudo apt install -y sublime-merge
 sudo apt install -y notepadqq
 sudo apt install -y cpputest
 sudo apt install -y recoll
@@ -586,6 +580,7 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/xopen.sh" $HOME/bin/xopen
     cp "$SCRIPTS_FOLDER/xrun.sh" $HOME/bin/xrun
     cp "$SCRIPTS_FOLDER/toggle-terminology.sh" $HOME/bin/toggle-terminology
+    cp "$SCRIPTS_FOLDER/toggle-firefox.sh" $HOME/bin/toggle-firefox
     cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/websearch
     cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/search
     cp "$SCRIPTS_FOLDER/websearch.py" $HOME/bin/s
