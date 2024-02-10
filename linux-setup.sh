@@ -623,8 +623,8 @@ if [ $BINARY_LINKS == "y" ]; then
     cp "$SCRIPTS_FOLDER/cmus-local/player-start-local" $HOME/bin/player-start-local
     cp "$SCRIPTS_FOLDER/cmus-local/player-start-remote" $HOME/bin/player-start-remote
     cp "$SCRIPTS_FOLDER/cmus-local/cmuscontrols.sh" $HOME/bin/cmuscontrols
-    cp "$SCRIPTS_FOLDER/mute-local" $HOME/bin/mute-local
-    cp "$SCRIPTS_FOLDER/mute-remote" $HOME/bin/mute-remote
+    cp "$SCRIPTS_FOLDER/cmus-local/mute-local" $HOME/bin/mute-local
+    cp "$SCRIPTS_FOLDER/cmus-local/mute-remote" $HOME/bin/mute-remote
     
     # Binaries
     cp "$BINARIES_FOLDER/milestokm" $HOME/bin/milestokm
