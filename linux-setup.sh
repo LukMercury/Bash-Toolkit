@@ -529,8 +529,6 @@ echo 'export PATH=\.:$PATH' >> $HOME/.profile
 echo >> $HOME/.profile
 echo 'export DISPLAY=":0"' >> $HOME/.profile
 echo >> $HOME/.profile
-echo 'export PRUNEPATHS="$HOME/Code:$HOME/Code_fast"' >> $HOME/.profile
-echo >> $HOME/.profile
 
 # SETTINGS/aliases
 if [ -f $HOME/.bash_aliases ]; then
