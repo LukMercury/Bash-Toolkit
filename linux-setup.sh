@@ -33,8 +33,8 @@ export DEFAULT_PHONE_IP=192.168.0.102
 
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
 PCPANEL="https://github.com/nvdweem/PCPanel/releases/download/1.6/pcpanel_1.6_amd64.deb"
-# VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.0.12/virtualbox-7.0_7.0.12-159484~Ubuntu~jammy_amd64.deb"
-# VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.0.12/Oracle_VM_VirtualBox_Extension_Pack-7.0.12.vbox-extpack"
+# VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.1.4/virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.deb"
+# VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.1.4/Oracle_VirtualBox_Extension_Pack-7.1.4.vbox-extpack"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 VNCVIEWER="https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.9.0-Linux-x64.deb"
@@ -147,6 +147,7 @@ sudo apt install -y top
 sudo apt install -y htop
 sudo apt install -y btop
 sudo apt install -y radeontop
+sudo apt install -y evtest
 sudo apt install -y duf
 sudo apt install -y anacron
 sudo apt install -y errno
@@ -189,6 +190,7 @@ sudo apt install -y python3-lxml
 sudo apt install -y git
 sudo apt install -y cmake
 sudo apt install -y cmake-gui
+sudo apt install -y meld
 sudo apt install -y notepadqq
 sudo apt install -y cpputest
 sudo apt install -y recoll
@@ -526,12 +528,9 @@ echo 'export PATH=\.:$PATH' >> $HOME/.profile
 # export DISPLAY=:0 for ssh commands
 echo >> $HOME/.profile
 echo 'export DISPLAY=":0"' >> $HOME/.profile
-# nvm
 echo >> $HOME/.profile
-#echo '# nvm' >> $HOME/.profile
-#echo 'export NVM_DIR="$HOME/.nvm"' >> $HOME/.profile
-#echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm' >> $HOME/.profile
-#echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion' >> $HOME/.profile
+echo 'export PRUNEPATHS="$HOME/Code:$HOME/Code_fast"' >> $HOME/.profile
+echo >> $HOME/.profile
 
 # SETTINGS/aliases
 if [ -f $HOME/.bash_aliases ]; then
