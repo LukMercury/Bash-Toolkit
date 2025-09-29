@@ -147,6 +147,7 @@ sudo apt install -y top
 sudo apt install -y htop
 sudo apt install -y btop
 sudo apt install -y radeontop
+sudo apt install -y linux-tools-generic linux-tools-common
 sudo apt install -y evtest
 sudo apt install -y duf
 sudo apt install -y anacron
