@@ -103,9 +103,6 @@ fi
 wget -nc https://dl.winehq.org/wine-builds/winehq.key -O- | sudo apt-key add -
 sudo apt-add-repository -y "deb https://dl.winehq.org/wine-builds/ubuntu/ $UBUNTU_CODENAME main"
 
-# REPOSITORIES/Lutris
-sudo add-apt-repository -y ppa:lutris-team/lutris
-
 # REPOSITORIES/Mesa
 sudo add-apt-repository -y ppa:kisak/kisak-mesa
 
@@ -232,11 +229,6 @@ sudo apt install -y libgnutls30:i386
 sudo apt install -y libldap-2.5-0:i386 
 sudo apt install -y libgpg-error0:i386 
 sudo apt install -y libsqlite3-0:i386
-# Lutris Drivers Nvidia
-# Support for Vulkan API
-# sudo apt install -y libvulkan1
-# sudo apt install -y libvulkan1:i386
-# Lutris Drivers AMD
 # Support for 32bit games
 sudo apt install -y libgl1-mesa-dri:i386
 # Support for Vulkan API
@@ -244,8 +236,6 @@ sudo apt install -y mesa-vulkan-drivers
 sudo apt install -y mesa-vulkan-drivers:i386
 # Wine
 sudo apt install -y --install-recommends winehq-stable
-sudo apt install -y playonlinux
-sudo apt install -y lutris
 sudo apt install -y steam
 sudo apt install -y mangohud
 
