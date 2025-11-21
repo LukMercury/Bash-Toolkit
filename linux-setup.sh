@@ -171,7 +171,6 @@ sudo apt install -y remmina
 sudo apt install -y kazam
 sudo apt install -y nnn
 sudo apt install -y w3m
-sudo apt install -y postfix
 sudo apt install -y ethtool
 sudo apt install -y mailutils
 sudo apt install -y gparted
@@ -352,68 +351,6 @@ sudo bash -c 'echo "vm.swappiness = 10" >> /etc/sysctl.conf'
 
 # SETTINGS/Max user watches
 sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
-
-# SETTINGS/pulseaudio
-# sed -i 's/; avoid-resampling/avoid-resampling/' /etc/pulse/daemon.conf
-# sed -i 's/avoid-resampling = false/avoid-resampling = true/' /etc/pulse/daemon.conf
-# sed -i '54 resample-method = src-sinc-best-quality'
-# sed -i '81 i default-sample-format = s32le/' /etc/pulse/daemon.conf
-# sed -i '83 i default-sample-rate = 192000/' /etc/pulse/daemon.conf
-# pulseaudio -k
-# pactl list short sinks >> install-log.txt 
-
-# SETTINGS/Email
-# Required software already installed in the INSTALL/apt section
-# Configure Authetication
-# export SMTP_SERVER='[smtp.gmail.com]:587'
-# read -N 1000000 -t 0.001 # Clear input
-# echo "Enter the Email address for your account: "
-# read EMAIL
-# echo "Enter your password: "
-# read -s PASSWORD
-# echo "Confirm your password: "
-# read -s PASSWORD2
-# while [ "$PASSWORD" != "$PASSWORD2" ]; do
-#     read -N 1000000 -t 0.001 # Clear input
-#     echo "The passwords did not match. Try again."
-#     echo "Enter your password: "
-#     read -s PASSWORD
-#     echo "Confirm your password: "
-#     read -s PASSWORD2
-# done
-# unset PASSWORD2
-# echo "$SMTP_SERVER    $EMAIL:$PASSWORD" > sasl_passwd
-# unset PASSWORD
-# sudo chown root:root sasl_passwd
-# sudo chmod 600 sasl_passwd
-# sudo mv sasl_passwd /etc/postfix/
-# # Configure Postfix
-# sudo bash -c 'echo "" >> /etc/postfix/main.cf'
-# sudo -E bash -c 'echo "# $CURRENT_USER" >> /etc/postfix/main.cf'
-# sudo vim /etc/postfix/main.cf -c 'g/^relayhost\ =\ *$/d' -c wq
-# sudo -E bash -c 'echo "relayhost = $SMTP_SERVER" >> /etc/postfix/main.cf'
-# sudo bash -c 'echo "smtp_use_tls = yes" >> /etc/postfix/main.cf'
-# sudo bash -c 'echo "smtp_sasl_auth_enable = yes" >> /etc/postfix/main.cf'
-# sudo bash -c 'echo "smtp_sasl_security_options = noanonymous" >> /etc/postfix/main.cf'
-# sudo bash -c 'echo "smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd" >> /etc/postfix/main.cf'
-# sudo bash -c 'echo "smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt" >> /etc/postfix/main.cf'
-# # Process Password File
-# sudo postmap /etc/postfix/sasl_passwd 
-# # Enable large messages
-# sudo postconf -e mailbox_size_limit=0
-# sudo postconf -e message_size_limit=0
-# # Restart Postfix
-# sudo systemctl restart postfix.service
-# # Enable Postfix on boot (may not be needed)
-# sudo systemctl enable postfix.service
-# # Less secure apps have to be enabled in Gmail
-# echo "Less secure apps have to be enabled in Gmail: https://myaccount.google.com/lesssecureapps" 1>&2
-# # Test Email
-# echo "Linux Email configuration completed." | mail -s "Linux Email" "$EMAIL"
-# unset EMAIL
-
-# SETTINGS/Set hardware clock to local time (if you are using dual-boot with Windows)
-# timedatectl set-local-rtc 1 --adjust-system-clock
 
 # SETTINGS/Default Editor
 sudo update-alternatives --set editor /usr/bin/vim.basic
@@ -773,22 +710,6 @@ gsettings set org.gnome.desktop.privacy remember-recent-files false
 
 # SETTINGS/hostname
 sudo -E bash -c "echo $HOSTNAME > /etc/hostname"
-
-# SETTINGS/Disable tracker
-#systemctl --user mask tracker-store.service tracker-miner-fs.service tracker-miner-rss.service tracker-extract.service tracker-miner-apps.service tracker-writeback.service
-#tracker reset --hard
-
-# SETTINGS/Kernel modules
-
-# SETTINGS/Kernel modules/Enable Vulkan on Radeon R9 200/300 series (updates kernel, so this is last)
-#echo "blacklist radeon" | sudo tee --append /etc/modprobe.d/blacklist.conf
-#echo "options amdgpu si_support=1 cik_support=1" | sudo tee --append /etc/modprobe.d/amdgpu.conf
-
-# SETTINGS/Kernel modules/Function keys for Varmilo Keyboard
-echo "options hid_apple fnmode=2" | sudo tee --append /etc/modprobe.d/hid_apple.conf
-
-# SETTINGS/Kernel modules/update-initramfs
-sudo update-initramfs -u
 
 # DONE
 echo -e "\nDone!"
