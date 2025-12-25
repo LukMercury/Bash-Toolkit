@@ -32,9 +32,6 @@ export DEFAULT_PHONE_IP=192.168.0.102
 # ONLINE SOURCES
 
 ZSH_SETUP="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
-PCPANEL="https://github.com/nvdweem/PCPanel/releases/download/1.6/pcpanel_1.6_amd64.deb"
-# VIRTUALBOX="https://download.virtualbox.org/virtualbox/7.1.4/virtualbox-7.1_7.1.4-165100~Ubuntu~jammy_amd64.deb"
-# VBOX_EXTENSION_PACK="https://download.virtualbox.org/virtualbox/7.1.4/Oracle_VirtualBox_Extension_Pack-7.1.4.vbox-extpack"
 DISCORD="https://discordapp.com/api/download?platform=linux&format=deb"
 TEAMVIEWER="https://download.teamviewer.com/download/linux/teamviewer_amd64.deb"
 VNCVIEWER="https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.9.0-Linux-x64.deb"
@@ -42,7 +39,6 @@ DMD="https://downloads.dlang.org/releases/2.x/2.106.1/dmd_2.106.1-0_amd64.deb"
 SKYPE="https://go.skype.com/skypeforlinux-64.deb"
 ZOOM="https://zoom.us/client/latest/zoom_amd64.deb"
 VSCODE="https://vscode.download.prss.microsoft.com/dbazure/download/stable/0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2/code_1.85.1-1702462158_amd64.deb"
-GITKRAKEN="https://release.axocdn.com/linux/gitkraken-amd64.deb"
 
 # ------------------------------------------------------------------------------------------------------------------------------
 
@@ -284,19 +280,6 @@ flatpak install --user -y flathub com.axosoft.GitKraken
 flatpak install --user -y com.github.IsmaelMartinez.teams_for_linux
 
 # INSTALL/Download
-
-# INSTALL/Download/PCPanel
-wget -O pcpanel.deb "$PCPANEL" 2> /dev/null
-sudo dpkg -i pcpanel.deb || sudo apt install -f -y
-rm -f pcpanel.deb
-sudo bash -c 'echo "java-options=-Ddisable.tray" >> /opt/pcpanel/lib/app/PCPanel.cfg'
-
-# # INSTALL/Download/VirtualBox
-# wget -O virtualbox.deb "$VIRTUALBOX" 2> /dev/null # get rid of excessive output
-# sudo dpkg -i virtualbox.deb || sudo apt install -f -y
-# rm -f virtualbox.deb
-# wget $VBOX_EXTENSION_PACK 2> /dev/null  # get rid of excessive output
-# echo "Virtualbox Extension Pack downloaded, install manually." 1>&2
 
 # INSTALL/Download/Discord
 wget -O discord.deb "$DISCORD" 2> /dev/null
