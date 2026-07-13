@@ -105,6 +105,9 @@ sudo add-apt-repository -y ppa:kisak/kisak-mesa
 # REPOSITORIES/webupd8
 sudo add-apt-repository -y ppa:nilarimogard/webupd8
 
+# REPOSITORIES/gamescope
+sudo add-apt-repository ppa:ar-lex/gamescope
+
 # REPOSITORIES/bashtop
 # sudo add-apt-repository ppa:bashtop-monitor/bashtop
 
@@ -232,7 +235,7 @@ sudo apt install -y mesa-vulkan-drivers:i386
 # Wine
 sudo apt install -y --install-recommends winehq-stable
 sudo apt install -y steam
-sudo apt install -y mangohud
+sudo apt install -y gamescope
 
 # Protontricks
 bash -c 'python3 -m pip install protontricks'
